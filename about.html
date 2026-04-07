@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — crystal.chiu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav id="site-nav">
+    <div class="nav__inner">
+      <span class="nav__id">crystal.chiu</span>
+      <button class="nav__menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">+</button>
+    </div>
+  </nav>
+
+  <!-- ── OVERLAY MENU ───────────────────────────────────────────── -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="overlay__close" id="overlay-close" aria-label="Close menu">+</button>
+    <ul class="overlay__nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="container">
+
+      <!-- ── BIO ────────────────────────────────────────────────── -->
+      <section class="about-bio">
+        <h1>[YOUR NAME]</h1>
+        <p>[BIO — 2–4 sentences. Where you're from, what you do, what you care about. Write in first person. This is the human version of the hook on the home page.]</p>
+        <p>[BIO continued — optional second paragraph if needed. Could cover your background, how you got into UX, or what you're focused on right now.]</p>
+      </section>
+
+      <!-- ── SKILLS / POSITIONING ───────────────────────────────── -->
+      <section class="skills-section">
+        <h2>[SKILLS / POSITIONING — section heading]</h2>
+        <p>[SKILLS / POSITIONING — describe your areas of expertise, tools, methodologies, or how you think about design. Could be a short paragraph or a few focused sentences.]</p>
+        <p>[POSITIONING — optional follow-on. What kind of problems do you gravitate toward? What's your design philosophy or approach?]</p>
+      </section>
+
+      <!-- ── RESUME ─────────────────────────────────────────────── -->
+      <section class="resume-section">
+
+        <a href="crystal-chiu-resume.pdf" class="resume-download" download>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1v9M8 10l-3-3M8 10l3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="2" y="11" width="12" height="3" rx="0" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+          Download résumé
+        </a>
+
+        <div class="resume">
+
+          <p class="resume__name">Crystal (Min Qi) Chiu</p>
+          <p class="resume__contact">
+            <a href="https://www.crystalchiu.com">www.crystalchiu.com</a>&ensp;·&ensp;
+            +61 412 099 380&ensp;·&ensp;
+            <a href="mailto:crystalchiu09@gmail.com">crystalchiu09@gmail.com</a>&ensp;·&ensp;
+            <a href="https://linkedin.com/in/crystalchiu09">in/crystalchiu09</a>
+          </p>
+
+          <!-- Experience -->
+          <div class="resume__section">
+            <p class="resume__section-heading">Experience</p>
+
+            <div class="resume__entry">
+              <div class="resume__entry-header">
+                <span class="resume__role">UX Designer — WiseTech Global</span>
+                <span class="resume__date">August 2023 – Present</span>
+              </div>
+              <p class="resume__org">Sydney, Australia</p>
+              <ul class="resume__bullets">
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+              </ul>
+            </div>
+
+            <div class="resume__entry">
+              <div class="resume__entry-header">
+                <span class="resume__role">Junior UX Designer — Dedoco</span>
+                <span class="resume__date">Aug 2022 – Mar 2023</span>
+              </div>
+              <p class="resume__org">Singapore</p>
+              <ul class="resume__bullets">
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+              </ul>
+            </div>
+
+            <div class="resume__entry">
+              <div class="resume__entry-header">
+                <span class="resume__role">Junior UX Designer — AutoMate</span>
+                <span class="resume__date">Feb 2022 – Aug 2022</span>
+              </div>
+              <p class="resume__org">Hong Kong</p>
+              <ul class="resume__bullets">
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+              </ul>
+            </div>
+
+            <div class="resume__entry">
+              <div class="resume__entry-header">
+                <span class="resume__role">UX/UI Design Intern — YouTrip</span>
+                <span class="resume__date">Jun 2021 – Aug 2021</span>
+              </div>
+              <p class="resume__org">Hong Kong</p>
+              <ul class="resume__bullets">
+                <li>[BULLET POINT]</li>
+                <li>[BULLET POINT]</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Education -->
+          <div class="resume__section">
+            <p class="resume__section-heading">Education</p>
+
+            <div class="resume__edu-entry">
+              <div class="resume__edu-header">
+                <span class="resume__degree">Bachelor of Design Computing</span>
+                <span class="resume__date">2020 – 2022</span>
+              </div>
+              <p class="resume__school">University of Sydney · Australia</p>
+            </div>
+
+            <div class="resume__edu-entry">
+              <div class="resume__edu-header">
+                <span class="resume__degree">IB Diploma</span>
+                <span class="resume__date">2016 – 2018</span>
+              </div>
+              <p class="resume__school">Sha Tin College · Hong Kong</p>
+            </div>
+
+            <div class="resume__edu-entry">
+              <div class="resume__edu-header">
+                <span class="resume__degree">International Trainee Program</span>
+                <span class="resume__date">2014 – 2016</span>
+              </div>
+              <p class="resume__school">Bolshoi Ballet Academy · Moscow, Russia</p>
+            </div>
+
+          </div>
+
+          <!-- Languages -->
+          <div class="resume__section">
+            <p class="resume__section-heading">Languages</p>
+            <p class="resume__lang-list">English, Cantonese, Mandarin, conversational Russian</p>
+          </div>
+
+        </div><!-- .resume -->
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__id">crystal.chiu</span>
+      <ul class="footer__links">
+        <li><a href="mailto:crystalchiu09@gmail.com">crystalchiu09@gmail.com</a></li>
+        <li><a href="index.html">Work</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.getElementById('site-nav');
+      var lastY = window.scrollY;
+
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) {
+          nav.classList.add('nav--hidden');
+        } else {
+          nav.classList.remove('nav--hidden');
+        }
+        lastY = y;
+      }, { passive: true });
+
+      var btn = document.getElementById('menu-btn');
+      var overlay = document.getElementById('overlay');
+      var closeBtn = document.getElementById('overlay-close');
+      var overlayLinks = overlay.querySelectorAll('a');
+
+      function openOverlay() {
+        overlay.classList.add('overlay--open');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove('overlay--open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        btn.focus();
+      }
+
+      btn.addEventListener('click', function () {
+        overlay.classList.contains('overlay--open') ? closeOverlay() : openOverlay();
+      });
+
+      closeBtn.addEventListener('click', closeOverlay);
+
+      overlayLinks.forEach(function (link) {
+        link.addEventListener('click', closeOverlay);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('overlay--open')) {
+          closeOverlay();
+        }
+      });
+    }());
+  </script>
+
+</body>
+</html>

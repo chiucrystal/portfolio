@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Languages — crystal.chiu</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav id="site-nav">
+    <div class="nav__inner">
+      <span class="nav__id">crystal.chiu</span>
+      <button class="nav__menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">+</button>
+    </div>
+  </nav>
+
+  <!-- ── OVERLAY MENU ───────────────────────────────────────────── -->
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="overlay__close" id="overlay-close" aria-label="Close menu">+</button>
+    <ul class="overlay__nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../index.html#work">Work</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <article class="container">
+
+      <!-- ── BACK LINK ──────────────────────────────────────────── -->
+      <a href="../index.html#work" class="case-study-back">← Back</a>
+
+      <!-- ── HEADER ─────────────────────────────────────────────── -->
+      <span class="case-study-label">Case Study — 02</span>
+      <h1 class="case-study-title">Languages</h1>
+
+      <!-- ── TL;DR ──────────────────────────────────────────────── -->
+      <p class="tldr">[TLDR — one or two sentences that capture the core of this project. What was the problem, and what did you do about it?]</p>
+
+      <!-- ── TEASER SECTIONS ────────────────────────────────────── -->
+      <section class="teaser-section">
+        <h2>[SECTION HEADING — e.g. The Problem]</h2>
+        <p>[SECTION BODY — 2–4 sentences introducing the context, challenge, or brief for this project. Give enough for a reader to understand what they're about to see.]</p>
+      </section>
+
+      <section class="teaser-section">
+        <h2>[SECTION HEADING — e.g. My Role]</h2>
+        <p>[SECTION BODY — describe your specific contribution. What did you own? Who did you work with? What phase of the project were you responsible for?]</p>
+      </section>
+
+      <section class="teaser-section">
+        <h2>[SECTION HEADING — e.g. Outcome]</h2>
+        <p>[SECTION BODY — high-level result or impact. What shipped? What changed? Keep this brief — the full story is behind the gate.]</p>
+      </section>
+
+      <!-- ── GATE ───────────────────────────────────────────────── -->
+      <div class="gate-divider">
+        <span class="gate-divider__label">Full case study — access required</span>
+      </div>
+
+      <div class="gate" id="gate-section">
+        <span class="gate__prompt">Enter access code to continue</span>
+        <form class="gate__form" id="gate-form" novalidate>
+          <input
+            class="gate__input"
+            id="gate-input"
+            type="password"
+            placeholder="••••••••••••"
+            autocomplete="off"
+            aria-label="Access code"
+          >
+          <button class="gate__submit" type="submit">Unlock</button>
+        </form>
+        <p class="gate__error" id="gate-err" role="alert">Incorrect code. Try again.</p>
+      </div>
+
+      <!-- ── FULL CONTENT (hidden until unlocked) ───────────────── -->
+      <div class="full-content" id="full-content">
+        <h2>[FULL CASE STUDY — Section 1 heading]</h2>
+        <p>[FULL CASE STUDY CONTENT — This section will contain the full written case study. Add as many sections, images, and details as needed. Replace all placeholders with real content when ready.]</p>
+
+        <h2>[Section 2 heading]</h2>
+        <p>[FULL CASE STUDY CONTENT — Process documentation, research findings, design decisions, iterations, and rationale.]</p>
+
+        <h2>[Section 3 heading]</h2>
+        <p>[FULL CASE STUDY CONTENT — Final designs, outcome, metrics, and reflection.]</p>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__id">crystal.chiu</span>
+      <ul class="footer__links">
+        <li><a href="programs.html">← Programs</a></li>
+        <li><a href="content-creator.html">Content Creator →</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ── Hide-on-scroll nav ──────────────────────────────────────
+      var nav = document.getElementById('site-nav');
+      var lastY = window.scrollY;
+
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) {
+          nav.classList.add('nav--hidden');
+        } else {
+          nav.classList.remove('nav--hidden');
+        }
+        lastY = y;
+      }, { passive: true });
+
+      // ── Overlay menu ────────────────────────────────────────────
+      var btn = document.getElementById('menu-btn');
+      var overlay = document.getElementById('overlay');
+      var closeBtn = document.getElementById('overlay-close');
+      var overlayLinks = overlay.querySelectorAll('a');
+
+      function openOverlay() {
+        overlay.classList.add('overlay--open');
+        btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove('overlay--open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        btn.focus();
+      }
+
+      btn.addEventListener('click', function () {
+        overlay.classList.contains('overlay--open') ? closeOverlay() : openOverlay();
+      });
+
+      closeBtn.addEventListener('click', closeOverlay);
+
+      overlayLinks.forEach(function (link) {
+        link.addEventListener('click', closeOverlay);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('overlay--open')) {
+          closeOverlay();
+        }
+      });
+
+      // ── Access gate ─────────────────────────────────────────────
+      var form = document.getElementById('gate-form');
+      var input = document.getElementById('gate-input');
+      var err = document.getElementById('gate-err');
+      var gateSection = document.getElementById('gate-section');
+      var content = document.getElementById('full-content');
+      var ref = atob('d2lzZXRlYW0yMDI0');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value === ref) {
+          gateSection.style.display = 'none';
+          content.classList.add('unlocked');
+          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          err.classList.add('visible');
+          input.value = '';
+          input.focus();
+        }
+      });
+
+      input.addEventListener('input', function () {
+        err.classList.remove('visible');
+      });
+    }());
+  </script>
+
+</body>
+</html>

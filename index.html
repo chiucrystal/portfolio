@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crystal.chiu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav id="site-nav">
+    <div class="nav__inner">
+      <span class="nav__id">crystal.chiu</span>
+      <div class="nav__items">
+        <div class="nav__work">
+          <span class="nav__work-label">work <span class="nav__chevron">∨</span></span>
+          <div class="nav__work-menu">
+            <a href="work/programs.html">Programs</a>
+            <a href="work/languages.html">Languages</a>
+            <a href="work/content-creator.html">Content Creator</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav__resume">resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ── FOLDER HERO ────────────────────────────────────────── -->
+      <div class="folder-hero">
+        <div class="folder">
+
+          <!-- z-1: back folder SVG (tab + body, with shadows) -->
+          <img class="folder__bottom" src="work/assets/folder-bottom.svg" alt="" aria-hidden="true">
+
+          <!-- z-2: stickers between back and front panels.
+               DOM order = paint order; row-1 stickers (sticker-1, sticker-2)
+               are last in DOM so they paint on top of row-2 stickers. -->
+          <span class="sticker sticker-pink   sticker-3">sydney, australia</span>
+          <a href="about.html" class="sticker sticker-pink   sticker-4">contact me!</a>
+          <span class="sticker sticker-purple sticker-2">@ wisetech global</span>
+          <span class="sticker sticker-purple sticker-1">ux designer</span>
+
+          <!-- z-3: front panel SVGs — default covers stickers at rest,
+               hover reveals them. Cross-fade on hover via CSS opacity. -->
+          <img class="folder__top folder__top--default" src="work/assets/folder-top-default.svg" alt="" aria-hidden="true">
+          <img class="folder__top folder__top--hover"   src="work/assets/folder-top-hover.svg"   alt="" aria-hidden="true">
+
+        </div>
+        <p class="folder-hero__name">crystal.chiu</p>
+      </div>
+
+      <!-- ── WORK ───────────────────────────────────────────────── -->
+      <section id="work">
+        <span class="section-label">Selected Work</span>
+        <ul class="project-list">
+
+          <li class="project-entry">
+            <div class="project-entry__body">
+              <p class="project-entry__title">Programs</p>
+              <p class="project-entry__tagline">[PROJECT TAGLINE — one line describing the Programs case study]</p>
+            </div>
+            <a href="work/programs.html" class="project-entry__link">View&nbsp;→</a>
+          </li>
+
+          <li class="project-entry">
+            <div class="project-entry__body">
+              <p class="project-entry__title">Languages</p>
+              <p class="project-entry__tagline">[PROJECT TAGLINE — one line describing the Languages case study]</p>
+            </div>
+            <a href="work/languages.html" class="project-entry__link">View&nbsp;→</a>
+          </li>
+
+          <li class="project-entry">
+            <div class="project-entry__body">
+              <p class="project-entry__title">Content Creator</p>
+              <p class="project-entry__tagline">[PROJECT TAGLINE — one line describing the Content Creator case study]</p>
+            </div>
+            <a href="work/content-creator.html" class="project-entry__link">View&nbsp;→</a>
+          </li>
+
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer__inner">
+      <span class="footer__id">crystal.chiu</span>
+      <ul class="footer__links">
+        <li><a href="mailto:crystalchiu09@gmail.com">crystalchiu09@gmail.com</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // ── Hide-on-scroll nav ──────────────────────────────────────
+      var nav = document.getElementById('site-nav');
+      var lastY = window.scrollY;
+
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        if (y > lastY && y > 80) {
+          nav.classList.add('nav--hidden');
+        } else {
+          nav.classList.remove('nav--hidden');
+        }
+        lastY = y;
+      }, { passive: true });
+    }());
+  </script>
+
+</body>
+</html>

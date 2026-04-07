@@ -1,0 +1,999 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Inter:wght@400;500;600&display=swap');
+
+/* ─── Custom Properties ──────────────────────────────────────────── */
+
+:root {
+  --bg:             #F8F7F4;
+  --blue:           #1d56cf;
+  --dark:           #1a1a1a;
+  --text:           #1a1a1a;
+  --muted:          #888;
+  --border:         #d6d5d0;
+  --hl:             rgba(29, 86, 207, 0.09);
+  --font-mono:      'DM Mono', monospace;
+  --font-sans:      'DM Sans', sans-serif;
+  --max-w:          720px;
+  --nav-h:          52px;
+  --folder-blue:    #74bde0;
+  --folder-blue-dk: #5aabde;
+  --sticker-purple: #6b2df5;
+  --sticker-pink:   #ff2d8f;
+}
+
+/* ─── DM Mono weight cap (max available: 500 Medium) ─────────────── */
+
+.nav__id, .nav__menu-btn, .overlay__close, .overlay__nav a,
+h1, h2, h3,
+.section-label, .case-study-label, .case-study-title,
+.gate-divider__label, .gate__prompt, .gate__submit, .gate__error,
+.resume__name, .resume__section-heading, .resume__role, .resume__degree,
+.footer__id, .folder-hero__name, .case-study-back {
+  font-weight: 500;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────── */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  background: var(--bg);
+  border-bottom: 2px solid var(--blue);
+  z-index: 100;
+  transition: transform 0.28s ease;
+}
+
+nav.nav--hidden {
+  transform: translateY(calc(-1 * var(--nav-h) - 2px));
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.nav__id {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.nav__menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.nav__menu-btn:hover {
+  background-color: var(--hl);
+}
+
+/* ─── Nav — Inline items (index.html) ───────────────────────────── */
+
+.nav__items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* work ∨ dropdown */
+.nav__work {
+  position: relative;
+}
+
+.nav__work-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--muted);
+  cursor: default;
+  padding: 3px 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+.nav__chevron {
+  font-size: 9px;
+  margin-left: 1px;
+}
+
+.nav__work:hover .nav__work-label {
+  background-color: var(--hl);
+  color: var(--text);
+}
+
+.nav__work-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  min-width: 190px;
+  z-index: 150;
+  display: none;
+}
+
+.nav__work:hover .nav__work-menu {
+  display: block;
+}
+
+.nav__work-menu a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.15s ease;
+}
+
+.nav__work-menu a:last-child {
+  border-bottom: none;
+}
+
+.nav__work-menu a:hover {
+  background-color: var(--hl);
+}
+
+/* resume link */
+.nav__resume {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 3px 6px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav__resume:hover {
+  background-color: var(--hl);
+  color: var(--text);
+}
+
+/* ─── Overlay Menu ───────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--dark);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.overlay.overlay--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay__close {
+  position: absolute;
+  top: 10px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 400;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.overlay__close:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.overlay__nav {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.overlay__nav a {
+  font-family: var(--font-mono);
+  font-size: clamp(34px, 7vw, 58px);
+  font-weight: 500;
+  color: #c0c0c0;
+  text-decoration: none;
+  display: inline-block;
+  padding: 4px 16px;
+  letter-spacing: -0.03em;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.overlay__nav a:hover {
+  background-color: rgba(29, 86, 207, 0.22);
+  color: #fff;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────────── */
+
+main {
+  padding-top: calc(var(--nav-h) + 60px);
+  padding-bottom: 100px;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+
+h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 2vw, 17px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  margin-top: 44px;
+}
+
+h3 {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  margin-top: 28px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+ul, ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* ─── Home — Folder Hero ─────────────────────────────────────────── */
+
+.folder-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 44px;
+  margin-bottom: 72px;
+  /* paint above the fixed nav (z:100) so stickers are never clipped */
+  position: relative;
+  z-index: 101;
+}
+
+/* Hover trigger. Width drives the SVG scale; height is set by .folder__bottom img. */
+.folder {
+  position: relative;
+  width: 420px;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+/* ── SVG layers ── */
+
+/* Layer 1 — back folder (tab + body). In-flow → sets container height. */
+.folder__bottom {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Layer 3 — front panel. Both SVGs bottom-aligned; default (taller) covers
+   stickers at rest; hover (shorter) reveals them on hover.
+   Default SVG height  = 420 × 815/1160 ≈ 295px → top edge ≈ 62px from container top
+   Hover  SVG height  = 420 × 572/1160 ≈ 207px → top edge ≈ 151px from container top */
+.folder__top {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+.folder__top--default { opacity: 1; }
+.folder__top--hover   { opacity: 0; }
+
+.folder:hover .folder__top--default { opacity: 0; }
+.folder:hover .folder__top--hover   { opacity: 1; }
+
+/* ─── Stickers ───────────────────────────────────────────────────── */
+
+/* Layer 2 — stickers sit between back (z:1) and front (z:3).
+   Font/size spec: Inter 500, -0.02em tracking, 5px stroke, bold look. */
+.sticker {
+  position: absolute;
+  z-index: 2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  padding: 11px 24px;
+  border-radius: 999px;
+  background: #fff;
+  border: 4px solid;
+  text-decoration: none;
+  /* Smooth return to resting state on hover-out */
+  transition: transform 0.3s ease-out;
+}
+
+.sticker-purple {
+  color: var(--sticker-purple);
+  border-color: var(--sticker-purple);
+}
+
+.sticker-pink {
+  color: var(--sticker-pink);
+  border-color: var(--sticker-pink);
+}
+
+/* Sticker positions — two rows inside the ~102px hover-reveal gap.
+   Container = 420×358px. Default panel top ≈ y:62. Hover panel top ≈ y:151.
+
+   Row 1 (top ≈ 52–57px): pill tops peek 5–11px above default panel at y:62.
+   Row 2 (top ≈ 93–97px): fully hidden behind default panel, revealed on hover.
+
+   Horizontal layout (pill widths at 18px Inter):
+     sticker-1 "ux designer"      ≈ 178px wide → x:228–406
+     sticker-2 "@ wisetech global"≈ 248px wide → x:0–248   (text ends ~214, gap before sticker-1 ✓)
+     sticker-3 "sydney, australia"≈ 236px wide → x:10–246  (text ends ~210, gap before sticker-4 ✓)
+     sticker-4 "contact me!"      ≈ 170px wide → x:236–406
+
+   DOM order: sticker-3 → sticker-4 → sticker-2 → sticker-1
+   (Row 1 stickers painted on top of Row 2, so row 1 pill bodies mask row 2 tops) */
+.sticker-1 { left: 228px; top:  52px; transform: rotate(-5deg);  } /* ux designer       */
+.sticker-2 { left:   0px; top:  57px; transform: rotate(-7deg);  } /* @ wisetech global */
+.sticker-3 { left:  10px; top: 100px; transform: rotate(7deg);   } /* sydney, australia */
+.sticker-4 { left: 236px; top: 100px; transform: rotate(-5deg);  } /* contact me!       */
+
+/* Disable transition during forward animation so it doesn't fight @keyframes */
+.folder:hover .sticker {
+  transition: none;
+}
+
+/* Staggered reveal — stickers slide up with spring easing as panel opens.
+   from-transform matches resting rotation to prevent jump on hover-in. */
+.folder:hover .sticker-1 { animation: reveal-1 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.00s forwards; }
+.folder:hover .sticker-2 { animation: reveal-2 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.07s forwards; }
+.folder:hover .sticker-3 { animation: reveal-3 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.14s forwards; }
+.folder:hover .sticker-4 { animation: reveal-4 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) 0.21s forwards; }
+
+@keyframes reveal-1 {
+  from { transform: rotate(-5deg) translateY(10px); }
+  to   { transform: rotate(-5deg) translateY(0px);  }
+}
+@keyframes reveal-2 {
+  from { transform: rotate(-7deg) translateY(10px); }
+  to   { transform: rotate(-7deg) translateY(0px);  }
+}
+@keyframes reveal-3 {
+  from { transform: rotate(7deg)  translateY(10px); }
+  to   { transform: rotate(7deg)  translateY(0px);  }
+}
+@keyframes reveal-4 {
+  from { transform: rotate(-5deg) translateY(10px); }
+  to   { transform: rotate(-5deg) translateY(0px);  }
+}
+
+/* crystal.chiu name below folder */
+.folder-hero__name {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: clamp(24px, 5vw, 40px);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 20px;
+  margin-bottom: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ─── Section Label ──────────────────────────────────────────────── */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0;
+}
+
+/* ─── Project List ───────────────────────────────────────────────── */
+
+.project-list {
+  list-style: none;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  padding: 0;
+}
+
+.project-entry {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.project-entry__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  letter-spacing: -0.01em;
+}
+
+.project-entry__tagline {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.project-entry__link {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border: 1px solid var(--blue);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.project-entry__link:hover {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+/* ─── About Page ─────────────────────────────────────────────────── */
+
+.about-bio p {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+.skills-section {
+  margin-top: 48px;
+}
+
+.skills-section p {
+  font-size: 16px;
+  max-width: 56ch;
+}
+
+/* ─── Resume ─────────────────────────────────────────────────────── */
+
+.resume-section {
+  margin-top: 56px;
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--blue);
+  text-decoration: none;
+  padding: 3px 7px;
+  margin-bottom: 20px;
+  transition: background-color 0.15s ease;
+}
+
+.resume-download:hover {
+  background-color: var(--hl);
+}
+
+.resume-download svg {
+  flex-shrink: 0;
+}
+
+.resume {
+  border: 1px solid var(--border);
+  padding: 40px 44px;
+}
+
+.resume__name {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+
+.resume__contact {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.resume__contact a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0 2px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.resume__contact a:hover {
+  background-color: var(--hl);
+  color: var(--blue);
+}
+
+.resume__section {
+  margin-top: 30px;
+}
+
+.resume__section-heading {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 7px;
+  margin-bottom: 18px;
+}
+
+.resume__entry {
+  margin-bottom: 22px;
+}
+
+.resume__entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume__entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+}
+
+.resume__role {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.resume__date {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.resume__org {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+
+.resume__bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resume__bullets li {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.resume__bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.resume__bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.resume__edu-entry {
+  margin-bottom: 18px;
+}
+
+.resume__edu-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume__edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.resume__degree {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.resume__school {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.resume__lang-list {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text);
+  margin-top: 8px;
+  line-height: 1.65;
+}
+
+/* ─── Case Study Pages ───────────────────────────────────────────── */
+
+.case-study-back {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 36px;
+  padding: 2px 5px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.case-study-back:hover {
+  background-color: var(--hl);
+  color: var(--blue);
+}
+
+.case-study-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.case-study-title {
+  font-family: var(--font-mono);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.tldr {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.65;
+  max-width: 56ch;
+  color: var(--text);
+  margin-bottom: 52px;
+}
+
+.teaser-section {
+  margin-bottom: 36px;
+}
+
+.teaser-section h2 {
+  margin-top: 0;
+}
+
+.teaser-section p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+/* ─── Password Gate ──────────────────────────────────────────────── */
+
+.gate-divider {
+  margin: 64px 0 44px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gate-divider::before,
+.gate-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.gate-divider__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.gate {
+  margin-bottom: 80px;
+}
+
+.gate__prompt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.gate__form {
+  display: flex;
+  max-width: 360px;
+}
+
+.gate__input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-right: none;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease;
+  min-width: 0;
+}
+
+.gate__input:focus {
+  border-color: var(--blue);
+}
+
+.gate__input::placeholder {
+  color: #c0c0b8;
+}
+
+.gate__submit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 10px 18px;
+  background: var(--blue);
+  color: #fff;
+  border: 1px solid var(--blue);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.gate__submit:hover {
+  opacity: 0.82;
+}
+
+.gate__error {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: #b52a2a;
+  margin-top: 10px;
+  display: none;
+  letter-spacing: 0.02em;
+}
+
+.gate__error.visible {
+  display: block;
+}
+
+.full-content {
+  display: none;
+}
+
+.full-content.unlocked {
+  display: block;
+}
+
+.full-content h2 {
+  margin-top: 44px;
+}
+
+.full-content h2:first-child {
+  margin-top: 0;
+}
+
+.full-content p {
+  font-size: 15px;
+  max-width: 58ch;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────── */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.footer__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer__id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.footer__links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer__links a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 2px 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.footer__links a:hover {
+  background-color: var(--hl);
+  color: var(--blue);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .project-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .project-entry__link {
+    justify-self: start;
+    margin-top: 10px;
+  }
+
+  .resume {
+    padding: 28px 20px;
+  }
+
+  .resume__entry-header,
+  .resume__edu-header {
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .gate__form {
+    max-width: 100%;
+  }
+
+  .folder-hero__name {
+    font-size: clamp(26px, 10vw, 36px);
+  }
+}
