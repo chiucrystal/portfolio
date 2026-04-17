@@ -39,6 +39,28 @@
       text-transform: none; /* overrides global a uppercase */
     }
 
+    /* ─── Container ──────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ─── Title block ─────────────────────────────────────────── */
+    .title-block {
+      padding-top: 48px;
+    }
+
+    .title-block h1 {
+      margin-bottom: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
     /* ─── Hero ────────────────────────────────────────────────── */
     .hero {
       margin-top: 57px; /* nav height offset */
@@ -69,6 +91,18 @@
     <section class="hero">
       <img src="assets/programs/hero.png" alt="Programs creation interface showing the Add courses step">
     </section>
+
+    <div class="container">
+
+      <div class="title-block">
+        <h1 class="t-display">Enabling self-serve and scalable program creation.</h1>
+        <div class="meta-row">
+          <span class="t-label">WiseTech Global (2025) · Team: 1 UX designer, 1 product manager, 4 developers</span>
+          <a href="#solution" class="t-link">Jump to solution</a>
+        </div>
+      </div>
+
+    </div>
 
   </main>
 
