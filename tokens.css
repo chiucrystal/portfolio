@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,500;1,300;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300;1,9..40,400&display=swap');
+
+/* ─── Colour variables ─────────────────────────────────────── */
+
+:root {
+  /* Background */
+  --color-bg:              #F8F7F4;
+
+  /* Text */
+  --color-display:         #243B7D;
+  --color-heading:         #231E1A;
+  --color-body:            #5F5851;
+  --color-muted:           #837D7D;
+  --color-label:           #687076;
+
+  /* Link */
+  --color-link:            #0363AD;
+  --color-link-hover:      #1E86E1;
+}
+
+/* ─── Type tokens ──────────────────────────────────────────── */
+
+.t-display,
+h1 {
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 150%;
+  letter-spacing: -0.035em;
+  color: var(--color-display);
+}
+
+.t-h2,
+h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: var(--color-heading);
+}
+
+.t-h3,
+h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0;
+  color: var(--color-heading);
+}
+
+.t-large {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: -0.0036em;
+  color: var(--color-body);
+}
+
+.t-default,
+p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.0032em;
+  color: var(--color-body);
+}
+
+.t-quote,
+blockquote {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: -0.0036em;
+  color: var(--color-body);
+}
+
+.t-label {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-label);
+}
+
+.t-link,
+a {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.008em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: var(--color-link);
+}
+
+a:hover,
+.t-link:hover {
+  color: var(--color-link-hover);
+}
+
+/* ─── Base reset ───────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.0032em;
+  color: var(--color-body);
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "slug": "programs",
+    "title": "Enabling self-serve and scalable program creation.",
+    "company": "WiseTech Global",
+    "year": "2025",
+    "team": "1 UX designer, 1 product manager, 4 developers",
+    "jumpToSolutionAnchor": "#solution"
+  },
+  "hero": {
+    "imagePath": "assets/programs/hero.png",
+    "imageAlt": "Programs creation interface showing the Add courses step"
+  },
+  "designChallenge": {
+    "intro": "How might we build a ",
+    "emphasis": "self-serve program creation",
+    "outro": " interface on a platform held together by manual processes and hardcoded configuration?"
+  },
+  "tldr": {
+    "problem": "Program setup took up to 3 weeks and required a developer to hard-code every configuration.",
+    "whatIDid": "I led design end-to-end as the sole designer, from research through handoff.",
+    "whatChanged": "The result was a self-serve creation interface that removed the dev dependency entirely."
+  },
+  "businessContext": {
+    "bullets": [
+      "Hardcoded configuration, 3-week turnaround per program.",
+      "Product support and development team absorbing the overhead.",
+      "Expected enterprise client growth made the current process unscalable."
+    ]
+  },
+  "discovery": {
+    "leftColumn": "We spoke to 11 users across 3 teams to understand their existing workflow. A key theme quickly emerged.",
+    "synthStatement": "The spreadsheet for program configuration had been designed around the codebase, not around the people using it.",
+    "bullets": [
+      "The spreadsheet fields were named after codebase variables, not natural language.",
+      "Every edit carried 3-week risk because no low-stakes way to make a change.",
+      "That risk made admins over-reliant on support rather than acting independently."
+    ]
+  },
+  "testing": {
+    "leftColumn": "I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.\n\nThe 3 core flows tested were:\n- Program set up\n- Adding and editing courses\n- Advanced customisations",
+    "findings": [
+      {
+        "type": "h3",
+        "text": "Admins arrived with the program already planned, data entry was the last step."
+      },
+      {
+        "type": "h3",
+        "text": "The spreadsheet reinforced the wrong mental model for groups and courses."
+      },
+      {
+        "type": "h3",
+        "text": "Admins actively avoided fields that they didn't understand."
+      },
+      {
+        "type": "h3",
+        "text": "Generic help content created over-reliance on PMs and developers for routine decisions."
+      }
+    ]
+  },
+  "solution": {
+    "cards": [
+      {
+        "h3": "Surfacing only what was immediately relevant and deferring everything else reflected how admins actually worked.",
+        "body": "Usability testing revealed that by the time admins reach program configuration, the planning has already happened.",
+        "imagePath": "assets/programs/solution-stepper.png",
+        "caption": "New stepper component"
+      },
+      {
+        "h3": "Surface the right information at the moment it's relevant.",
+        "body": "High-risk actions, particularly around permissions and publishing states, carry consequences that aren't always obvious from the label alone. Inline validation and contextual tooltips, used sparingly, tell users what their action will affect before they commit to it.",
+        "imagePath": "assets/programs/solution-banner.gif",
+        "caption": "Dynamic banner that updates based on the selected permissions combination"
+      },
+      {
+        "h3": "Making the content hierarchy visible",
+        "body": "In the spreadsheet, course groups and courses were presented as separate entities. They aren't. Course groups are the structure that holds courses together, not a distinct object alongside them. A two-column layout makes that relationship visible at a glance: groups on one side, the courses that belong to them on the other. What the spreadsheet obscured through separation, the layout resolves through proximity.",
+        "imagePath": "assets/programs/solution-hierarchy.png",
+        "caption": "Representing groups and courses as a parent-child relationship"
+      }
+    ]
+  },
+  "results": {
+    "bullets": [
+      "Established a design pattern for progressive disclosure across the admin platform.",
+      "Reframed groups and courses as a parent-child relationship, resolving a structural misrepresentation carried over from the spreadsheet.",
+      "Introduced inline validation as a standard for high-risk actions, reducing reliance on documentation.",
+      "Built flexibility into the program architecture so that certifications and learning streams can be introduced without a structural rebuild."
+    ]
+  }
+}
