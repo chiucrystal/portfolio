@@ -107,6 +107,30 @@
       font-weight: 500;
     }
 
+    /* ─── Business context ────────────────────────────────────── */
+    .business-context {
+      display: flex;
+      gap: 5%;
+      padding-top: 80px;
+    }
+
+    .business-context-label {
+      flex: 0 0 25%;
+    }
+
+    .business-context-bullets {
+      flex: 0 0 70%;
+      padding-left: 20px;
+    }
+
+    .business-context-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .business-context-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
     /* ─── Hero ────────────────────────────────────────────────── */
     .hero {
       margin-top: 57px; /* nav height offset */
@@ -171,6 +195,17 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="business-context">
+        <div class="business-context-label">
+          <span class="t-label">Business context</span>
+        </div>
+        <ul class="business-context-bullets">
+          <li class="t-default">Hardcoded configuration, 3-week turnaround per program.</li>
+          <li class="t-default">Product support and development team absorbing the overhead.</li>
+          <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
+        </ul>
       </div>
 
     </div>
