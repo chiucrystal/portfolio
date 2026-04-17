@@ -61,6 +61,52 @@
       justify-content: space-between;
     }
 
+    /* ─── Challenge + TL;DR ──────────────────────────────────── */
+    .challenge-tldr {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .challenge-col {
+      flex: 0 0 38%;
+      border: 2px solid var(--color-link);
+      padding: 24px;
+      background-color: #FFFEFB;
+      box-shadow: 8px 8px 0 #FBD916;
+    }
+
+    .challenge-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .challenge-col h2 em {
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .tldr-col {
+      flex: 0 0 58%;
+    }
+
+    .tldr-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .tldr-item {
+      margin-bottom: 16px;
+    }
+
+    .tldr-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tldr-label {
+      font-weight: 500;
+    }
+
     /* ─── Hero ────────────────────────────────────────────────── */
     .hero {
       margin-top: 57px; /* nav height offset */
@@ -100,6 +146,31 @@
           <span class="t-label">WiseTech Global (2025) · Team: 1 UX designer, 1 product manager, 4 developers</span>
           <a href="#solution" class="t-link">Jump to solution</a>
         </div>
+      </div>
+
+      <div class="challenge-tldr">
+
+        <div class="challenge-col">
+          <span class="t-label">The design challenge</span>
+          <h2>How might we build a <em>self-serve program creation</em> interface on a platform held together by manual processes and hardcoded configuration?</h2>
+        </div>
+
+        <div class="tldr-col">
+          <span class="t-label">The tldr;</span>
+          <div class="tldr-item">
+            <p class="tldr-label">Problem:</p>
+            <p>Program setup took up to 3 weeks and required a developer to hard-code every configuration.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What I did:</p>
+            <p>I led design end-to-end as the sole designer, from research through handoff.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What changed:</p>
+            <p>The result was a self-serve creation interface that removed the dev dependency entirely.</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
