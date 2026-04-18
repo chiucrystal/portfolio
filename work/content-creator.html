@@ -317,6 +317,67 @@
       font-style: italic;
       text-align: center;
     }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      padding: 80px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-nav a {
+      color: var(--color-heading);
+    }
+
+    .footer-nav a:hover {
+      color: var(--color-muted);
+    }
+
+    .footer-avatar {
+      display: block;
+      max-width: 80px;
+    }
+
+    .footer-quote {
+      color: var(--color-muted);
+      max-width: 600px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-body);
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.45;
+    }
+
+    .footer-socials img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
   </style>
 </head>
 <body>
@@ -460,6 +521,30 @@
     </div>
 
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
+        </nav>
+        <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
+        <p class="t-default footer-quote">
+          "This is for everyone going through tough times, been there done that, but everyday above ground is a great day remember that."
+        </p>
+        <div class="footer-socials">
+          <a href="mailto:crystalchiu09@gmail.com" aria-label="Email">
+            <img src="assets/shared/icon-mail.svg" alt="Email" width="24" height="24">
+          </a>
+          <a href="https://www.linkedin.com/in/crystalchiu01/" target="_blank" aria-label="LinkedIn">
+            <img src="assets/shared/icon-linkedin.svg" alt="LinkedIn" width="24" height="24">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
