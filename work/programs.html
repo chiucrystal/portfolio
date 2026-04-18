@@ -131,6 +131,82 @@
       margin-bottom: 0;
     }
 
+    /* ─── Discovery and Research ──────────────────────────────── */
+    .discovery {
+      display: flex;
+      gap: 5%;
+      padding-top: 64px;
+    }
+
+    .discovery-left {
+      flex: 0 0 25%;
+    }
+
+    .discovery-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .discovery-right {
+      flex: 0 0 70%;
+    }
+
+    .discovery-synth {
+      margin-bottom: 24px;
+    }
+
+    .discovery-bullets {
+      padding-left: 20px;
+    }
+
+    .discovery-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .discovery-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── What Testing Revealed ───────────────────────────────── */
+    .testing {
+      display: flex;
+      gap: 5%;
+      padding-top: 80px;
+    }
+
+    .testing-left {
+      flex: 0 0 25%;
+    }
+
+    .testing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .testing-left p {
+      margin-bottom: 12px;
+    }
+
+    .testing-left ul {
+      padding-left: 20px;
+    }
+
+    .testing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .testing-right {
+      flex: 0 0 70%;
+    }
+
+    .testing-right h3 {
+      margin-bottom: 24px;
+    }
+
+    .testing-right h3:last-child {
+      margin-bottom: 0;
+    }
+
     /* ─── Hero ────────────────────────────────────────────────── */
     .hero {
       margin-top: 57px; /* nav height offset */
@@ -206,6 +282,40 @@
           <li class="t-default">Product support and development team absorbing the overhead.</li>
           <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
         </ul>
+      </div>
+
+      <div class="discovery">
+        <div class="discovery-left">
+          <span class="t-label">Discovery and Research</span>
+          <p>We spoke to 11 users across 3 teams to understand their existing workflow. A key theme quickly emerged.</p>
+        </div>
+        <div class="discovery-right">
+          <h3 class="discovery-synth">The spreadsheet for program configuration had been designed around the codebase, not around the people using it.</h3>
+          <ul class="discovery-bullets">
+            <li class="t-default">The spreadsheet fields were named after codebase variables, not natural language.</li>
+            <li class="t-default">Every edit carried 3-week risk because no low-stakes way to make a change.</li>
+            <li class="t-default">That risk made admins over-reliant on support rather than acting independently.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="testing">
+        <div class="testing-left">
+          <span class="t-label">What Testing Revealed</span>
+          <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
+          <p>The 3 core flows tested were:</p>
+          <ul>
+            <li class="t-default">Program set up</li>
+            <li class="t-default">Adding and editing courses</li>
+            <li class="t-default">Advanced customisations</li>
+          </ul>
+        </div>
+        <div class="testing-right">
+          <h3>Admins arrived with the program already planned, data entry was the last step.</h3>
+          <h3>The spreadsheet reinforced the wrong mental model for groups and courses.</h3>
+          <h3>Admins actively avoided fields that they didn't understand.</h3>
+          <h3>Generic help content created over-reliance on PMs and developers for routine decisions.</h3>
+        </div>
       </div>
 
     </div>

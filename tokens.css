@@ -107,6 +107,20 @@ a:hover,
   color: var(--color-link-hover);
 }
 
+/* ─── Component tokens ─────────────────────────────────────── */
+
+.quote-block {
+  padding: 12px;
+  background: rgba(171, 161, 150, 0.1);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: -0.0036em;
+  color: var(--color-muted);
+}
+
 /* ─── Base reset ───────────────────────────────────────────── */
 
 *,
