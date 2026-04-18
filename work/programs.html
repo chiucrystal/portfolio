@@ -14,7 +14,6 @@
       right: 0;
       z-index: 100;
       background-color: var(--color-bg);
-      border-bottom: 1px solid rgba(131, 125, 125, 0.2);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -110,16 +109,16 @@
     /* ─── Business context ────────────────────────────────────── */
     .business-context {
       display: flex;
-      gap: 5%;
+      gap: 4%;
       padding-top: 80px;
     }
 
     .business-context-label {
-      flex: 0 0 25%;
+      flex: 0 0 38%;
     }
 
     .business-context-bullets {
-      flex: 0 0 70%;
+      flex: 0 0 58%;
       padding-left: 20px;
     }
 
@@ -134,12 +133,12 @@
     /* ─── Discovery and Research ──────────────────────────────── */
     .discovery {
       display: flex;
-      gap: 5%;
+      gap: 4%;
       padding-top: 64px;
     }
 
     .discovery-left {
-      flex: 0 0 25%;
+      flex: 0 0 38%;
     }
 
     .discovery-left .t-label {
@@ -148,7 +147,7 @@
     }
 
     .discovery-right {
-      flex: 0 0 70%;
+      flex: 0 0 58%;
     }
 
     .discovery-synth {
@@ -170,12 +169,12 @@
     /* ─── What Testing Revealed ───────────────────────────────── */
     .testing {
       display: flex;
-      gap: 5%;
-      padding-top: 80px;
+      gap: 4%;
+      padding-top: 64px;
     }
 
     .testing-left {
-      flex: 0 0 25%;
+      flex: 0 0 38%;
     }
 
     .testing-left .t-label {
@@ -196,15 +195,90 @@
     }
 
     .testing-right {
-      flex: 0 0 70%;
+      flex: 0 0 58%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
-    .testing-right h3 {
-      margin-bottom: 24px;
+    /* ─── Solution ───────────────────────────────────────────── */
+    .solution {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
     }
 
-    .testing-right h3:last-child {
+    .solution-left {
+      flex: 0 0 38%;
+    }
+
+    .solution-left .t-label {
+      display: block;
+    }
+
+    .solution-cards {
+      flex: 0 0 58%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .solution-card {
+      border: 2px solid var(--color-link);
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #62B61B;
+    }
+
+    .solution-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .solution-card p {
+      margin-bottom: 16px;
+    }
+
+    .solution-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .solution-card .caption {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ─── Results ────────────────────────────────────────────── */
+    .results {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .results-left {
+      flex: 0 0 38%;
+    }
+
+    .results-left .t-label {
+      display: block;
+    }
+
+    .results-bullets {
+      flex: 0 0 58%;
+      padding-left: 20px;
+    }
+
+    .results-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .results-bullets li:last-child {
       margin-bottom: 0;
+    }
+
+    .results-note {
+      padding-top: 48px;
+      font-style: italic;
+      text-align: center;
     }
 
     /* ─── Hero ────────────────────────────────────────────────── */
@@ -317,6 +391,51 @@
           <h3>Generic help content created over-reliance on PMs and developers for routine decisions.</h3>
         </div>
       </div>
+
+      <div id="solution" class="solution">
+        <div class="solution-left">
+          <span class="t-label">Solution</span>
+        </div>
+        <div class="solution-cards">
+
+          <div class="solution-card">
+            <h3>Surfacing only what was immediately relevant and deferring everything else reflected how admins actually worked.</h3>
+            <p>Usability testing revealed that by the time admins reach program configuration, the planning has already happened.</p>
+            <img src="assets/programs/solution-stepper.png" alt="New stepper component">
+            <span class="caption">New stepper component</span>
+          </div>
+
+          <!-- TODO: swap for programs-solution-banner.gif -->
+          <div class="solution-card">
+            <h3>Surface the right information at the moment it's relevant.</h3>
+            <p>High-risk actions, particularly around permissions and publishing states, carry consequences that aren't always obvious from the label alone. Inline validation and contextual tooltips, used sparingly, tell users what their action will affect before they commit to it.</p>
+            <img src="assets/programs/solution-banner.gif" alt="Dynamic banner that updates based on the selected permissions combination">
+            <span class="caption">Dynamic banner that updates based on the selected permissions combination</span>
+          </div>
+
+          <div class="solution-card">
+            <h3>Making the content hierarchy visible</h3>
+            <p>In the spreadsheet, course groups and courses were presented as separate entities. They aren't. Course groups are the structure that holds courses together, not a distinct object alongside them. A two-column layout makes that relationship visible at a glance: groups on one side, the courses that belong to them on the other. What the spreadsheet obscured through separation, the layout resolves through proximity.</p>
+            <img src="assets/programs/solution-hierarchy.png" alt="Representing groups and courses as a parent-child relationship">
+            <span class="caption">Representing groups and courses as a parent-child relationship</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="results-left">
+          <span class="t-label">Results &amp; Impact</span>
+        </div>
+        <ul class="results-bullets">
+          <li class="t-default">Established a design pattern for progressive disclosure across the admin platform.</li>
+          <li class="t-default">Reframed groups and courses as a parent-child relationship, resolving a structural misrepresentation carried over from the spreadsheet.</li>
+          <li class="t-default">Introduced inline validation as a standard for high-risk actions, reducing reliance on documentation.</li>
+          <li class="t-default">Built flexibility into the program architecture so that certifications and learning streams can be introduced without a structural rebuild.</li>
+        </ul>
+      </div>
+
+      <p class="results-note">A detailed walkthrough is available at request.</p>
 
     </div>
 
