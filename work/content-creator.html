@@ -3,199 +3,463 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Content Creator — crystal.chiu</title>
-  <link rel="stylesheet" href="../styles.css">
+  <title>Modernising WTA's content authoring experience. — crystal.chiu</title>
+  <link rel="stylesheet" href="../tokens.css?v=3">
+  <style>
+    /* ─── Nav ─────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      text-transform: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-body);
+      text-decoration: none;
+      text-transform: none;
+    }
+
+    /* ─── Container ──────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      margin-top: 57px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ─── Title block ─────────────────────────────────────────── */
+    .title-block {
+      padding-top: 48px;
+    }
+
+    .title-block h1 {
+      margin-bottom: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    /* ─── Challenge + TL;DR ──────────────────────────────────── */
+    .challenge-tldr {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .challenge-col {
+      flex: 0 0 38%;
+      border: 2px solid var(--color-link);
+      padding: 24px;
+      background-color: #FFFEFB;
+      box-shadow: 8px 8px 0 #FBD916;
+    }
+
+    .challenge-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .challenge-col h2 em {
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .tldr-col {
+      flex: 0 0 58%;
+    }
+
+    .tldr-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .tldr-item {
+      margin-bottom: 16px;
+    }
+
+    .tldr-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tldr-label {
+      font-weight: 500;
+    }
+
+    /* ─── Business context ────────────────────────────────────── */
+    .business-context {
+      display: flex;
+      gap: 4%;
+      padding-top: 80px;
+    }
+
+    .business-context-label {
+      flex: 0 0 38%;
+    }
+
+    .business-context-bullets {
+      flex: 0 0 58%;
+      padding-left: 20px;
+    }
+
+    .business-context-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .business-context-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Discovery ──────────────────────────────────────────── */
+    .discovery {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .discovery-left {
+      flex: 0 0 38%;
+    }
+
+    .discovery-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .discovery-left p {
+      margin-bottom: 12px;
+    }
+
+    .discovery-left ul {
+      padding-left: 20px;
+    }
+
+    .discovery-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .discovery-right {
+      flex: 0 0 58%;
+    }
+
+    .discovery-synth {
+      margin-bottom: 16px;
+    }
+
+    .discovery-quote {
+      margin-bottom: 16px;
+    }
+
+    .discovery-img {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .discovery-bullets {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .discovery-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .discovery-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .testing-left {
+      flex: 0 0 38%;
+    }
+
+    .testing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .testing-left p {
+      margin-bottom: 12px;
+    }
+
+    .testing-left ul {
+      padding-left: 20px;
+    }
+
+    .testing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .testing-right {
+      flex: 0 0 58%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ─── Solution ───────────────────────────────────────────── */
+    .solution {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .solution-left {
+      flex: 0 0 38%;
+    }
+
+    .solution-left .t-label {
+      display: block;
+    }
+
+    .solution-cards {
+      flex: 0 0 58%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .solution-card {
+      border: 2px solid #62B61B;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #62B61B;
+    }
+
+    .solution-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .solution-card p {
+      margin-bottom: 16px;
+    }
+
+    .solution-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .solution-card .caption {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ─── Results ────────────────────────────────────────────── */
+    .results {
+      display: flex;
+      gap: 4%;
+      padding-top: 64px;
+    }
+
+    .results-left {
+      flex: 0 0 38%;
+    }
+
+    .results-left .t-label {
+      display: block;
+    }
+
+    .results-bullets {
+      flex: 0 0 58%;
+      padding-left: 20px;
+    }
+
+    .results-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .results-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    .results-note {
+      padding-top: 48px;
+      padding-bottom: 80px;
+      font-style: italic;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ── NAVIGATION ─────────────────────────────────────────────── -->
-  <nav id="site-nav">
-    <div class="nav__inner">
-      <span class="nav__id">crystal.chiu</span>
-      <button class="nav__menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">+</button>
-    </div>
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo t-label">crystal.chiu</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#work" class="t-h3">work</a></li>
+      <li><a href="../index.html#about" class="t-h3">about</a></li>
+      <li><a href="../index.html#resume" class="t-h3">resume</a></li>
+    </ul>
   </nav>
 
-  <!-- ── OVERLAY MENU ───────────────────────────────────────────── -->
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
-    <button class="overlay__close" id="overlay-close" aria-label="Close menu">+</button>
-    <ul class="overlay__nav">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About</a></li>
-      <li><a href="../index.html#work">Work</a></li>
-    </ul>
-  </div>
-
   <main>
-    <article class="container">
 
-      <!-- ── BACK LINK ──────────────────────────────────────────── -->
-      <a href="../index.html#work" class="case-study-back">← Back</a>
+    <section class="hero">
+      <img src="assets/cca/hero.png" alt="Content Creator interface showing the editing canvas">
+    </section>
 
-      <!-- ── HEADER ─────────────────────────────────────────────── -->
-      <span class="case-study-label">Case Study — 03</span>
-      <h1 class="case-study-title">Content Creator</h1>
+    <div class="container">
 
-      <!-- ── TL;DR ──────────────────────────────────────────────── -->
-      <p class="tldr">[TLDR — one or two sentences that capture the core of this project. What was the problem, and what did you do about it?]</p>
-
-      <!-- ── TEASER SECTIONS ────────────────────────────────────── -->
-      <section class="teaser-section">
-        <h2>[SECTION HEADING — e.g. The Problem]</h2>
-        <p>[SECTION BODY — 2–4 sentences introducing the context, challenge, or brief for this project. Give enough for a reader to understand what they're about to see.]</p>
-      </section>
-
-      <section class="teaser-section">
-        <h2>[SECTION HEADING — e.g. My Role]</h2>
-        <p>[SECTION BODY — describe your specific contribution. What did you own? Who did you work with? What phase of the project were you responsible for?]</p>
-      </section>
-
-      <section class="teaser-section">
-        <h2>[SECTION HEADING — e.g. Outcome]</h2>
-        <p>[SECTION BODY — high-level result or impact. What shipped? What changed? Keep this brief — the full story is behind the gate.]</p>
-      </section>
-
-      <!-- ── GATE ───────────────────────────────────────────────── -->
-      <div class="gate-divider">
-        <span class="gate-divider__label">Full case study — access required</span>
+      <div class="title-block">
+        <h1 class="t-display">Modernising WTA's content authoring experience.</h1>
+        <div class="meta-row">
+          <span class="t-label">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
+          <a href="#solution" class="t-link">Jump to solution</a>
+        </div>
       </div>
 
-      <div class="gate" id="gate-section">
-        <span class="gate__prompt">Enter access code to continue</span>
-        <form class="gate__form" id="gate-form" novalidate>
-          <input
-            class="gate__input"
-            id="gate-input"
-            type="password"
-            placeholder="••••••••••••"
-            autocomplete="off"
-            aria-label="Access code"
-          >
-          <button class="gate__submit" type="submit">Unlock</button>
-        </form>
-        <p class="gate__error" id="gate-err" role="alert">Incorrect code. Try again.</p>
+      <div class="challenge-tldr">
+
+        <div class="challenge-col">
+          <span class="t-label">The design challenge</span>
+          <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
+        </div>
+
+        <div class="tldr-col">
+          <span class="t-label">The tldr;</span>
+          <div class="tldr-item">
+            <p class="tldr-label">Problem:</p>
+            <p>The current tool had accumulated years of technical debt, forcing creators to rely on manual workarounds.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What I did:</p>
+            <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What changed:</p>
+            <p>A single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- ── FULL CONTENT (hidden until unlocked) ───────────────── -->
-      <div class="full-content" id="full-content">
-        <h2>[FULL CASE STUDY — Section 1 heading]</h2>
-        <p>[FULL CASE STUDY CONTENT — This section will contain the full written case study. Add as many sections, images, and details as needed. Replace all placeholders with real content when ready.]</p>
-
-        <h2>[Section 2 heading]</h2>
-        <p>[FULL CASE STUDY CONTENT — Process documentation, research findings, design decisions, iterations, and rationale.]</p>
-
-        <h2>[Section 3 heading]</h2>
-        <p>[FULL CASE STUDY CONTENT — Final designs, outcome, metrics, and reflection.]</p>
+      <div class="business-context">
+        <div class="business-context-label">
+          <span class="t-label">Business context</span>
+        </div>
+        <ul class="business-context-bullets">
+          <li class="t-default">The initial brief was to uplift the UX of the existing content creation platform.</li>
+          <li class="t-default">The tool had been worked around so extensively that the workarounds had become the workflow.</li>
+          <li class="t-default">The platform had become a hindrance for editors.</li>
+        </ul>
       </div>
 
-    </article>
+      <div class="discovery">
+        <div class="discovery-left">
+          <span class="t-label">Discovery and Research</span>
+          <p>To understand the current workflow better, we conducted the following activities:</p>
+          <ul>
+            <li class="t-default">Platform audit of the existing tool</li>
+            <li class="t-default">Context setting interviews with 3 editors</li>
+          </ul>
+        </div>
+        <div class="discovery-right">
+          <h3 class="discovery-synth">The interface treats the main editing canvas as a secondary priority.</h3>
+          <div class="quote-block discovery-quote">"Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained."</div>
+          <img class="discovery-img" src="assets/cca/discovery-canvas.png" alt="">
+          <h3 class="discovery-synth">The canvas doesn't support editing widgets.</h3>
+          <ul class="discovery-bullets">
+            <li class="t-default">As a result, workarounds were built (like going into the source code) to make simple changes.</li>
+          </ul>
+          <img class="discovery-img" src="assets/cca/discovery-widget.png" alt="">
+        </div>
+      </div>
+
+      <div class="testing">
+        <div class="testing-left">
+          <span class="t-label">What Testing Revealed</span>
+          <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
+          <p>The 3 core flows tested were:</p>
+          <ul>
+            <li class="t-default">Program set up</li>
+            <li class="t-default">Adding and editing courses</li>
+            <li class="t-default">Advanced customisations</li>
+          </ul>
+        </div>
+        <div class="testing-right">
+          <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
+          <div class="quote-block">"I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it."</div>
+          <h3>Users avoided terminology and iconography that felt foreign.</h3>
+          <div class="quote-block">"I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them."</div>
+          <h3>Publish and visibility were two different concepts handled in the same place.</h3>
+          <div class="quote-block">"I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page."</div>
+        </div>
+      </div>
+
+      <div id="solution" class="solution">
+        <div class="solution-left">
+          <span class="t-label">Solution</span>
+        </div>
+        <div class="solution-cards">
+
+          <div class="solution-card">
+            <h3>Focus is given to the task at hand.</h3>
+            <p>The right panel was dynamic, surfacing the relevant options for whatever was selected.</p>
+            <img src="assets/cca/solution-focus.png" alt="Focus is given to the task at hand">
+          </div>
+
+          <div class="solution-card">
+            <h3>Only one level of display settings was kept.</h3>
+            <img src="assets/cca/solution-display.png" alt="Only one level of display settings was kept">
+          </div>
+
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="results-left">
+          <span class="t-label">Results &amp; Impact</span>
+        </div>
+        <ul class="results-bullets">
+          <li class="t-default">Defined and implemented a new component library to be used in internal tools.</li>
+          <li class="t-default">Positive reception from 11 internal users at launch.</li>
+          <li class="t-default">6 new widgets have been requested and integrated since launch, suggesting creators are working within the tool rather than around it.</li>
+        </ul>
+      </div>
+
+      <p class="results-note">A detailed walkthrough is available at request.</p>
+
+    </div>
+
   </main>
-
-  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
-  <footer class="footer">
-      <div class="footer-links">
-          <a href="../index.html" class="footer-link">Home</a>
-          <a href="../index.html#work" class="footer-link">Work</a>
-          <a href="../index.html#about" class="footer-link">About</a>
-      </div>
-      <img src="../images/footer-icon.png" alt="" class="footer-icon">
-      <p class="footer-quote">
-          "This is for everyone going through tough times, been there done that, but everyday above ground is a great day remember that."
-      </p>
-      <div class="footer-socials">
-          <a href="mailto:crystalchiu09@gmail.com" target="_blank" class="footer-social" aria-label="Email">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 7.2865L8.2 11.715C9.2667 12.4769 10.7333 12.4769 11.8 11.715L18 7.28645" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M1 7.28325C1 6.5436 1.39378 5.8621 2.02871 5.5029L9.0287 1.54274C9.6328 1.20102 10.3672 1.20102 10.9713 1.54274L17.9713 5.5029C18.6062 5.8621 19 6.5436 19 7.28325V15.2498C19 16.3746 18.1046 17.2864 17 17.2864H3C1.89543 17.2864 1 16.3746 1 15.2498V7.28325Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/crystalchiu01/" target="_blank" class="footer-social" aria-label="LinkedIn">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2 18H16C17.1046 18 18 17.1046 18 16V2C18 0.89543 17.1046 0 16 0H2C0.89543 0 0 0.89543 0 2V16C0 17.1046 0.89543 18 2 18Z" fill="currentColor"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 15.5H12.8289V10.9505C12.8289 9.70319 12.3549 9.00613 11.3677 9.00613C10.2937 9.00613 9.73252 9.73153 9.73252 10.9505V15.5H7.15833V6.83333H9.73252V8.00073C9.73252 8.00073 10.5065 6.56855 12.3456 6.56855C14.1839 6.56855 15.5 7.69112 15.5 10.0128V15.5ZM4.08734 5.6985C3.21051 5.6985 2.5 4.98241 2.5 4.09925C2.5 3.21609 3.21051 2.5 4.08734 2.5C4.96416 2.5 5.67425 3.21609 5.67425 4.09925C5.67425 4.98241 4.96416 5.6985 4.08734 5.6985ZM2.75814 15.5H5.44235V6.83333H2.75814V15.5Z" fill="white"/>
-              </svg>
-          </a>
-      </div>
-  </footer>
-
-  <script>
-    (function () {
-      // ── Hide-on-scroll nav ──────────────────────────────────────
-      var nav = document.getElementById('site-nav');
-      var lastY = window.scrollY;
-
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY;
-        if (y > lastY && y > 80) {
-          nav.classList.add('nav--hidden');
-        } else {
-          nav.classList.remove('nav--hidden');
-        }
-        lastY = y;
-      }, { passive: true });
-
-      // ── Overlay menu ────────────────────────────────────────────
-      var btn = document.getElementById('menu-btn');
-      var overlay = document.getElementById('overlay');
-      var closeBtn = document.getElementById('overlay-close');
-      var overlayLinks = overlay.querySelectorAll('a');
-
-      function openOverlay() {
-        overlay.classList.add('overlay--open');
-        btn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-        closeBtn.focus();
-      }
-
-      function closeOverlay() {
-        overlay.classList.remove('overlay--open');
-        btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        btn.focus();
-      }
-
-      btn.addEventListener('click', function () {
-        overlay.classList.contains('overlay--open') ? closeOverlay() : openOverlay();
-      });
-
-      closeBtn.addEventListener('click', closeOverlay);
-
-      overlayLinks.forEach(function (link) {
-        link.addEventListener('click', closeOverlay);
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && overlay.classList.contains('overlay--open')) {
-          closeOverlay();
-        }
-      });
-
-      // ── Access gate ─────────────────────────────────────────────
-      var form = document.getElementById('gate-form');
-      var input = document.getElementById('gate-input');
-      var err = document.getElementById('gate-err');
-      var gateSection = document.getElementById('gate-section');
-      var content = document.getElementById('full-content');
-      var ref = atob('d2lzZXRlYW0yMDI0');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (input.value === ref) {
-          gateSection.style.display = 'none';
-          content.classList.add('unlocked');
-          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          err.classList.add('visible');
-          input.value = '';
-          input.focus();
-        }
-      });
-
-      input.addEventListener('input', function () {
-        err.classList.remove('visible');
-      });
-    }());
-  </script>
 
 </body>
 </html>

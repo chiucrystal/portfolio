@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "slug": "content-creator",
+    "title": "Modernising WTA's content authoring experience.",
+    "company": "WiseTech Global",
+    "year": "2025",
+    "team": "2 UX designers, 1 developer",
+    "jumpToSolutionAnchor": "#solution"
+  },
+  "hero": {
+    "imagePath": "assets/cca/hero.png",
+    "imageAlt": "Content Creator interface showing the editing canvas"
+  },
+  "designChallenge": {
+    "intro": "How might we redesign the ",
+    "emphasis": "course authoring experience",
+    "outro": " so creators can build and edit content quickly without needing technical knowledge?"
+  },
+  "tldr": {
+    "problem": "The current tool had accumulated years of technical debt, forcing creators to rely on manual workarounds.",
+    "whatIDid": "I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff.",
+    "whatChanged": "A single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform."
+  },
+  "businessContext": {
+    "bullets": [
+      "The initial brief was to uplift the UX of the existing content creation platform.",
+      "The tool had been worked around so extensively that the workarounds had become the workflow.",
+      "The platform had become a hindrance for editors."
+    ]
+  },
+  "discovery": {
+    "leftColumn": "To understand the current workflow better, we conducted the following activities:\n- Platform audit of the existing tool\n- Context setting interviews with 3 editors",
+    "synthStatement": "The interface treats the main editing canvas as a secondary priority.",
+    "inlineQuote": "\"Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained.\"",
+    "discoveryImages": [
+      {
+        "imagePath": "assets/cca/discovery-canvas.png",
+        "caption": null
+      },
+      {
+        "imagePath": "assets/cca/discovery-widget.png",
+        "caption": null
+      }
+    ],
+    "bullets": [
+      "The canvas doesn't support editing widgets.",
+      "As a result, workarounds were built (like going into the source code) to make simple changes."
+    ]
+  },
+  "testing": {
+    "leftColumn": "I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.\n\nThe 3 core flows tested were:\n- Program set up\n- Adding and editing courses\n- Advanced customisations",
+    "findings": [
+      {
+        "type": "h3",
+        "text": "Users are willing to adapt their workflow, but muscle memory occasionally gets in the way."
+      },
+      {
+        "type": "quote",
+        "text": "\"I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.\""
+      },
+      {
+        "type": "h3",
+        "text": "Users avoided terminology and iconography that felt foreign."
+      },
+      {
+        "type": "quote",
+        "text": "\"I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.\""
+      },
+      {
+        "type": "h3",
+        "text": "Publish and visibility were two different concepts handled in the same place."
+      },
+      {
+        "type": "quote",
+        "text": "\"I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.\""
+      }
+    ]
+  },
+  "solution": {
+    "cards": [
+      {
+        "h3": "Focus is given to the task at hand.",
+        "body": "The right panel was dynamic, surfacing the relevant options for whatever was selected.",
+        "imagePath": "assets/cca/solution-focus.png",
+        "caption": null
+      },
+      {
+        "h3": "Only one level of display settings was kept.",
+        "body": null,
+        "imagePath": "assets/cca/solution-display.png",
+        "caption": null
+      }
+    ]
+  },
+  "results": {
+    "bullets": [
+      "Defined and implemented a new component library to be used in internal tools.",
+      "Positive reception from 11 internal users at launch.",
+      "6 new widgets have been requested and integrated since launch, suggesting creators are working within the tool rather than around it."
+    ]
+  }
+}
