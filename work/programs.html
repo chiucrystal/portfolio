@@ -6,38 +6,6 @@
   <title>Enabling self-serve and scalable program creation — crystal.chiu</title>
   <link rel="stylesheet" href="../tokens.css?v=3">
   <style>
-    /* ─── Nav ─────────────────────────────────────────────────── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background-color: var(--color-bg);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 40px;
-    }
-
-    .nav-logo {
-      text-decoration: none;
-      text-transform: none; /* overrides t-label uppercase */
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--color-body); /* overrides t-h3 color-heading */
-      text-decoration: none;
-      text-transform: none; /* overrides global a uppercase */
-    }
-
     /* ─── Container ──────────────────────────────────────────── */
     .container {
       max-width: 1200px;
@@ -358,14 +326,6 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="../index.html" class="nav-logo t-label">crystal.chiu</a>
-    <ul class="nav-links">
-      <li><a href="../index.html#work" class="t-h3">work</a></li>
-      <li><a href="../index.html#about" class="t-h3">about</a></li>
-      <li><a href="../index.html#resume" class="t-h3">resume</a></li>
-    </ul>
-  </nav>
 
   <main>
 
@@ -526,5 +486,6 @@
     </div>
   </footer>
 
+  <script src="../nav.js"></script>
 </body>
 </html>
