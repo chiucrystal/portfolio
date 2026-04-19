@@ -2,7 +2,7 @@
    CSS Custom Properties
    ========================================== */
 :root {
-    --color-bg: #f7f6f2;
+    --color-bg: #FEFAF6;
     --color-text: #383836;
     --color-accent: #0e89cf;
     --color-highlight: #3fb1f2;
@@ -604,8 +604,14 @@ a {
 .xp-illo {
   position: absolute;
   bottom: 0;
-  left: -120px;
-  max-height: 320px;
+  left: -200px;
+  max-height: 420px;
+}
+
+.xp-inner {
+  position: relative;
+  max-width: 672px;
+  margin: 0 auto;
 }
 
 .xp-section-label {
