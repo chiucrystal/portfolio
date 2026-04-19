@@ -549,6 +549,51 @@ a {
 }
 
 /* ==========================================
+   About Page — Panel
+   ========================================== */
+.about-panel {
+  position: relative;
+  background: #FEFAF6;
+  padding: 64px;
+}
+
+.about-panel-container {
+  width: 100%;
+  max-width: 672px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-tagline {
+  font-style: italic;
+}
+
+.about-panel-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-muted);
+}
+
+.about-illo {
+  position: absolute;
+}
+
+.about-illo--tr {
+  top: 0;
+  right: 0;
+}
+
+.about-illo--bl {
+  bottom: 0;
+  left: 0;
+}
+
+/* ==========================================
    Responsive Adjustments
    ========================================== */
 @media (max-width: 1400px) {
