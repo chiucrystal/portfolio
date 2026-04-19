@@ -1348,3 +1348,17 @@ a {
         font-size: 28px;
     }
 }
+
+/* ==========================================
+   Scroll Reveal
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+}
+
+.reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
