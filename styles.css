@@ -594,6 +594,114 @@ a {
 }
 
 /* ==========================================
+   About — Folder Illustration
+   ========================================== */
+@keyframes fi-jiggle-1 {
+  0%   { rotate: 0deg; }
+  25%  { rotate: -6deg; }
+  50%  { rotate: 5deg; }
+  75%  { rotate: -3deg; }
+  100% { rotate: -12deg; }
+}
+
+@keyframes fi-jiggle-2 {
+  0%   { rotate: 0deg; }
+  25%  { rotate: -6deg; }
+  50%  { rotate: 5deg; }
+  75%  { rotate: -3deg; }
+  100% { rotate: 3deg; }
+}
+
+@keyframes fi-jiggle-3 {
+  0%   { rotate: 0deg; }
+  25%  { rotate: -6deg; }
+  50%  { rotate: 5deg; }
+  75%  { rotate: -3deg; }
+  100% { rotate: 11deg; }
+}
+
+.folder-illo {
+  position: absolute;
+  bottom: 48px;
+  right: 160px;
+  width: 150px;
+  height: 130px;
+  overflow: visible;
+  transform: rotate(3.48deg);
+  transition: transform 0.35s ease-in-out;
+}
+
+.folder-illo:hover {
+  transform: rotate(-10deg) scale(0.9) translateY(-14px);
+}
+
+.fi-bottom,
+.fi-top {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+
+.fi-bottom {
+  z-index: 1;
+}
+
+.fi-top {
+  z-index: 3;
+}
+
+.fi-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 28px;
+  z-index: 2;
+  opacity: 0;
+  translate: 0 6px;
+  scale: 0.85;
+  rotate: 0deg;
+  transition: opacity 0.3s ease-in-out, translate 0.35s ease-in-out, scale 0.35s ease-in-out;
+}
+
+.fi-item--1 {
+  left: calc(50% - 80px);
+}
+
+.fi-item--2 {
+  left: calc(50% - 30px);
+}
+
+.fi-item--3 {
+  left: calc(50% + 20px);
+}
+
+.folder-illo:hover .fi-item {
+  opacity: 1;
+  scale: 1;
+  z-index: 4;
+}
+
+.folder-illo:hover .fi-item--1 {
+  translate: 0 -110px;
+  transition-delay: 0ms;
+  animation: fi-jiggle-1 0.45s ease-in-out 0ms forwards;
+}
+
+.folder-illo:hover .fi-item--2 {
+  translate: 0 -128px;
+  transition-delay: 80ms;
+  animation: fi-jiggle-2 0.45s ease-in-out 80ms forwards;
+}
+
+.folder-illo:hover .fi-item--3 {
+  translate: 0 -110px;
+  transition-delay: 160ms;
+  animation: fi-jiggle-3 0.45s ease-in-out 160ms forwards;
+}
+
+/* ==========================================
    Responsive Adjustments
    ========================================== */
 @media (max-width: 1400px) {
