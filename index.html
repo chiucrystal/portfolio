@@ -19,6 +19,11 @@
                 <h1 class="hero-name">
                     <span class="name-line">
                         <span class="name-crystal-wrap">
+                            <div class="context-menu">
+                                <span class="context-menu-item">based in sydney</span>
+                                <span class="context-menu-divider"></span>
+                                <span class="context-menu-item">currently @ wisetech global</span>
+                            </div>
                             <img src="assets/highlight.svg" class="crystal-selection-svg" alt="">
                             <span class="name-crystal">crystal</span>
                         </span>
@@ -197,5 +202,22 @@
         </div>
     </footer>
   <script src="nav.js"></script>
+  <script>
+    const crystalWrap = document.querySelector('.name-crystal-wrap');
+    const menu = crystalWrap.querySelector('.context-menu');
+
+    crystalWrap.addEventListener('mouseenter', () => {
+      crystalWrap.classList.remove('is-leaving');
+      crystalWrap.classList.add('is-visible');
+    });
+
+    crystalWrap.addEventListener('mouseleave', () => {
+      crystalWrap.classList.remove('is-visible');
+      crystalWrap.classList.add('is-leaving');
+      menu.addEventListener('animationend', () => {
+        crystalWrap.classList.remove('is-leaving');
+      }, { once: true });
+    });
+  </script>
 </body>
 </html>
