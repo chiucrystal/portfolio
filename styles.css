@@ -289,10 +289,53 @@ a {
 
 .work-card--active {
     border: 3px solid #CAE3F6;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out, border-color 200ms ease-in-out;
+}
+
+.work-card--active:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 4px 4px 0px 0px #3FB1F2;
+    border-color: #0363AD;
 }
 
 .work-card--soon {
     border: 3px solid #E9E9E9;
+}
+
+.work-card-thumb-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.work-card--soon .work-card-thumb {
+    filter: grayscale(1);
+}
+
+.cs-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(53, 43, 43, 0.5);
+    backdrop-filter: blur(4px);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 450ms cubic-bezier(0.4, 0, 0.2, 1), opacity 450ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-card--soon:hover .cs-overlay {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.cs-overlay-text {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 28px;
+    letter-spacing: -1.12px;
+    color: #FFFFFF;
 }
 
 .work-card-thumb {

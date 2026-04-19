@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "slug": "dedoco",
+    "title": "Rethinking secure digital document signing.",
+    "company": "Dedoco",
+    "year": "2023",
+    "team": "1 designer, 1 PM, 8 engineers",
+    "jumpToSolutionAnchor": null
+  },
+  "hero": {
+    "imagePath": "assets/dedoco/thumbnail-1.png",
+    "imageAlt": "dSign mobile signing interface"
+  },
+  "designChallenge": {
+    "intro": "How might we ",
+    "emphasis": "reduce drop-off rates in a digital signing flow",
+    "outro": " , while bringing the product in line with a brand built around trust?"
+  },
+  "tldr": {
+    "problem": "Dedoco's signing flow was causing users to drop off mid-process and driving up support load, while the visual design no longer reflected the brand.",
+    "whatIDid": "I led design end-to-end to deliver dSign, from supplementary research through to shipping a redesigned flow with a new component library.",
+    "whatChanged": "Drop-off mid-signing reduced, support tickets decreased, and the product shipped with a visual identity that could hold up to a Singaporean bank contract."
+  },
+  "businessContext": {
+    "bullets": [
+      "User drop-off mid-signing was generating support tickets and eroding confidence in the product.",
+      "A full rebrand was underway, requiring the product UI to catch up to the new visual identity.",
+      "Dedoco was actively pursuing a contract with a Singaporean bank, raising the stakes on first impressions."
+    ]
+  },
+  "screens": [
+    {
+      "imagePath": "assets/dedoco/mobile.png",
+      "imageAlt": "dSign mobile signing interface"
+    },
+    {
+      "imagePath": "assets/dedoco/solution-1.png",
+      "imageAlt": "dSign redesigned signing flow"
+    }
+  ],
+  "closingNote": "A detailed walkthrough is available on request."
+}
