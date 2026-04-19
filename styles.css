@@ -594,6 +594,61 @@ a {
 }
 
 /* ==========================================
+   About — Experience & Education Sections
+   ========================================== */
+.xp-section {
+  position: relative;
+  padding: 64px;
+}
+
+.xp-illo {
+  position: absolute;
+  bottom: 0;
+  left: -120px;
+  max-height: 320px;
+}
+
+.xp-section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+.xp-entry {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.xp-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.xp-company {
+  /* inherits h2 token: DM Sans Light 28px, --color-heading */
+}
+
+.xp-date {
+  font-family: 'DM Mono', monospace;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: -0.04em;
+  color: var(--color-muted);
+}
+
+.xp-detail {
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--color-body);
+}
+
+/* ==========================================
    About — Folder Illustration
    ========================================== */
 @keyframes fi-jiggle-1 {
