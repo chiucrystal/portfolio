@@ -558,6 +558,7 @@ a {
 }
 
 .about-panel-container {
+  position: relative;
   width: 100%;
   max-width: 672px;
   margin: 0 auto;
@@ -683,8 +684,8 @@ a {
 
 .folder-illo {
   position: absolute;
-  bottom: 48px;
-  right: 160px;
+  bottom: 0;
+  right: -200px;
   width: 150px;
   height: 130px;
   overflow: visible;
