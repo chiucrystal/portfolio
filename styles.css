@@ -156,6 +156,19 @@ a {
 }
 
 /* ==========================================
+   Hero Collage
+   ========================================== */
+.hero-collage {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+}
+
+/* ==========================================
    Sandwich Animation
    ========================================== */
 .sandwich-container {
@@ -164,7 +177,7 @@ a {
     top: 267px;
     width: 560px;
     height: 667px;
-    z-index: 5;
+    z-index: 0;
 }
 
 .sandwich {
@@ -191,7 +204,6 @@ a {
     transition: transform 0.35s var(--transition-bounce);
 }
 
-/* Individual layer positioning */
 .toast-bottom {
     width: 352px;
     z-index: 1;
@@ -222,7 +234,6 @@ a {
     transform: translate(-50%, -52%) rotate(-10.33deg);
 }
 
-/* Layer expansion on hover */
 .sandwich:hover .toast-top {
     transform: translate(-75%, -65%) rotate(-15.33deg);
 }
@@ -239,7 +250,6 @@ a {
     transform: translate(-50%, -58%) rotate(0deg);
 }
 
-/* Photo frame - hidden under toast-top by default, pops out on hover */
 .photo-frame {
     width: 315px;
     z-index: 3;
@@ -250,68 +260,6 @@ a {
 .sandwich:hover .photo-frame {
     transform: translate(-50%, -180%) rotate(-4.76deg);
     transition: transform 0.35s var(--transition-bounce);
-}
-
-/* ==========================================
-   Decorative Elements
-   ========================================== */
-.deco {
-    position: absolute;
-    pointer-events: none;
-}
-
-.notebook {
-    right: 100px;
-    top: 180px;
-    width: 724px;
-    transform: rotate(8.29deg);
-    opacity: 0.8;
-}
-
-.coffee-stain {
-    right: 145px;
-    top: 290px;
-    width: 149px;
-}
-
-.not-robot {
-    right: 33px;
-    top: 598px;
-    width: 239px;
-    transform: rotate(-5.62deg);
-}
-
-.tape {
-    right: 255px;
-    top: 585px;
-    width: 44px;
-    transform: rotate(46.21deg);
-}
-
-.ipod {
-    right: 247px;
-    top: 280px;
-    width: 170px;
-    transform: rotate(13.04deg);
-}
-
-.postit {
-    right: 196px;
-    top: 87px;
-    width: 176px;
-    transform: rotate(-17.73deg);
-}
-
-.smiski {
-    right: 266px;
-    top: 290px;
-    width: 92px;
-}
-
-.discoball {
-    right: 333px;
-    top: 128px;
-    width: 159px;
 }
 
 /* ==========================================
