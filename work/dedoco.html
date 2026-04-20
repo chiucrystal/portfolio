@@ -375,6 +375,62 @@
       width: 24px;
       height: 24px;
     }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .challenge-tldr,
+      .business-context,
+      .discovery,
+      .testing,
+      .solution,
+      .results,
+      .screens {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .challenge-col,
+      .tldr-col,
+      .business-context-label,
+      .business-context-bullets,
+      .discovery-left,
+      .discovery-right,
+      .testing-left,
+      .testing-right,
+      .solution-left,
+      .solution-cards,
+      .results-left,
+      .results-bullets,
+      .screens-label,
+      .screens-gallery {
+        flex: none;
+        width: 100%;
+      }
+      .challenge-col {
+        box-shadow: 4px 4px 0 #FBD916;
+      }
+      .solution-card {
+        box-shadow: 3px 3px 0 0 #62B61B;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -442,7 +498,7 @@
         </div>
       </div>
 
-      <p class="closing-note">A detailed walkthrough is available on request.</p>
+      <p class="closing-note">This project is currently under a NDA. A detailed walkthrough is available on request.</p>
 
     </div>
 
