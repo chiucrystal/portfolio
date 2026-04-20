@@ -1,2 +1,17 @@
 [build]
   publish = "."
+
+[[redirects]]
+  from = "/work/programs"
+  to = "/work/programs.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/content-creator"
+  to = "/work/content-creator.html"
+  status = 200
+
+[[redirects]]
+  from = "/work/dedoco"
+  to = "/work/dedoco.html"
+  status = 200
