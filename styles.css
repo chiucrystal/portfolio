@@ -1392,6 +1392,46 @@ a {
 }
 
 /* ==========================================
+   Home — Work / Experience / Education Responsive
+   ========================================== */
+@media (max-width: 768px) {
+    .work-section {
+        padding: 24px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-panel {
+        padding: 40px;
+    }
+
+    .xp-section {
+        padding: 40px;
+    }
+
+    .folder-illo,
+    .xp-illo {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .work-section {
+        padding: 24px 16px;
+    }
+
+    .about-panel {
+        padding: 40px;
+    }
+
+    .xp-section {
+        padding: 40px;
+    }
+}
+
+/* ==========================================
    Scroll Reveal
    ========================================== */
 .reveal {
