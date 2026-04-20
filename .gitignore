@@ -1,0 +1,6 @@
+.DS_Store
+*.pre-update
+*.old.html
+*.old.css
+download-images.sh
+update-paths.sh
