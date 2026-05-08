@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enabling self-serve and scalable program creation — crystal.chiu</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
-  <link rel="stylesheet" href="../tokens.css?v=3">
+  <link rel="stylesheet" href="../tokens.css?v=4">
   <style>
     /* ─── Container ──────────────────────────────────────────── */
     .container {
@@ -16,7 +16,7 @@
 
     /* ─── Title block ─────────────────────────────────────────── */
     .title-block {
-      padding-top: 48px;
+      padding-top: 160px;
     }
 
     .title-block h1 {
@@ -32,12 +32,12 @@
     /* ─── Challenge + TL;DR ──────────────────────────────────── */
     .challenge-tldr {
       display: flex;
-      gap: 4%;
+      flex-direction: column;
+      gap: 32px;
       padding-top: 64px;
     }
 
     .challenge-col {
-      flex: 0 0 38%;
       border: 2px solid var(--color-link);
       padding: 24px;
       background-color: #FFFEFB;
@@ -49,13 +49,16 @@
       margin-bottom: 16px;
     }
 
+    .challenge-col h2 {
+      margin-bottom: 16px;
+    }
+
     .challenge-col h2 em {
       font-style: italic;
       text-decoration: underline;
     }
 
     .tldr-col {
-      flex: 0 0 58%;
     }
 
     .tldr-col .t-label {
@@ -79,7 +82,7 @@
     .business-context {
       display: flex;
       gap: 4%;
-      padding-top: 80px;
+      padding-top: 160px;
     }
 
     .business-context-label {
@@ -92,18 +95,23 @@
     }
 
     .business-context-bullets li {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     .business-context-bullets li:last-child {
       margin-bottom: 0;
     }
 
+    .business-context-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
     /* ─── Discovery and Research ──────────────────────────────── */
     .discovery {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .discovery-left {
@@ -139,7 +147,7 @@
     .testing {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .testing-left {
@@ -174,7 +182,7 @@
     .solution {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .solution-left {
@@ -220,7 +228,7 @@
     .results {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .results-left {
@@ -376,6 +384,31 @@
         padding: 0 24px;
       }
     }
+
+    /* ─── Left column muted text ────────────────────────────── */
+    .business-context-label p,
+    .discovery-left p,
+    .testing-left p,
+    .solution-left p,
+    .results-left p {
+      color: var(--color-muted);
+    }
+
+    .testing-left ul li {
+      color: var(--color-body);
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -401,34 +434,24 @@
 
         <div class="challenge-col">
           <span class="t-label">The design challenge</span>
-          <h2>How might we build a <em>self-serve program creation</em> interface on a platform held together by manual processes and hardcoded configuration?</h2>
+          <h2>Program setup took up to 3 weeks and required a developer to hard-code every configuration and change.</h2>
+          <p>I led design end-to-end as the sole designer, from research through handoff. The result was a self-serve creation interface that removed the developer dependency entirely and informed interaction patterns for long, complex forms across WiseTech Academy.</p>
         </div>
 
-        <div class="tldr-col">
-          <span class="t-label">The tldr;</span>
-          <div class="tldr-item">
-            <p class="tldr-label">Problem:</p>
-            <p>Program setup took up to 3 weeks and required a developer to hard-code every configuration.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What I did:</p>
-            <p>I led design end-to-end as the sole designer, from research through handoff.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What changed:</p>
-            <p>The result was a self-serve creation interface that removed the dev dependency entirely.</p>
-          </div>
-        </div>
 
       </div>
 
       <div class="business-context">
         <div class="business-context-label">
-          <span class="t-label">Business context</span>
+          <span class="t-label">Why now?</span>
         </div>
         <ul class="business-context-bullets">
-          <li class="t-default">Hardcoded configuration, 3-week turnaround per program.</li>
-          <li class="t-default">Product support and development team absorbing the overhead.</li>
+          <li class="t-default">The process of creating a program took around 3 weeks:
+            <ul>
+              <li class="t-default">Filling in a 3-tab spreadsheet → prioritisation by the product team → hardcoding by developers → SME review → then finally publishing.</li>
+            </ul>
+          </li>
+          <li class="t-default">Product support and development team absorbing the overhead throughout the process.</li>
           <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
         </ul>
       </div>

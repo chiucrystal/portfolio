@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modernising WTA's content authoring experience. — crystal.chiu</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
-  <link rel="stylesheet" href="../tokens.css?v=3">
+  <link rel="stylesheet" href="../tokens.css?v=4">
   <style>
     /* ─── Container ──────────────────────────────────────────── */
     .container {
@@ -29,7 +29,7 @@
 
     /* ─── Title block ─────────────────────────────────────────── */
     .title-block {
-      padding-top: 48px;
+      padding-top: 160px;
     }
 
     .title-block h1 {
@@ -45,12 +45,12 @@
     /* ─── Challenge + TL;DR ──────────────────────────────────── */
     .challenge-tldr {
       display: flex;
-      gap: 4%;
+      flex-direction: column;
+      gap: 32px;
       padding-top: 64px;
     }
 
     .challenge-col {
-      flex: 0 0 38%;
       border: 2px solid var(--color-link);
       padding: 24px;
       background-color: #FFFEFB;
@@ -62,13 +62,16 @@
       margin-bottom: 16px;
     }
 
+    .challenge-col h2 {
+      margin-bottom: 16px;
+    }
+
     .challenge-col h2 em {
       font-style: italic;
       text-decoration: underline;
     }
 
     .tldr-col {
-      flex: 0 0 58%;
     }
 
     .tldr-col .t-label {
@@ -92,7 +95,7 @@
     .business-context {
       display: flex;
       gap: 4%;
-      padding-top: 80px;
+      padding-top: 160px;
     }
 
     .business-context-label {
@@ -116,7 +119,7 @@
     .discovery {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .discovery-left {
@@ -175,7 +178,7 @@
     .testing {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .testing-left {
@@ -210,7 +213,7 @@
     .solution {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .solution-left {
@@ -256,7 +259,7 @@
     .results {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .results-left {
@@ -400,6 +403,27 @@
         padding: 0 24px;
       }
     }
+
+    /* ─── Left column muted text ────────────────────────────── */
+    .business-context-label p,
+    .discovery-left p,
+    .testing-left p,
+    .solution-left p,
+    .results-left p {
+      color: var(--color-muted);
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -428,27 +452,12 @@
           <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
         </div>
 
-        <div class="tldr-col">
-          <span class="t-label">The tldr;</span>
-          <div class="tldr-item">
-            <p class="tldr-label">Problem:</p>
-            <p>The current tool had accumulated years of technical debt, forcing creators to rely on manual workarounds.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What I did:</p>
-            <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What changed:</p>
-            <p>A single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
-          </div>
-        </div>
 
       </div>
 
       <div class="business-context">
         <div class="business-context-label">
-          <span class="t-label">Business context</span>
+          <span class="t-label">Why now?</span>
         </div>
         <ul class="business-context-bullets">
           <li class="t-default">The initial brief was to uplift the UX of the existing content creation platform.</li>
