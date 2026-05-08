@@ -240,16 +240,22 @@
     }
 
     /* ─── Testing ────────────────────────────────────────────── */
-    .testing {
-      padding-top: 160px;
+    .testing-section {
+      background-color: rgba(131, 125, 125, 0.05);
+      border: none;
+      margin-top: 160px;
+      padding: 80px 0;
     }
 
-    .testing-box {
+    .testing-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .testing {
       display: flex;
       gap: 4%;
-      padding: 16px;
-      background: rgba(131, 125, 125, 0.03);
-      border: 1px solid rgba(131, 125, 125, 0.30);
     }
 
     .testing-left {
@@ -491,7 +497,7 @@
       <div class="title-block">
         <h1 class="t-display">Modernising WTA's content authoring experience.</h1>
         <div class="meta-row">
-          <span class="t-label">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
+          <span class="t-label-sm">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
           <a href="#solution" class="t-link">Jump to solution</a>
         </div>
       </div>
@@ -500,21 +506,6 @@
         <div class="challenge-col">
           <span class="t-label">The design challenge</span>
           <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
-        </div>
-        <div class="tldr-col">
-          <span class="t-label">The tldr;</span>
-          <div class="tldr-item">
-            <p class="tldr-label">Problem:</p>
-            <p>The current tool had accumulated years of technical debt, forcing creators to rely on manual workarounds.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What I did:</p>
-            <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff.</p>
-          </div>
-          <div class="tldr-item">
-            <p class="tldr-label">What changed:</p>
-            <p>A single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
-          </div>
         </div>
       </div>
 
@@ -546,24 +537,27 @@
         </div>
       </div>
 
-      <div class="testing">
-        <div class="testing-box">
+    </div>
+
+    <section class="testing-section reveal">
+      <div class="testing-inner">
+        <div class="testing">
           <div class="testing-left">
             <span class="t-label">What Testing Revealed</span>
-            <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
-          <p>The 3 core flows tested were:</p>
-          <ul><li class="t-default">Program set up</li><li class="t-default">Adding and editing courses</li><li class="t-default">Advanced customisations</li></ul>
           </div>
           <div class="testing-right">
             <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
-          <div class="quote-block">&quot;I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.&quot;</div>
-          <h3>Users avoided terminology and iconography that felt foreign.</h3>
-          <div class="quote-block">&quot;I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.&quot;</div>
-          <h3>Publish and visibility were two different concepts handled in the same place.</h3>
-          <div class="quote-block">&quot;I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.&quot;</div>
+            <div class="quote-block">&quot;I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.&quot;</div>
+            <h3>Users avoided terminology and iconography that felt foreign.</h3>
+            <div class="quote-block">&quot;I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.&quot;</div>
+            <h3>Publish and visibility were two different concepts handled in the same place.</h3>
+            <div class="quote-block">&quot;I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.&quot;</div>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="container">
 
       <div id="solution" class="solution">
         <div class="solution-left">
