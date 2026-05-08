@@ -99,20 +99,25 @@
     }
 
     .business-context-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .business-context-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
     .business-context-bullets li {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     .business-context-bullets li:last-child {
       margin-bottom: 0;
+    }
+
+    .business-context-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
     }
 
     /* ─── Discovery ──────────────────────────────────────────── */
@@ -123,7 +128,7 @@
     }
 
     .discovery-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .discovery-left .t-label {
@@ -144,7 +149,7 @@
     }
 
     .discovery-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
     }
 
     .discovery-synth {
@@ -174,15 +179,81 @@
       margin-bottom: 0;
     }
 
-    /* ─── Testing ────────────────────────────────────────────── */
-    .testing {
+    /* ─── Wireframing and Concepts ──────────────────────────── */
+    .wireframing {
       display: flex;
       gap: 4%;
       padding-top: 160px;
     }
 
+    .wireframing-left {
+      flex: 0 0 25%;
+    }
+
+    .wireframing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .wireframing-left p {
+      margin-bottom: 12px;
+    }
+
+    .wireframing-left ul {
+      padding-left: 20px;
+    }
+
+    .wireframing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .wireframing-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wireframing-card {
+      border: 2px solid #FF6CD3;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #FF6CD3;
+    }
+
+    .wireframing-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-card p {
+      margin-bottom: 16px;
+    }
+
+    .wireframing-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .wireframing-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #FFE8F8;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      padding-top: 160px;
+    }
+
+    .testing-box {
+      display: flex;
+      gap: 4%;
+      padding: 16px;
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
     .testing-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .testing-left .t-label {
@@ -203,7 +274,7 @@
     }
 
     .testing-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -217,7 +288,7 @@
     }
 
     .solution-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .solution-left .t-label {
@@ -225,7 +296,7 @@
     }
 
     .solution-cards {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -263,7 +334,7 @@
     }
 
     .results-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .results-left .t-label {
@@ -271,7 +342,7 @@
     }
 
     .results-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
@@ -291,11 +362,11 @@
     }
 
     .screens-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .screens-gallery {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -380,70 +451,18 @@
       height: 24px;
     }
 
-    /* ─── Responsive ─────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 24px;
-      }
-      .hero img {
-        max-height: 300px;
-      }
-      .title-block {
-        padding-top: 32px;
-      }
-      .meta-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .challenge-tldr,
-      .business-context,
-      .discovery,
-      .testing,
-      .solution,
-      .results,
-      .screens {
-        flex-direction: column;
-        gap: 24px;
-      }
-      .challenge-col,
-      .tldr-col,
-      .business-context-label,
-      .business-context-bullets,
-      .discovery-left,
-      .discovery-right,
-      .testing-left,
-      .testing-right,
-      .solution-left,
-      .solution-cards,
-      .results-left,
-      .results-bullets,
-      .screens-label,
-      .screens-gallery {
-        flex: none;
-        width: 100%;
-      }
-      .challenge-col {
-        box-shadow: 4px 4px 0 #FBD916;
-      }
-      .solution-card {
-        box-shadow: 3px 3px 0 0 #62B61B;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .container {
-        padding: 0 24px;
-      }
-    }
-
     /* ─── Left column muted text ────────────────────────────── */
     .business-context-label p,
     .discovery-left p,
+    .wireframing-left p,
     .testing-left p,
     .solution-left p,
-    .results-left p,
-    .screens-label p {
+    .results-left p {
       color: var(--color-muted);
+    }
+
+    .testing-left ul li {
+      color: var(--color-body);
     }
 
     /* ─── Scroll reveal ──────────────────────────────────────── */
@@ -482,6 +501,21 @@
           <span class="t-label">The design challenge</span>
           <h2>How might we <em>reduce drop-off rates in a digital signing flow</em> , while bringing the product in line with a brand built around trust?</h2>
         </div>
+        <div class="tldr-col">
+          <span class="t-label">The tldr;</span>
+          <div class="tldr-item">
+            <p class="tldr-label">Problem:</p>
+            <p>Dedoco's signing flow was causing users to drop off mid-process and driving up support load, while the visual design no longer reflected the brand.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What I did:</p>
+            <p>I led design end-to-end to deliver dSign, from supplementary research through to shipping a redesigned flow with a new component library.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What changed:</p>
+            <p>Drop-off mid-signing reduced, support tickets decreased, and the product shipped with a visual identity that could hold up to a Singaporean bank contract.</p>
+          </div>
+        </div>
       </div>
 
       <div class="business-context">
@@ -509,7 +543,7 @@
         </div>
       </div>
 
-      <p class="closing-note">This project is currently under a NDA. A detailed walkthrough is available on request.</p>
+      <p class="closing-note">A detailed walkthrough is available on request.</p>
 
     </div>
 
@@ -519,9 +553,9 @@
     <div class="container">
       <div class="footer-inner">
         <nav class="footer-nav">
-          <a href="/#home" class="t-link">Home</a>
-          <a href="/#work" class="t-link">Work</a>
-          <a href="/#about" class="t-link">About</a>
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
         </nav>
         <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
         <p class="t-default footer-quote">

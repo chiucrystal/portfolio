@@ -99,20 +99,25 @@
     }
 
     .business-context-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .business-context-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
     .business-context-bullets li {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     .business-context-bullets li:last-child {
       margin-bottom: 0;
+    }
+
+    .business-context-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
     }
 
     /* ─── Discovery ──────────────────────────────────────────── */
@@ -123,7 +128,7 @@
     }
 
     .discovery-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .discovery-left .t-label {
@@ -144,7 +149,7 @@
     }
 
     .discovery-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
     }
 
     .discovery-synth {
@@ -174,15 +179,81 @@
       margin-bottom: 0;
     }
 
-    /* ─── Testing ────────────────────────────────────────────── */
-    .testing {
+    /* ─── Wireframing and Concepts ──────────────────────────── */
+    .wireframing {
       display: flex;
       gap: 4%;
       padding-top: 160px;
     }
 
+    .wireframing-left {
+      flex: 0 0 25%;
+    }
+
+    .wireframing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .wireframing-left p {
+      margin-bottom: 12px;
+    }
+
+    .wireframing-left ul {
+      padding-left: 20px;
+    }
+
+    .wireframing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .wireframing-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wireframing-card {
+      border: 2px solid #FF6CD3;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #FF6CD3;
+    }
+
+    .wireframing-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-card p {
+      margin-bottom: 16px;
+    }
+
+    .wireframing-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .wireframing-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #FFE8F8;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      padding-top: 160px;
+    }
+
+    .testing-box {
+      display: flex;
+      gap: 4%;
+      padding: 16px;
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
     .testing-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .testing-left .t-label {
@@ -203,7 +274,7 @@
     }
 
     .testing-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -217,7 +288,7 @@
     }
 
     .solution-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .solution-left .t-label {
@@ -225,7 +296,7 @@
     }
 
     .solution-cards {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -263,7 +334,7 @@
     }
 
     .results-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .results-left .t-label {
@@ -271,7 +342,7 @@
     }
 
     .results-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
@@ -283,7 +354,36 @@
       margin-bottom: 0;
     }
 
-    .results-note {
+    /* ─── Screens ────────────────────────────────────────────── */
+    .screens {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .screens-label {
+      flex: 0 0 25%;
+    }
+
+    .screens-gallery {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .screen-figure {
+      margin: 0;
+    }
+
+    .screen-figure img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--color-border, #e0ddd6);
+    }
+
+    /* ─── Closing note ───────────────────────────────────────── */
+    .closing-note {
       padding-top: 48px;
       padding-bottom: 80px;
       font-style: italic;
@@ -351,66 +451,18 @@
       height: 24px;
     }
 
-    /* ─── Responsive ─────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 24px;
-      }
-      .hero img {
-        max-height: 300px;
-      }
-      .title-block {
-        padding-top: 32px;
-      }
-      .meta-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .challenge-tldr,
-      .business-context,
-      .discovery,
-      .testing,
-      .solution,
-      .results {
-        flex-direction: column;
-        gap: 24px;
-      }
-      .challenge-col,
-      .tldr-col,
-      .business-context-label,
-      .business-context-bullets,
-      .discovery-left,
-      .discovery-right,
-      .testing-left,
-      .testing-right,
-      .solution-left,
-      .solution-cards,
-      .results-left,
-      .results-bullets {
-        flex: none;
-        width: 100%;
-      }
-      .challenge-col {
-        box-shadow: 4px 4px 0 #FBD916;
-      }
-      .solution-card {
-        box-shadow: 3px 3px 0 0 #62B61B;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .container {
-        padding: 0 24px;
-      }
-    }
-
     /* ─── Left column muted text ────────────────────────────── */
     .business-context-label p,
     .discovery-left p,
+    .wireframing-left p,
     .testing-left p,
     .solution-left p,
     .results-left p {
       color: var(--color-muted);
+    }
+
+    .testing-left ul li {
+      color: var(--color-body);
     }
 
     /* ─── Scroll reveal ──────────────────────────────────────── */
@@ -427,7 +479,6 @@
   </style>
 </head>
 <body>
-
 
   <main>
 
@@ -446,13 +497,25 @@
       </div>
 
       <div class="challenge-tldr">
-
         <div class="challenge-col">
           <span class="t-label">The design challenge</span>
           <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
         </div>
-
-
+        <div class="tldr-col">
+          <span class="t-label">The tldr;</span>
+          <div class="tldr-item">
+            <p class="tldr-label">Problem:</p>
+            <p>The current tool had accumulated years of technical debt, forcing creators to rely on manual workarounds.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What I did:</p>
+            <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff.</p>
+          </div>
+          <div class="tldr-item">
+            <p class="tldr-label">What changed:</p>
+            <p>A single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
+          </div>
+        </div>
       </div>
 
       <div class="business-context">
@@ -470,61 +533,55 @@
         <div class="discovery-left">
           <span class="t-label">Discovery and Research</span>
           <p>To understand the current workflow better, we conducted the following activities:</p>
-          <ul>
-            <li class="t-default">Platform audit of the existing tool</li>
-            <li class="t-default">Context setting interviews with 3 editors</li>
-          </ul>
+          <ul><li class="t-default">Platform audit of the existing tool</li><li class="t-default">Context setting interviews with 3 editors</li></ul>
         </div>
         <div class="discovery-right">
-          <h3 class="discovery-synth">The interface treats the main editing canvas as a secondary priority.</h3>
-          <div class="quote-block discovery-quote">"Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained."</div>
+          <h3 class="discovery-synth">The interface treats the main editing canvas as a secondary priority.</h3><div class="quote-block discovery-quote">&quot;Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained.&quot;</div>
           <img class="discovery-img" src="assets/cca/discovery-canvas.png" alt="">
-          <h3 class="discovery-synth">The canvas doesn't support editing widgets.</h3>
+          <img class="discovery-img" src="assets/cca/discovery-widget.png" alt="">
           <ul class="discovery-bullets">
+            <li class="t-default">The canvas doesn't support editing widgets.</li>
             <li class="t-default">As a result, workarounds were built (like going into the source code) to make simple changes.</li>
           </ul>
-          <img class="discovery-img" src="assets/cca/discovery-widget.png" alt="">
         </div>
       </div>
 
       <div class="testing">
-        <div class="testing-left">
-          <span class="t-label">What Testing Revealed</span>
-          <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
+        <div class="testing-box">
+          <div class="testing-left">
+            <span class="t-label">What Testing Revealed</span>
+            <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
           <p>The 3 core flows tested were:</p>
-          <ul>
-            <li class="t-default">Program set up</li>
-            <li class="t-default">Adding and editing courses</li>
-            <li class="t-default">Advanced customisations</li>
-          </ul>
-        </div>
-        <div class="testing-right">
-          <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
-          <div class="quote-block">"I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it."</div>
+          <ul><li class="t-default">Program set up</li><li class="t-default">Adding and editing courses</li><li class="t-default">Advanced customisations</li></ul>
+          </div>
+          <div class="testing-right">
+            <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
+          <div class="quote-block">&quot;I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.&quot;</div>
           <h3>Users avoided terminology and iconography that felt foreign.</h3>
-          <div class="quote-block">"I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them."</div>
+          <div class="quote-block">&quot;I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.&quot;</div>
           <h3>Publish and visibility were two different concepts handled in the same place.</h3>
-          <div class="quote-block">"I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page."</div>
+          <div class="quote-block">&quot;I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.&quot;</div>
+          </div>
         </div>
       </div>
 
       <div id="solution" class="solution">
         <div class="solution-left">
-          <span class="t-label">Solution</span>
+          <span class="t-label">Decisions</span>
         </div>
         <div class="solution-cards">
-
           <div class="solution-card">
             <h3>Focus is given to the task at hand.</h3>
             <p>The right panel was dynamic, surfacing the relevant options for whatever was selected.</p>
-            <img src="assets/cca/solution-focus.png" alt="Focus is given to the task at hand">
+            <img src="assets/cca/solution-focus.png" alt="Focus is given to the task at hand.">
+            
           </div>
-
           <div class="solution-card">
             <h3>Only one level of display settings was kept.</h3>
-            <img src="assets/cca/solution-display.png" alt="Only one level of display settings was kept">
+            
+            <img src="assets/cca/solution-display.png" alt="Only one level of display settings was kept.">
+            
           </div>
-
         </div>
       </div>
 
@@ -539,8 +596,6 @@
         </ul>
       </div>
 
-      <p class="results-note">A detailed walkthrough is available at request.</p>
-
     </div>
 
   </main>
@@ -549,9 +604,9 @@
     <div class="container">
       <div class="footer-inner">
         <nav class="footer-nav">
-          <a href="/#home" class="t-link">Home</a>
-          <a href="/#work" class="t-link">Work</a>
-          <a href="/#about" class="t-link">About</a>
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
         </nav>
         <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
         <p class="t-default footer-quote">

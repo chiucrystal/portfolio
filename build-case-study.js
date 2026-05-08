@@ -78,6 +78,17 @@ function renderTitleBlock(meta) {
 }
 
 function renderChallengeTldr(dc, tldr) {
+  if (dc.h2) {
+    const summary = dc.summary ? `<p>${esc(dc.summary)}</p>` : '';
+    return `
+      <div class="challenge-tldr">
+        <div class="challenge-col">
+          <span class="t-label">The design challenge</span>
+          <h2>${esc(dc.h2)}</h2>
+          ${summary}
+        </div>
+      </div>`;
+  }
   return `
       <div class="challenge-tldr">
         <div class="challenge-col">
@@ -103,11 +114,17 @@ function renderChallengeTldr(dc, tldr) {
 }
 
 function renderBusinessContext({ bullets }) {
-  const items = bullets.map(b => `<li class="t-default">${esc(b)}</li>`).join('\n          ');
+  const items = bullets.map(b => {
+    if (typeof b === 'string') return `<li class="t-default">${esc(b)}</li>`;
+    const subs = b.subBullets
+      ? `<ul>${b.subBullets.map(s => `<li class="t-default">${esc(s)}</li>`).join('')}</ul>`
+      : '';
+    return `<li class="t-default">${esc(b.text)}${subs}</li>`;
+  }).join('\n          ');
   return `
       <div class="business-context">
         <div class="business-context-label">
-          <span class="t-label">Business context</span>
+          <span class="t-label">Why now?</span>
         </div>
         <ul class="business-context-bullets">
           ${items}
@@ -146,6 +163,31 @@ function renderDiscovery(d) {
       </div>`;
 }
 
+function renderWireframing(w) {
+  const leftHtml = textToHtml(w.leftColumn);
+  const cards = (w.cards || []).map(c => {
+    const body = c.body ? `<p>${esc(c.body)}</p>` : '';
+    const img  = c.imagePath ? `<img src="${esc(c.imagePath)}" alt="${esc(c.h3)}">` : '<div class="wireframing-card-img-placeholder"></div>';
+    return `
+          <div class="wireframing-card">
+            <h3>${esc(c.h3)}</h3>
+            ${body}
+            ${img}
+          </div>`;
+  }).join('');
+
+  return `
+      <div class="wireframing">
+        <div class="wireframing-left">
+          <span class="t-label">Wireframing and Concepts</span>
+          ${leftHtml}
+        </div>
+        <div class="wireframing-cards">
+          ${cards}
+        </div>
+      </div>`;
+}
+
 function renderTesting(t) {
   const leftHtml = textToHtml(t.leftColumn);
   const findings = (t.findings || []).map(f => {
@@ -155,12 +197,14 @@ function renderTesting(t) {
 
   return `
       <div class="testing">
-        <div class="testing-left">
-          <span class="t-label">What Testing Revealed</span>
-          ${leftHtml}
-        </div>
-        <div class="testing-right">
-          ${findings}
+        <div class="testing-box">
+          <div class="testing-left">
+            <span class="t-label">What Testing Revealed</span>
+            ${leftHtml}
+          </div>
+          <div class="testing-right">
+            ${findings}
+          </div>
         </div>
       </div>`;
 }
@@ -184,7 +228,7 @@ function renderSolution(s) {
   return `
       <div${anchor} class="solution">
         <div class="solution-left">
-          <span class="t-label">Solution</span>
+          <span class="t-label">Decisions</span>
         </div>
         <div class="solution-cards">${cards}
         </div>
@@ -238,6 +282,7 @@ sections.push(renderBusinessContext(data.businessContext));
 
 // Optional research sections
 if (data.discovery)       sections.push(renderDiscovery(data.discovery));
+if (data.wireframing)     sections.push(renderWireframing(data.wireframing));
 if (data.testing)         sections.push(renderTesting(data.testing));
 if (data.solution)        sections.push(renderSolution(data.solution));
 if (data.results)         sections.push(renderResults(data.results));
@@ -255,7 +300,8 @@ const html = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(data.meta.title)} — crystal.chiu</title>
-  <link rel="stylesheet" href="../tokens.css?v=3">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../tokens.css?v=4">
   <style>
     /* ─── Container ──────────────────────────────────────────── */
     .container {
@@ -279,7 +325,7 @@ const html = `<!DOCTYPE html>
 
     /* ─── Title block ─────────────────────────────────────────── */
     .title-block {
-      padding-top: 48px;
+      padding-top: 160px;
     }
 
     .title-block h1 {
@@ -295,12 +341,12 @@ const html = `<!DOCTYPE html>
     /* ─── Challenge + TL;DR ──────────────────────────────────── */
     .challenge-tldr {
       display: flex;
-      gap: 4%;
+      flex-direction: column;
+      gap: 32px;
       padding-top: 64px;
     }
 
     .challenge-col {
-      flex: 0 0 38%;
       border: 2px solid var(--color-link);
       padding: 24px;
       background-color: #FFFEFB;
@@ -312,13 +358,16 @@ const html = `<!DOCTYPE html>
       margin-bottom: 16px;
     }
 
+    .challenge-col h2 {
+      margin-bottom: 16px;
+    }
+
     .challenge-col h2 em {
       font-style: italic;
       text-decoration: underline;
     }
 
     .tldr-col {
-      flex: 0 0 58%;
     }
 
     .tldr-col .t-label {
@@ -342,35 +391,40 @@ const html = `<!DOCTYPE html>
     .business-context {
       display: flex;
       gap: 4%;
-      padding-top: 80px;
+      padding-top: 160px;
     }
 
     .business-context-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .business-context-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
     .business-context-bullets li {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     .business-context-bullets li:last-child {
       margin-bottom: 0;
     }
 
+    .business-context-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
     /* ─── Discovery ──────────────────────────────────────────── */
     .discovery {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .discovery-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .discovery-left .t-label {
@@ -391,7 +445,7 @@ const html = `<!DOCTYPE html>
     }
 
     .discovery-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
     }
 
     .discovery-synth {
@@ -421,15 +475,81 @@ const html = `<!DOCTYPE html>
       margin-bottom: 0;
     }
 
-    /* ─── Testing ────────────────────────────────────────────── */
-    .testing {
+    /* ─── Wireframing and Concepts ──────────────────────────── */
+    .wireframing {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
+    }
+
+    .wireframing-left {
+      flex: 0 0 25%;
+    }
+
+    .wireframing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .wireframing-left p {
+      margin-bottom: 12px;
+    }
+
+    .wireframing-left ul {
+      padding-left: 20px;
+    }
+
+    .wireframing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .wireframing-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wireframing-card {
+      border: 2px solid #FF6CD3;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #FF6CD3;
+    }
+
+    .wireframing-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-card p {
+      margin-bottom: 16px;
+    }
+
+    .wireframing-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .wireframing-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #FFE8F8;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      padding-top: 160px;
+    }
+
+    .testing-box {
+      display: flex;
+      gap: 4%;
+      padding: 16px;
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
     }
 
     .testing-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .testing-left .t-label {
@@ -450,7 +570,7 @@ const html = `<!DOCTYPE html>
     }
 
     .testing-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -460,11 +580,11 @@ const html = `<!DOCTYPE html>
     .solution {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .solution-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .solution-left .t-label {
@@ -472,7 +592,7 @@ const html = `<!DOCTYPE html>
     }
 
     .solution-cards {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -506,11 +626,11 @@ const html = `<!DOCTYPE html>
     .results {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .results-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .results-left .t-label {
@@ -518,7 +638,7 @@ const html = `<!DOCTYPE html>
     }
 
     .results-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
@@ -534,15 +654,15 @@ const html = `<!DOCTYPE html>
     .screens {
       display: flex;
       gap: 4%;
-      padding-top: 64px;
+      padding-top: 160px;
     }
 
     .screens-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .screens-gallery {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -626,6 +746,32 @@ const html = `<!DOCTYPE html>
       width: 24px;
       height: 24px;
     }
+
+    /* ─── Left column muted text ────────────────────────────── */
+    .business-context-label p,
+    .discovery-left p,
+    .wireframing-left p,
+    .testing-left p,
+    .solution-left p,
+    .results-left p {
+      color: var(--color-muted);
+    }
+
+    .testing-left ul li {
+      color: var(--color-body);
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -665,6 +811,7 @@ ${containerSections.join('\n')}
   </footer>
 
   <script src="../nav.js"></script>
+  <script src="../scroll-reveal.js"></script>
 </body>
 </html>
 `;

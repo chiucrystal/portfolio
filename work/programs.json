@@ -12,19 +12,18 @@
     "imageAlt": "Programs creation interface showing the Add courses step"
   },
   "designChallenge": {
-    "intro": "How might we build a ",
-    "emphasis": "self-serve program creation",
-    "outro": " interface on a platform held together by manual processes and hardcoded configuration?"
-  },
-  "tldr": {
-    "problem": "Program setup took up to 3 weeks and required a developer to hard-code every configuration.",
-    "whatIDid": "I led design end-to-end as the sole designer, from research through handoff.",
-    "whatChanged": "The result was a self-serve creation interface that removed the dev dependency entirely."
+    "h2": "Program setup took up to 3 weeks and required a developer to hard-code every configuration and change.",
+    "summary": "I led design end-to-end as the sole designer, from research through handoff. The result was a self-serve creation interface that removed the developer dependency entirely and informed interaction patterns for long, complex forms across WiseTech Academy."
   },
   "businessContext": {
     "bullets": [
-      "Hardcoded configuration, 3-week turnaround per program.",
-      "Product support and development team absorbing the overhead.",
+      {
+        "text": "The process of creating a program took around 3 weeks:",
+        "subBullets": [
+          "Filling in a 3-tab spreadsheet → prioritisation by the product team → hardcoding by developers → SME review → then finally publishing."
+        ]
+      },
+      "Product support and development team absorbing the overhead throughout the process.",
       "Expected enterprise client growth made the current process unscalable."
     ]
   },
@@ -37,8 +36,27 @@
       "That risk made admins over-reliant on support rather than acting independently."
     ]
   },
+  "wireframing": {
+    "leftColumn": "I planned and conducted 2 rounds of usability testing via Figma Make prototypes of our initial concept with 8 stakeholders from 3 different teams.\n\nThe 3 core flows tested were:\n- Program set up\n- Adding and editing courses\n- Advanced customisations",
+    "cards": [
+      {
+        "h3": "Progressive disclosure keeps admins focused, not overwhelmed.",
+        "body": "Grouping settings by relevance and surfacing them in stages meant admins could work through configuration without confronting the full complexity of the form at once. Plain language replaced technical labels wherever possible.",
+        "imagePath": "assets/programs/concept-01.png"
+      },
+      {
+        "h3": "Autocomplete and defaults reduce repetitive input on an already long form.",
+        "body": "Most inputs were consistent within the same organisation or domain, so pre-filling where possible reduced the effort required without removing control.",
+        "imagePath": "assets/programs/concept-02.png"
+      },
+      {
+        "h3": "The 'shopping cart' pattern gives admins a live view of cost, duration, and structure as they build.",
+        "body": "Users expressed confusion over how course groups and courses related to each other in the existing spreadsheet. Admins can see the shape and cost of a program without having to mentally reconstruct it from a flat list.",
+        "imagePath": "assets/programs/concept-03.png"
+      }
+    ]
+  },
   "testing": {
-    "leftColumn": "I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.\n\nThe 3 core flows tested were:\n- Program set up\n- Adding and editing courses\n- Advanced customisations",
     "findings": [
       {
         "type": "h3",

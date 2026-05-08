@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enabling self-serve and scalable program creation — crystal.chiu</title>
+  <title>Enabling self-serve and scalable program creation. — crystal.chiu</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="stylesheet" href="../tokens.css?v=4">
   <style>
@@ -12,6 +12,19 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 40px;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      margin-top: 57px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
     }
 
     /* ─── Title block ─────────────────────────────────────────── */
@@ -86,11 +99,11 @@
     }
 
     .business-context-label {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .business-context-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
@@ -107,7 +120,7 @@
       margin-top: 8px;
     }
 
-    /* ─── Discovery and Research ──────────────────────────────── */
+    /* ─── Discovery ──────────────────────────────────────────── */
     .discovery {
       display: flex;
       gap: 4%;
@@ -115,7 +128,7 @@
     }
 
     .discovery-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .discovery-left .t-label {
@@ -123,16 +136,39 @@
       margin-bottom: 16px;
     }
 
+    .discovery-left p {
+      margin-bottom: 12px;
+    }
+
+    .discovery-left ul {
+      padding-left: 20px;
+    }
+
+    .discovery-left ul li {
+      margin-bottom: 4px;
+    }
+
     .discovery-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
     }
 
     .discovery-synth {
+      margin-bottom: 16px;
+    }
+
+    .discovery-quote {
+      margin-bottom: 16px;
+    }
+
+    .discovery-img {
+      display: block;
+      width: 100%;
       margin-bottom: 24px;
     }
 
     .discovery-bullets {
       padding-left: 20px;
+      margin-bottom: 16px;
     }
 
     .discovery-bullets li {
@@ -143,15 +179,81 @@
       margin-bottom: 0;
     }
 
-    /* ─── What Testing Revealed ───────────────────────────────── */
-    .testing {
+    /* ─── Wireframing and Concepts ──────────────────────────── */
+    .wireframing {
       display: flex;
       gap: 4%;
       padding-top: 160px;
     }
 
+    .wireframing-left {
+      flex: 0 0 25%;
+    }
+
+    .wireframing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .wireframing-left p {
+      margin-bottom: 12px;
+    }
+
+    .wireframing-left ul {
+      padding-left: 20px;
+    }
+
+    .wireframing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .wireframing-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wireframing-card {
+      border: 2px solid #FF6CD3;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #FF6CD3;
+    }
+
+    .wireframing-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-card p {
+      margin-bottom: 16px;
+    }
+
+    .wireframing-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .wireframing-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #FFE8F8;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      padding-top: 160px;
+    }
+
+    .testing-box {
+      display: flex;
+      gap: 4%;
+      padding: 16px;
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
     .testing-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .testing-left .t-label {
@@ -172,7 +274,7 @@
     }
 
     .testing-right {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -186,7 +288,7 @@
     }
 
     .solution-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .solution-left .t-label {
@@ -194,7 +296,7 @@
     }
 
     .solution-cards {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -232,7 +334,7 @@
     }
 
     .results-left {
-      flex: 0 0 38%;
+      flex: 0 0 25%;
     }
 
     .results-left .t-label {
@@ -240,7 +342,7 @@
     }
 
     .results-bullets {
-      flex: 0 0 58%;
+      flex: 0 0 71%;
       padding-left: 20px;
     }
 
@@ -252,8 +354,38 @@
       margin-bottom: 0;
     }
 
-    .results-note {
+    /* ─── Screens ────────────────────────────────────────────── */
+    .screens {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .screens-label {
+      flex: 0 0 25%;
+    }
+
+    .screens-gallery {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .screen-figure {
+      margin: 0;
+    }
+
+    .screen-figure img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--color-border, #e0ddd6);
+    }
+
+    /* ─── Closing note ───────────────────────────────────────── */
+    .closing-note {
       padding-top: 48px;
+      padding-bottom: 80px;
       font-style: italic;
       text-align: center;
     }
@@ -319,75 +451,10 @@
       height: 24px;
     }
 
-    /* ─── Hero ────────────────────────────────────────────────── */
-    .hero {
-      margin-top: 57px; /* nav height offset */
-    }
-
-    .hero img {
-      display: block;
-      width: 100%;
-      max-height: 480px;
-      object-fit: cover;
-      object-position: top;
-    }
-
-    /* ─── Responsive ─────────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 24px;
-      }
-      .hero img {
-        max-height: 300px;
-      }
-      .title-block {
-        padding-top: 32px;
-      }
-      .meta-row {
-        flex-direction: column;
-        gap: 8px;
-      }
-      .challenge-tldr,
-      .business-context,
-      .discovery,
-      .testing,
-      .solution,
-      .results {
-        flex-direction: column;
-        gap: 24px;
-      }
-      .challenge-col,
-      .tldr-col,
-      .business-context-label,
-      .business-context-bullets,
-      .discovery-left,
-      .discovery-right,
-      .testing-left,
-      .testing-right,
-      .solution-left,
-      .solution-cards,
-      .results-left,
-      .results-bullets {
-        flex: none;
-        width: 100%;
-      }
-      .challenge-col {
-        box-shadow: 4px 4px 0 #FBD916;
-      }
-      .solution-card {
-        box-shadow: 3px 3px 0 0 #62B61B;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .container {
-        padding: 0 24px;
-      }
-    }
-
     /* ─── Left column muted text ────────────────────────────── */
     .business-context-label p,
     .discovery-left p,
+    .wireframing-left p,
     .testing-left p,
     .solution-left p,
     .results-left p {
@@ -413,7 +480,6 @@
 </head>
 <body>
 
-
   <main>
 
     <section class="hero">
@@ -431,14 +497,11 @@
       </div>
 
       <div class="challenge-tldr">
-
         <div class="challenge-col">
           <span class="t-label">The design challenge</span>
           <h2>Program setup took up to 3 weeks and required a developer to hard-code every configuration and change.</h2>
           <p>I led design end-to-end as the sole designer, from research through handoff. The result was a self-serve creation interface that removed the developer dependency entirely and informed interaction patterns for long, complex forms across WiseTech Academy.</p>
         </div>
-
-
       </div>
 
       <div class="business-context">
@@ -446,11 +509,7 @@
           <span class="t-label">Why now?</span>
         </div>
         <ul class="business-context-bullets">
-          <li class="t-default">The process of creating a program took around 3 weeks:
-            <ul>
-              <li class="t-default">Filling in a 3-tab spreadsheet → prioritisation by the product team → hardcoding by developers → SME review → then finally publishing.</li>
-            </ul>
-          </li>
+          <li class="t-default">The process of creating a program took around 3 weeks:<ul><li class="t-default">Filling in a 3-tab spreadsheet → prioritisation by the product team → hardcoding by developers → SME review → then finally publishing.</li></ul></li>
           <li class="t-default">Product support and development team absorbing the overhead throughout the process.</li>
           <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
         </ul>
@@ -471,53 +530,71 @@
         </div>
       </div>
 
-      <div class="testing">
-        <div class="testing-left">
-          <span class="t-label">What Testing Revealed</span>
-          <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
+      <div class="wireframing">
+        <div class="wireframing-left">
+          <span class="t-label">Wireframing and Concepts</span>
+          <p>I planned and conducted 2 rounds of usability testing via Figma Make prototypes of our initial concept with 8 stakeholders from 3 different teams.</p>
           <p>The 3 core flows tested were:</p>
-          <ul>
-            <li class="t-default">Program set up</li>
-            <li class="t-default">Adding and editing courses</li>
-            <li class="t-default">Advanced customisations</li>
-          </ul>
+          <ul><li class="t-default">Program set up</li><li class="t-default">Adding and editing courses</li><li class="t-default">Advanced customisations</li></ul>
         </div>
-        <div class="testing-right">
-          <h3>Admins arrived with the program already planned, data entry was the last step.</h3>
+        <div class="wireframing-cards">
+          
+          <div class="wireframing-card">
+            <h3>Progressive disclosure keeps admins focused, not overwhelmed.</h3>
+            <p>Grouping settings by relevance and surfacing them in stages meant admins could work through configuration without confronting the full complexity of the form at once. Plain language replaced technical labels wherever possible.</p>
+            <img src="assets/programs/concept-01.png" alt="Progressive disclosure keeps admins focused, not overwhelmed.">
+          </div>
+          <div class="wireframing-card">
+            <h3>Autocomplete and defaults reduce repetitive input on an already long form.</h3>
+            <p>Most inputs were consistent within the same organisation or domain, so pre-filling where possible reduced the effort required without removing control.</p>
+            <img src="assets/programs/concept-02.png" alt="Autocomplete and defaults reduce repetitive input on an already long form.">
+          </div>
+          <div class="wireframing-card">
+            <h3>The 'shopping cart' pattern gives admins a live view of cost, duration, and structure as they build.</h3>
+            <p>Users expressed confusion over how course groups and courses related to each other in the existing spreadsheet. Admins can see the shape and cost of a program without having to mentally reconstruct it from a flat list.</p>
+            <img src="assets/programs/concept-03.png" alt="The 'shopping cart' pattern gives admins a live view of cost, duration, and structure as they build.">
+          </div>
+        </div>
+      </div>
+
+      <div class="testing">
+        <div class="testing-box">
+          <div class="testing-left">
+            <span class="t-label">What Testing Revealed</span>
+            
+          </div>
+          <div class="testing-right">
+            <h3>Admins arrived with the program already planned, data entry was the last step.</h3>
           <h3>The spreadsheet reinforced the wrong mental model for groups and courses.</h3>
           <h3>Admins actively avoided fields that they didn't understand.</h3>
           <h3>Generic help content created over-reliance on PMs and developers for routine decisions.</h3>
+          </div>
         </div>
       </div>
 
       <div id="solution" class="solution">
         <div class="solution-left">
-          <span class="t-label">Solution</span>
+          <span class="t-label">Decisions</span>
         </div>
         <div class="solution-cards">
-
           <div class="solution-card">
             <h3>Surfacing only what was immediately relevant and deferring everything else reflected how admins actually worked.</h3>
             <p>Usability testing revealed that by the time admins reach program configuration, the planning has already happened.</p>
-            <img src="assets/programs/solution-stepper.png" alt="New stepper component">
+            <img src="assets/programs/solution-stepper.png" alt="Surfacing only what was immediately relevant and deferring everything else reflected how admins actually worked.">
             <span class="caption">New stepper component</span>
           </div>
-
-          <!-- TODO: swap for programs-solution-banner.gif -->
           <div class="solution-card">
             <h3>Surface the right information at the moment it's relevant.</h3>
             <p>High-risk actions, particularly around permissions and publishing states, carry consequences that aren't always obvious from the label alone. Inline validation and contextual tooltips, used sparingly, tell users what their action will affect before they commit to it.</p>
-            <img src="assets/programs/solution-banner.gif" alt="Dynamic banner that updates based on the selected permissions combination">
+            <img src="assets/programs/solution-banner.gif" alt="Surface the right information at the moment it's relevant.">
             <span class="caption">Dynamic banner that updates based on the selected permissions combination</span>
           </div>
-
           <div class="solution-card">
             <h3>Making the content hierarchy visible</h3>
             <p>In the spreadsheet, course groups and courses were presented as separate entities. They aren't. Course groups are the structure that holds courses together, not a distinct object alongside them. A two-column layout makes that relationship visible at a glance: groups on one side, the courses that belong to them on the other. What the spreadsheet obscured through separation, the layout resolves through proximity.</p>
-            <img src="assets/programs/solution-hierarchy.png" alt="Representing groups and courses as a parent-child relationship">
+            <img src="assets/programs/solution-hierarchy.png" alt="Making the content hierarchy visible">
             <span class="caption">Representing groups and courses as a parent-child relationship</span>
           </div>
-
         </div>
       </div>
 
@@ -533,8 +610,6 @@
         </ul>
       </div>
 
-      <p class="results-note">A detailed walkthrough is available at request.</p>
-
     </div>
 
   </main>
@@ -543,9 +618,9 @@
     <div class="container">
       <div class="footer-inner">
         <nav class="footer-nav">
-          <a href="/#home" class="t-link">Home</a>
-          <a href="/#work" class="t-link">Work</a>
-          <a href="/#about" class="t-link">About</a>
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
         </nav>
         <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
         <p class="t-default footer-quote">
