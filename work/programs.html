@@ -179,11 +179,28 @@
       margin-bottom: 0;
     }
 
+    /* ─── What Testing Revealed ───────────────────────────────── */
+    .testing-section {
+      background-color: #EDE6DA;
+      margin-top: 160px;
+      padding: 80px 0;
+    }
+
+    .testing-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .testing {
+      display: flex;
+      gap: 4%;
+    }
+
     /* ─── Wireframing and Concepts ──────────────────────────── */
     .wireframing {
       display: flex;
       gap: 4%;
-      padding-top: 160px;
     }
 
     .wireframing-left {
@@ -240,18 +257,6 @@
     }
 
     /* ─── Testing ────────────────────────────────────────────── */
-    .testing {
-      padding-top: 160px;
-    }
-
-    .testing-box {
-      display: flex;
-      gap: 4%;
-      padding: 16px;
-      background: rgba(131, 125, 125, 0.03);
-      border: 1px solid rgba(131, 125, 125, 0.30);
-    }
-
     .testing-left {
       flex: 0 0 25%;
     }
@@ -451,6 +456,66 @@
       height: 24px;
     }
 
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .testing-section {
+        margin-top: 80px;
+        padding: 48px 0;
+      }
+      .testing-inner {
+        padding: 0 24px;
+      }
+      .challenge-tldr,
+      .business-context,
+      .discovery,
+      .testing,
+      .solution,
+      .results {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .challenge-col,
+      .tldr-col,
+      .business-context-label,
+      .business-context-bullets,
+      .discovery-left,
+      .discovery-right,
+      .testing-left,
+      .testing-right,
+      .solution-left,
+      .solution-cards,
+      .results-left,
+      .results-bullets {
+        flex: none;
+        width: 100%;
+      }
+      .challenge-col {
+        box-shadow: 4px 4px 0 #FBD916;
+      }
+      .solution-card {
+        box-shadow: 3px 3px 0 0 #62B61B;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 24px;
+      }
+    }
+
     /* ─── Left column muted text ────────────────────────────── */
     .business-context-label p,
     .discovery-left p,
@@ -542,7 +607,6 @@
           <ul><li class="t-default">Program set up</li><li class="t-default">Adding and editing courses</li><li class="t-default">Advanced customisations</li></ul>
         </div>
         <div class="wireframing-cards">
-          
           <div class="wireframing-card">
             <h3>Progressive disclosure keeps admins focused, not overwhelmed.</h3>
             <p>Grouping settings by relevance and surfacing them in stages meant admins could work through configuration without confronting the full complexity of the form at once. Plain language replaced technical labels wherever possible.</p>
@@ -561,20 +625,32 @@
         </div>
       </div>
 
-      <div class="testing">
-        <div class="testing-box">
+    </div>
+
+    <section class="testing-section reveal">
+      <div class="testing-inner">
+        <div class="testing">
           <div class="testing-left">
             <span class="t-label">What Testing Revealed</span>
-            
+            <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
+            <p>The 3 core flows tested were:</p>
+            <ul>
+              <li class="t-default">Program set up</li>
+              <li class="t-default">Adding and editing courses</li>
+              <li class="t-default">Advanced customisations</li>
+            </ul>
           </div>
           <div class="testing-right">
             <h3>Admins arrived with the program already planned, data entry was the last step.</h3>
-          <h3>The spreadsheet reinforced the wrong mental model for groups and courses.</h3>
-          <h3>Admins actively avoided fields that they didn't understand.</h3>
-          <h3>Generic help content created over-reliance on PMs and developers for routine decisions.</h3>
+            <h3>The spreadsheet reinforced the wrong mental model for groups and courses.</h3>
+            <h3>Admins actively avoided fields that they didn't understand.</h3>
+            <h3>Generic help content created over-reliance on PMs and developers for routine decisions.</h3>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="container">
 
       <div id="solution" class="solution">
         <div class="solution-left">
