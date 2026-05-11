@@ -359,6 +359,101 @@
       margin-bottom: 0;
     }
 
+    /* ─── Before / After ────────────────────────────────────── */
+    .before-after {
+      padding-top: 160px;
+    }
+
+    .before-after-header {
+      display: flex;
+      gap: 40px;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .before-after-label {
+      flex: 1;
+    }
+
+    .before-after-label h2 {
+      margin-bottom: 12px;
+    }
+
+    .before-after-label p {
+      color: var(--color-body);
+    }
+
+    .before-after-tabs {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .tab-switcher {
+      display: inline-flex;
+      position: relative;
+      border: 1px solid var(--color-link);
+      background: #FFFEFB;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .tab-indicator {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      height: calc(100% - 6px);
+      background: var(--color-link);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .tab-btn {
+      position: relative;
+      padding: 8px 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+    }
+
+    .tab-track-wrap {
+      overflow: hidden;
+    }
+
+    .tab-track {
+      display: flex;
+    }
+
+    .before-after-img {
+      flex: 0 0 100%;
+      aspect-ratio: 16 / 9;
+      background: #F2EFE9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #C9C4B8;
+      overflow: hidden;
+    }
+
+    .before-after-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .before-after-img span {
+      color: var(--color-muted);
+      font-size: 0.875rem;
+    }
+
     /* ─── Screens ────────────────────────────────────────────── */
     .screens {
       display: flex;
@@ -470,6 +565,14 @@
       color: var(--color-body);
     }
 
+    @media (max-width: 768px) {
+      .before-after-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+    }
+
     /* ─── Scroll reveal ──────────────────────────────────────── */
     .reveal {
       opacity: 0;
@@ -534,6 +637,58 @@
         </ul>
       </div>
 
+      <div class="before-after reveal">
+        <div class="before-after-header">
+          <div class="before-after-label">
+            <h2>Sidebar-first navigation</h2>
+            <p class="t-default">The sidebar displayed redundant content during signing while the modal overlay blocked the document. Moving all actions to the sidebar created a clear separation between the document and required actions, letting users view and sign concurrently. Centralising actions in collapsible menus meant users could see all required tasks upfront and track progress without switching contexts.</p>
+          </div>
+          <div class="before-after-tabs">
+            <div class="tab-switcher" role="tablist">
+              <div class="tab-indicator"></div>
+              <button class="tab-btn t-label-sm active" role="tab" aria-selected="true" data-target="before">Before</button>
+              <button class="tab-btn t-label-sm" role="tab" aria-selected="false" data-target="after">After</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-track-wrap">
+          <div class="tab-track">
+            <div class="before-after-img">
+              <img src="assets/dedoco/sidebar-before.png" alt="Sidebar navigation before redesign">
+            </div>
+            <div class="before-after-img">
+              <img src="assets/dedoco/sidebar-after.gif" alt="Sidebar navigation after redesign">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="before-after reveal">
+        <div class="before-after-header">
+          <div class="before-after-label">
+            <h2>Direct access to required actions</h2>
+            <p class="t-default">Users had to scroll through the document to locate required fields. Clicking sidebar items jumped to the field location but didn't open the signing interface. Opening the signing modal directly from sidebar items removed the extra click. Auto-advance button skips the sidebar entirely, taking users straight to the next unsigned field in document order.</p>
+          </div>
+          <div class="before-after-tabs">
+            <div class="tab-switcher" role="tablist">
+              <div class="tab-indicator"></div>
+              <button class="tab-btn t-label-sm active" role="tab" aria-selected="true" data-target="before">Before</button>
+              <button class="tab-btn t-label-sm" role="tab" aria-selected="false" data-target="after">After</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-track-wrap">
+          <div class="tab-track">
+            <div class="before-after-img">
+              <img src="assets/dedoco/nav-before.png" alt="Field navigation before redesign">
+            </div>
+            <div class="before-after-img">
+              <img src="assets/dedoco/nav-after.gif" alt="Field navigation after redesign">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="screens">
         <div class="screens-label">
           <span class="t-label">Screens</span>
@@ -580,5 +735,30 @@
 
   <script src="../nav.js"></script>
   <script src="../scroll-reveal.js"></script>
+  <script>
+    document.querySelectorAll('.before-after').forEach(section => {
+      const buttons = section.querySelectorAll('.tab-btn');
+      const indicator = section.querySelector('.tab-indicator');
+      const track = section.querySelector('.tab-track');
+
+      function setIndicator(btn) {
+        indicator.style.width = btn.offsetWidth + 'px';
+        indicator.style.transform = `translateX(${btn.offsetLeft - 3}px)`;
+      }
+
+      setIndicator(section.querySelector('.tab-btn.active'));
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          setIndicator(btn);
+          const idx = btn.dataset.target === 'after' ? 1 : 0;
+          track.style.transform = `translateX(-${idx * 100}%)`;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
