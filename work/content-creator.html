@@ -218,6 +218,7 @@
       border: 2px solid #FF6CD3;
       padding: 24px;
       box-shadow: 5px 5px 0 0 #FF6CD3;
+      background-color: #ffffff;
     }
 
     .wireframing-card h3 {
@@ -286,6 +287,10 @@
       gap: 24px;
     }
 
+    .testing-right h3 {
+      color: var(--color-heading);
+    }
+
     /* ─── Solution ───────────────────────────────────────────── */
     .solution {
       display: flex;
@@ -312,6 +317,7 @@
       border: 2px solid #62B61B;
       padding: 24px;
       box-shadow: 5px 5px 0 0 #62B61B;
+      background-color: #ffffff;
     }
 
     .solution-card h3 {
@@ -506,6 +512,7 @@
         <div class="challenge-col">
           <span class="t-label">The design challenge</span>
           <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
+          <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff. We delivered a single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
         </div>
       </div>
 
@@ -534,6 +541,29 @@
             <li class="t-default">The canvas doesn't support editing widgets.</li>
             <li class="t-default">As a result, workarounds were built (like going into the source code) to make simple changes.</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="wireframing reveal">
+        <div class="wireframing-left">
+          <span class="t-label">Wireframing and Concepts</span>
+        </div>
+        <div class="wireframing-cards">
+          <div class="wireframing-card">
+            <h3>Split panel layout for clearer hierarchy and editing priority</h3>
+            <p>The existing interface buried the editing toolbar below page-level settings, treating the canvas as secondary to configuration.</p>
+            <img src="assets/cca/testing-01.png" alt="Split panel layout for clearer hierarchy and editing priority">
+          </div>
+          <div class="wireframing-card">
+            <h3>Global widget search to reduce workarounds and duplicate content</h3>
+            <p>Widget names were set by internal teams rather than how creators searched for them, leading to creators building workarounds for widgets that already existed.</p>
+            <img src="assets/cca/testing-02.png" alt="Global widget search to reduce workarounds and duplicate content">
+          </div>
+          <div class="wireframing-card">
+            <h3>WYSIWYG editing to lower the risk of previewing content</h3>
+            <p>Previewing a course required making it live first, which was high risk and high effort.</p>
+            <img src="assets/cca/testing-03.png" alt="WYSIWYG editing to lower the risk of previewing content">
+          </div>
         </div>
       </div>
 
