@@ -63,6 +63,7 @@
     }
 
     .challenge-col h2 {
+      padding-top: 16px;
       margin-bottom: 16px;
     }
 
@@ -566,10 +567,41 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
       .before-after-header {
         flex-direction: column;
         gap: 16px;
         align-items: flex-start;
+      }
+      .challenge-tldr,
+      .business-context,
+      .screens {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .challenge-col,
+      .tldr-col,
+      .business-context-label,
+      .business-context-bullets,
+      .screens-label,
+      .screens-gallery {
+        flex: none;
+        width: 100%;
+      }
+      .challenge-col {
+        box-shadow: 4px 4px 0 #FBD916;
       }
     }
 
@@ -606,7 +638,7 @@
 
       <div class="challenge-tldr">
         <div class="challenge-col">
-          <span class="t-label">The design challenge</span>
+          <span class="t-label-sm">The design challenge</span>
           <h2>How might we <em>reduce drop-off rates in a digital signing flow</em> , while bringing the product in line with a brand built around trust?</h2>
         </div>
         <div class="tldr-col">

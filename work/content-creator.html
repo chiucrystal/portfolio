@@ -63,6 +63,7 @@
     }
 
     .challenge-col h2 {
+      padding-top: 16px;
       margin-bottom: 16px;
     }
 
@@ -477,6 +478,62 @@
       color: var(--color-body);
     }
 
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .testing-section {
+        margin-top: 80px;
+        padding: 48px 0;
+      }
+      .testing-inner {
+        padding: 0 24px;
+      }
+      .challenge-tldr,
+      .business-context,
+      .discovery,
+      .wireframing,
+      .testing,
+      .solution,
+      .results {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .challenge-col,
+      .tldr-col,
+      .business-context-label,
+      .business-context-bullets,
+      .discovery-left,
+      .discovery-right,
+      .wireframing-left,
+      .wireframing-cards,
+      .testing-left,
+      .testing-right,
+      .solution-left,
+      .solution-cards,
+      .results-left,
+      .results-bullets {
+        flex: none;
+        width: 100%;
+      }
+      .challenge-col {
+        box-shadow: 4px 4px 0 #FBD916;
+      }
+      .solution-card {
+        box-shadow: 3px 3px 0 0 #62B61B;
+      }
+    }
+
     /* ─── Scroll reveal ──────────────────────────────────────── */
     .reveal {
       opacity: 0;
@@ -510,7 +567,7 @@
 
       <div class="challenge-tldr">
         <div class="challenge-col">
-          <span class="t-label">The design challenge</span>
+          <span class="t-label-sm">The design challenge</span>
           <h2>How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
           <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff. We delivered a single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
         </div>
@@ -597,14 +654,17 @@
           <div class="solution-card">
             <h3>Focus is given to the task at hand.</h3>
             <p>The right panel was dynamic, surfacing the relevant options for whatever was selected.</p>
-            <img src="assets/cca/solution-focus.png" alt="Focus is given to the task at hand.">
-            
+            <img src="assets/cca/solution-01.gif" alt="Focus is given to the task at hand.">
           </div>
           <div class="solution-card">
-            <h3>Only one level of display settings was kept.</h3>
-            
-            <img src="assets/cca/solution-display.png" alt="Only one level of display settings was kept.">
-            
+            <h3>Descriptions and common search terms were added to the widget menu.</h3>
+            <p>Global widget search required reindexing the database, which wasn't feasible.</p>
+            <img src="assets/cca/solution-02.png" alt="Descriptions and common search terms were added to the widget menu." style="max-height: 600px; object-fit: contain;">
+          </div>
+          <div class="solution-card">
+            <h3>Display settings were simplified.</h3>
+            <p>Multiple levels of visibility were reduced to one, with hide and show kept at the page level and everything related to going live moved to the course level.</p>
+            <img src="assets/cca/solution-03.png" alt="Display settings were simplified." style="max-height: 250px; object-fit: contain;">
           </div>
         </div>
       </div>
