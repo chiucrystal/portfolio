@@ -154,4 +154,36 @@
   window.addEventListener('resize', function () {
     if (window.innerWidth > 768 && isOpen) closeMenu();
   });
+
+  // ── Smooth scroll with ease-in-out for anchor links ─────────────
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function smoothScrollTo(target, duration) {
+    var navHeight = nav.offsetHeight;
+    var targetY = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+    var startY = window.pageYOffset;
+    var distance = targetY - startY;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, startY + distance * easeInOut(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var id = link.getAttribute('href').slice(1);
+    var target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    smoothScrollTo(target, 800);
+  });
 }());
