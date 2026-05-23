@@ -6,15 +6,19 @@
     <title>Crystal Chiu - Product Designer</title>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="tokens.css">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400&family=Inter:wght@400&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="images/hero-collage.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/toast-top.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/toast-bottom.webp" type="image/webp">
 </head>
 <body>
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-inner">
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-name">
@@ -39,20 +43,46 @@
 
         <!-- Collage area: image + sandwich share a positioned container -->
         <div class="hero-collage-wrap">
-        <img src="images/hero-collage.png" alt="" class="hero-collage">
+        <picture>
+            <source srcset="images/hero-collage.webp" type="image/webp">
+            <img src="images/hero-collage.png" alt="" class="hero-collage">
+        </picture>
 
         <!-- Sandwich Stack -->
         <div class="sandwich-container">
             <div class="sandwich">
-                <img src="images/toast-top.png" alt="" class="sandwich-layer toast-top">
-                <img src="images/onion.png" alt="" class="sandwich-layer onion">
-                <img src="images/cheese.png" alt="" class="sandwich-layer cheese">
-                <img src="images/photo-with-frame.png" alt="" class="sandwich-layer photo-frame">
-                <img src="images/lettuce.png" alt="" class="sandwich-layer lettuce">
-                <img src="images/toast-bottom.png" alt="" class="sandwich-layer toast-bottom">
+                <picture>
+                    <source srcset="images/toast-top.webp" type="image/webp">
+                    <img src="images/toast-top.png" alt="" class="sandwich-layer toast-top">
+                </picture>
+                <picture>
+                    <source srcset="images/meat.webp" type="image/webp">
+                    <img src="images/meat.png" alt="" class="sandwich-layer meat">
+                </picture>
+                <picture>
+                    <source srcset="images/onion.webp" type="image/webp">
+                    <img src="images/onion.png" alt="" class="sandwich-layer onion">
+                </picture>
+                <picture>
+                    <source srcset="images/cheese.webp" type="image/webp">
+                    <img src="images/cheese.png" alt="" class="sandwich-layer cheese">
+                </picture>
+                <picture>
+                    <source srcset="images/photo-with-frame.webp" type="image/webp">
+                    <img src="images/photo-with-frame.png" alt="" class="sandwich-layer photo-frame">
+                </picture>
+                <picture>
+                    <source srcset="images/lettuce.webp" type="image/webp">
+                    <img src="images/lettuce.png" alt="" class="sandwich-layer lettuce">
+                </picture>
+                <picture>
+                    <source srcset="images/toast-bottom.webp" type="image/webp">
+                    <img src="images/toast-bottom.png" alt="" class="sandwich-layer toast-bottom">
+                </picture>
             </div>
         </div>
         </div><!-- /.hero-collage-wrap -->
+        </div><!-- /.hero-inner -->
     </section>
 
     <!-- Work Section -->
@@ -118,7 +148,10 @@
     <!-- Experience Section -->
     <section class="xp-section" id="experience">
         <div class="xp-inner">
-        <img class="xp-illo" src="assets/experience-1.png" alt="">
+        <picture>
+            <source srcset="assets/experience-1.webp" type="image/webp">
+            <img class="xp-illo" src="assets/experience-1.png" alt="">
+        </picture>
             <p class="xp-section-label">Experience</p>
 
             <div class="xp-entry">

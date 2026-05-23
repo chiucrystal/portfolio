@@ -90,8 +90,15 @@ a {
 .hero {
     position: relative;
     height: 1024px;
-    padding: 313px 138px;
     overflow: hidden;
+}
+
+.hero-inner {
+    position: relative;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 313px 138px;
 }
 
 .hero-content {
@@ -227,7 +234,7 @@ a {
    ========================================== */
 .hero-collage {
     position: absolute;
-    right: 0;
+    right: -40px;
     top: 50%;
     transform: translateY(-50%);
     height: 100%;
@@ -297,12 +304,22 @@ a {
 
 .toast-top {
     width: 407px;
-    z-index: 6;
+    z-index: 7;
     transform: translate(-50%, -52%) rotate(-10.33deg);
+}
+
+.meat {
+    width: 320px;
+    z-index: 6;
+    transform: translate(-50%, -56%) rotate(3deg);
 }
 
 .sandwich:hover .toast-top {
     transform: translate(-75%, -65%) rotate(-15.33deg);
+}
+
+.sandwich:hover .meat {
+    transform: translate(-66%, -75%) rotate(-10deg);
 }
 
 .sandwich:hover .onion {
@@ -672,8 +689,8 @@ a {
 .xp-illo {
   position: absolute;
   bottom: 0;
-  left: -200px;
-  max-height: 420px;
+  left: -250px;
+  max-height: 220px;
 }
 
 .xp-inner {
@@ -834,10 +851,10 @@ a {
    Responsive Adjustments
    ========================================== */
 @media (max-width: 1400px) {
-    .hero {
+    .hero-inner {
         padding: 250px 80px;
     }
-    
+
     .sandwich-container {
         right: 100px;
     }
@@ -1355,8 +1372,11 @@ a {
 @media (max-width: 768px) {
     .hero {
         height: auto;
-        padding: 104px 24px 0;
         overflow: hidden;
+    }
+
+    .hero-inner {
+        padding: 104px 24px 0;
     }
 
     .hero-content {
@@ -1382,7 +1402,7 @@ a {
 }
 
 @media (max-width: 576px) {
-    .hero {
+    .hero-inner {
         padding: 92px 16px 0;
     }
 
