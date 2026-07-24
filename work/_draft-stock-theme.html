@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[DRAFT] Stock Photo Theme reference — crystal.chiu</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../tokens.css?v=4">
+  <style>
+    /* ─── Container ──────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      margin-top: 57px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ─── Title block ─────────────────────────────────────────── */
+    .title-block {
+      padding-top: 160px;
+    }
+
+    .title-block h1 {
+      margin-bottom: 12px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    /* ─── Challenge + TL;DR ──────────────────────────────────── */
+    .challenge-tldr {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      padding-top: 64px;
+    }
+
+    .challenge-col {
+      border: 2px solid var(--color-link);
+      padding: 24px;
+      background-color: #FFFEFB;
+      box-shadow: 8px 8px 0 #FBD916;
+    }
+
+    .challenge-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .challenge-col h2 {
+      padding-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .challenge-col h2 em {
+      font-style: italic;
+      text-decoration: underline;
+    }
+
+    .tldr-col {
+    }
+
+    .tldr-col .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .tldr-item {
+      margin-bottom: 16px;
+    }
+
+    .tldr-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tldr-label {
+      font-weight: 500;
+    }
+
+    /* ─── Business context ────────────────────────────────────── */
+    .business-context {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .business-context-label {
+      flex: 0 0 25%;
+    }
+
+    .business-context-bullets {
+      flex: 0 0 71%;
+      padding-left: 20px;
+    }
+
+    .business-context-bullets li {
+      margin-bottom: 16px;
+    }
+
+    .business-context-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    .business-context-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    /* ─── Discovery ──────────────────────────────────────────── */
+    .discovery {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .discovery-left {
+      flex: 0 0 25%;
+    }
+
+    .discovery-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .discovery-left p {
+      margin-bottom: 12px;
+    }
+
+    .discovery-left ul {
+      padding-left: 20px;
+    }
+
+    .discovery-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .discovery-right {
+      flex: 0 0 71%;
+    }
+
+    .discovery-synth {
+      margin-bottom: 16px;
+    }
+
+    .discovery-quote {
+      margin-bottom: 16px;
+    }
+
+    .discovery-img {
+      display: block;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .discovery-bullets {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .discovery-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .discovery-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Wireframing and Concepts ──────────────────────────── */
+    .wireframing {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .wireframing-left {
+      flex: 0 0 25%;
+    }
+
+    .wireframing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .wireframing-left p {
+      margin-bottom: 12px;
+    }
+
+    .wireframing-left ul {
+      padding-left: 20px;
+    }
+
+    .wireframing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .wireframing-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .wireframing-card {
+      border: 2px solid #FF6CD3;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #FF6CD3;
+    }
+
+    .wireframing-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-card p {
+      margin-bottom: 16px;
+    }
+
+    .wireframing-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .wireframing-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #FFE8F8;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing {
+      padding-top: 160px;
+    }
+
+    .testing-box {
+      display: flex;
+      gap: 4%;
+      padding: 16px;
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
+    .testing-left {
+      flex: 0 0 25%;
+    }
+
+    .testing-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .testing-left p {
+      margin-bottom: 12px;
+    }
+
+    .testing-left ul {
+      padding-left: 20px;
+    }
+
+    .testing-left ul li {
+      margin-bottom: 4px;
+    }
+
+    .testing-right {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .testing-right h3 {
+      color: var(--color-heading);
+    }
+
+    /* ─── Solution ───────────────────────────────────────────── */
+    .solution {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .solution-left {
+      flex: 0 0 25%;
+    }
+
+    .solution-left .t-label {
+      display: block;
+    }
+
+    .solution-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .solution-card {
+      border: 2px solid #62B61B;
+      padding: 24px;
+      box-shadow: 5px 5px 0 0 #62B61B;
+      background-color: #ffffff;
+    }
+
+    .solution-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .solution-card p {
+      margin-bottom: 16px;
+    }
+
+    .solution-card img {
+      display: block;
+      width: 100%;
+    }
+
+    .solution-card .caption {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ─── Results ────────────────────────────────────────────── */
+    .results {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .results-left {
+      flex: 0 0 25%;
+    }
+
+    .results-left .t-label {
+      display: block;
+    }
+
+    .results-bullets {
+      flex: 0 0 71%;
+      padding-left: 20px;
+    }
+
+    .results-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .results-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Before / After ────────────────────────────────────── */
+    .before-after {
+      padding-top: 160px;
+    }
+
+    .before-after-header {
+      display: flex;
+      gap: 40px;
+      align-items: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .before-after-label {
+      flex: 1;
+    }
+
+    .before-after-label h2 {
+      margin-bottom: 12px;
+    }
+
+    .before-after-label p {
+      color: var(--color-body);
+    }
+
+    .before-after-tabs {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .tab-switcher {
+      display: inline-flex;
+      position: relative;
+      border: 1px solid var(--color-link);
+      background: #FFFEFB;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .tab-indicator {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      height: calc(100% - 6px);
+      background: var(--color-link);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .tab-btn {
+      position: relative;
+      padding: 8px 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .tab-btn.active {
+      color: #fff;
+    }
+
+    .tab-track-wrap {
+      overflow: hidden;
+    }
+
+    .tab-track {
+      display: flex;
+    }
+
+    .before-after-img {
+      flex: 0 0 100%;
+      aspect-ratio: 16 / 9;
+      background: #F2EFE9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #C9C4B8;
+      overflow: hidden;
+    }
+
+    .before-after-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .before-after-img span {
+      color: var(--color-muted);
+      font-size: 0.875rem;
+    }
+
+    /* ─── Screens ────────────────────────────────────────────── */
+    .screens {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .screens-label {
+      flex: 0 0 25%;
+    }
+
+    .screens-gallery {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .screen-figure {
+      margin: 0;
+    }
+
+    .screen-figure img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--color-border, #e0ddd6);
+    }
+
+    /* ─── Closing note ───────────────────────────────────────── */
+    .closing-note {
+      padding-top: 48px;
+      padding-bottom: 80px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      padding: 80px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-nav a {
+      color: var(--color-heading);
+    }
+
+    .footer-nav a:hover {
+      color: var(--color-muted);
+    }
+
+    .footer-avatar {
+      display: block;
+      max-width: 80px;
+    }
+
+    .footer-quote {
+      color: var(--color-muted);
+      max-width: 600px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-body);
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.45;
+    }
+
+    .footer-socials img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ─── Left column muted text ────────────────────────────── */
+    .business-context-label p,
+    .discovery-left p,
+    .wireframing-left p,
+    .testing-left p,
+    .solution-left p,
+    .results-left p {
+      color: var(--color-muted);
+    }
+
+    .testing-left ul li {
+      color: var(--color-body);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .before-after-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .challenge-tldr,
+      .business-context,
+      .screens {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .challenge-col,
+      .tldr-col,
+      .business-context-label,
+      .business-context-bullets,
+      .screens-label,
+      .screens-gallery {
+        flex: none;
+        width: 100%;
+      }
+      .challenge-col {
+        box-shadow: 4px 4px 0 #FBD916;
+      }
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       DRAFT: Stock Photo Theme — visual reference only.
+       See DESIGN.md at repo root. Not linked from the live site.
+       Density here is intentionally higher than the real plan
+       (every image gets the treatment) so all components are
+       visible in one place for review.
+       ══════════════════════════════════════════════════════════ */
+
+    .draft-banner {
+      margin-top: 63px; /* clears the fixed .nav injected by nav.js */
+      background: #231E1A;
+      color: #FEFAF6;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+    .draft-banner strong {
+      color: #FBD916;
+    }
+
+    :root {
+      --color-watermark:    rgba(35, 30, 26, 0.055);
+      --color-badge-bg:     #FEFAF6;
+      --color-badge-border: rgba(35, 30, 26, 0.18);
+      --color-stock-accent: #C2401C;
+    }
+
+    .t-stock-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .t-stock-caption {
+      font-family: 'DM Sans', sans-serif;
+      font-style: italic;
+      font-size: 13px;
+      line-height: 145%;
+    }
+
+    .stock-frame {
+      position: relative;
+      display: block;
+      overflow: hidden;
+    }
+    .hero .stock-frame,
+    .before-after-img .stock-frame,
+    .screen-figure .stock-frame {
+      width: 100%;
+      height: 100%;
+    }
+
+    .stock-watermark {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='140'%3E%3Ctext x='-10' y='75' font-family='DM Mono, monospace' font-size='15' fill='%23231E1A' fill-opacity='0.4' transform='rotate(-24 120 70)'%3ECRYSTALCHIU STOCK%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      mix-blend-mode: multiply;
+    }
+
+    .stock-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      background: var(--color-badge-bg);
+      border: 1px solid var(--color-badge-border);
+      border-radius: 3px;
+      padding: 4px 8px;
+      color: var(--color-heading);
+    }
+    .stock-badge--accent {
+      color: var(--color-stock-accent);
+      border-color: var(--color-stock-accent);
+    }
+
+    .stock-caption-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      background: rgba(35, 30, 26, 0.85);
+      color: #FEFAF6;
+      padding: 10px 14px;
+    }
+    .stock-frame:hover .stock-caption-bar,
+    .stock-frame:focus-within .stock-caption-bar {
+      transform: translateY(0);
+    }
+
+    .stock-filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .stock-filter-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-label);
+      background: rgba(131, 125, 125, 0.08);
+      border: 1px solid rgba(131, 125, 125, 0.25);
+      border-radius: 20px;
+      padding: 5px 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="draft-banner">
+    <span>🖼️ <strong>DRAFT</strong> — stock-photo theme visual reference, built on the Dedoco case study for demo purposes only. Not linked from the live site. See <code>DESIGN.md</code>.</span>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div class="stock-frame">
+        <img src="assets/dedoco/thumbnail-1.png" alt="dSign mobile signing interface">
+        <div class="stock-watermark"></div>
+        <span class="stock-badge t-stock-badge">ID #048291</span>
+        <div class="stock-caption-bar t-stock-caption">Confident professional signs important document, has absolutely no idea what she agreed to.</div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <div class="title-block">
+        <h1 class="t-display">Rethinking secure digital document signing.</h1>
+        <div class="meta-row">
+          <span class="t-label-sm">Dedoco (2023) · Team: 1 designer, 1 PM, 8 engineers</span>
+
+        </div>
+        <div class="stock-filter-chips">
+          <span class="stock-filter-chip">sandwich-adjacent ✓</span>
+          <span class="stock-filter-chip">sydney-based ✓</span>
+          <span class="stock-filter-chip">figma-fluent ✓</span>
+          <span class="stock-filter-chip">isolated on beige background ✓</span>
+          <span class="stock-filter-chip">not actually royalty-free</span>
+        </div>
+      </div>
+
+      <div class="challenge-tldr">
+        <div class="challenge-col">
+          <span class="t-label-sm">The design challenge</span>
+          <h2>How might we <em>reduce drop-off rates in a digital signing flow</em> , while bringing the product in line with a brand built around trust?</h2>
+          <p class="t-default">I led design end-to-end to deliver dSign, from supplementary research through to shipping a redesigned flow with a new component library. Drop-off mid-signing reduced, support tickets decreased, and the product shipped with a visual identity that could hold up to a Singaporean bank contract.</p>
+        </div>
+      </div>
+
+      <div class="business-context">
+        <div class="business-context-label">
+          <span class="t-label">Why now?</span>
+        </div>
+        <ul class="business-context-bullets">
+          <li class="t-default">User drop-off mid-signing was generating support tickets and eroding confidence in the product.</li>
+          <li class="t-default">A full rebrand was underway, requiring the product UI to catch up to the new visual identity.</li>
+          <li class="t-default">Dedoco was actively pursuing a contract with a Singaporean bank, raising the stakes on first impressions.</li>
+        </ul>
+      </div>
+
+      <div class="before-after reveal">
+        <div class="before-after-header">
+          <div class="before-after-label">
+            <h2>Sidebar-first navigation</h2>
+            <p class="t-default">The sidebar displayed redundant content during signing while the modal overlay blocked the document. Moving all actions to the sidebar created a clear separation between the document and required actions, letting users view and sign concurrently. Centralising actions in collapsible menus meant users could see all required tasks upfront and track progress without switching contexts.</p>
+          </div>
+          <div class="before-after-tabs">
+            <div class="tab-switcher" role="tablist">
+              <div class="tab-indicator"></div>
+              <button class="tab-btn t-label-sm active" role="tab" aria-selected="true" data-target="before">Before</button>
+              <button class="tab-btn t-label-sm" role="tab" aria-selected="false" data-target="after">After</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-track-wrap">
+          <div class="tab-track">
+            <div class="before-after-img">
+              <div class="stock-frame">
+                <img src="assets/dedoco/sidebar-before.png" alt="Sidebar navigation before redesign">
+                <div class="stock-watermark"></div>
+                <span class="stock-badge t-stock-badge stock-badge--accent">Editorial use only</span>
+                <div class="stock-caption-bar t-stock-caption">Two months before the redesign. Everyone still smiling, somehow.</div>
+              </div>
+            </div>
+            <div class="before-after-img">
+              <div class="stock-frame">
+                <img src="assets/dedoco/sidebar-after.gif" alt="Sidebar navigation after redesign">
+                <div class="stock-watermark"></div>
+                <span class="stock-badge t-stock-badge">ID #048293</span>
+                <div class="stock-caption-bar t-stock-caption">Same team, better sidebar, noticeably less crying.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="before-after reveal">
+        <div class="before-after-header">
+          <div class="before-after-label">
+            <h2>Direct access to required actions</h2>
+            <p class="t-default">Users had to scroll through the document to locate required fields. Clicking sidebar items jumped to the field location but didn't open the signing interface. Opening the signing modal directly from sidebar items removed the extra click. Auto-advance button skips the sidebar entirely, taking users straight to the next unsigned field in document order.</p>
+          </div>
+          <div class="before-after-tabs">
+            <div class="tab-switcher" role="tablist">
+              <div class="tab-indicator"></div>
+              <button class="tab-btn t-label-sm active" role="tab" aria-selected="true" data-target="before">Before</button>
+              <button class="tab-btn t-label-sm" role="tab" aria-selected="false" data-target="after">After</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-track-wrap">
+          <div class="tab-track">
+            <div class="before-after-img">
+              <div class="stock-frame">
+                <img src="assets/dedoco/nav-before.png" alt="Field navigation before redesign">
+                <div class="stock-watermark"></div>
+                <span class="stock-badge t-stock-badge stock-badge--accent">Editorial use only</span>
+                <div class="stock-caption-bar t-stock-caption">User locates required field using vibes and patience.</div>
+              </div>
+            </div>
+            <div class="before-after-img">
+              <div class="stock-frame">
+                <img src="assets/dedoco/nav-after.gif" alt="Field navigation after redesign">
+                <div class="stock-watermark"></div>
+                <span class="stock-badge t-stock-badge">ID #048295</span>
+                <div class="stock-caption-bar t-stock-caption">User locates required field in one click. Miracle.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screens">
+        <div class="screens-label">
+          <span class="t-label">Screens</span>
+        </div>
+        <div class="screens-gallery">
+          <figure class="screen-figure">
+            <div class="stock-frame">
+              <img src="assets/dedoco/mobile.png" alt="dSign mobile signing interface">
+              <div class="stock-watermark"></div>
+              <span class="stock-badge t-stock-badge">ID #048296</span>
+              <div class="stock-caption-bar t-stock-caption">Diverse professional signs contract from phone, in an elevator, against all UX advice.</div>
+            </div>
+          </figure>
+          <figure class="screen-figure">
+            <div class="stock-frame">
+              <img src="assets/dedoco/solution-1.png" alt="dSign redesigned signing flow">
+              <div class="stock-watermark"></div>
+              <span class="stock-badge t-stock-badge">ROYALTY-FREE</span>
+              <div class="stock-caption-bar t-stock-caption">Final shipped flow. Legally binding. Aesthetically pleasing.</div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <p class="closing-note">A detailed walkthrough is available on request.</p>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
+        </nav>
+        <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
+        <p class="t-default footer-quote">
+          "This is for everyone going through tough times, been there done that, but everyday above ground is a great day remember that."
+        </p>
+        <p class="t-stock-caption" style="color: var(--color-muted);">Model has provided consent for likeness to be used in ironic contexts. No ballet flats were harmed.</p>
+        <div class="footer-socials">
+          <a href="mailto:crystalchiu09@gmail.com" aria-label="Email">
+            <img src="assets/shared/icon-mail.svg" alt="Email" width="24" height="24">
+          </a>
+          <a href="https://www.linkedin.com/in/crystalchiu01/" target="_blank" aria-label="LinkedIn">
+            <img src="assets/shared/icon-linkedin.svg" alt="LinkedIn" width="24" height="24">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script src="../scroll-reveal.js"></script>
+  <script>
+    document.querySelectorAll('.before-after').forEach(section => {
+      const buttons = section.querySelectorAll('.tab-btn');
+      const indicator = section.querySelector('.tab-indicator');
+      const track = section.querySelector('.tab-track');
+
+      function setIndicator(btn) {
+        indicator.style.width = btn.offsetWidth + 'px';
+        indicator.style.transform = `translateX(${btn.offsetLeft - 3}px)`;
+      }
+
+      setIndicator(section.querySelector('.tab-btn.active'));
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          setIndicator(btn);
+          const idx = btn.dataset.target === 'after' ? 1 : 0;
+          track.style.transform = `translateX(-${idx * 100}%)`;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
