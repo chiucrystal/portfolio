@@ -301,6 +301,9 @@ const html = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(data.meta.title)} — crystal.chiu</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../protect.css">
+  <script src="../protect.js"></script>
+  <script src="../analytics.js"></script>
   <link rel="stylesheet" href="../tokens.css?v=4">
   <style>
     /* ─── Container ──────────────────────────────────────────── */

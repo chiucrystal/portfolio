@@ -1,0 +1,85 @@
+/* protect.css — overlay styles for the case study password gate */
+
+html.cs-locked body > *:not(#cs-gate) {
+  filter: blur(16px);
+  pointer-events: none;
+  user-select: none;
+}
+
+html.cs-locked {
+  overflow: hidden;
+}
+
+#cs-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(254, 250, 246, 0.6);
+}
+
+.cs-gate-box {
+  width: 320px;
+  max-width: calc(100vw - 48px);
+  padding: 32px;
+  background: #FFFEFB;
+  border: 2px solid var(--color-link, #0363AD);
+  box-shadow: 8px 8px 0 #FBD916;
+  text-align: center;
+}
+
+.cs-gate-label {
+  font-family: 'DM Mono', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-label, #687076);
+  margin-bottom: 20px;
+}
+
+#cs-gate-form {
+  display: flex;
+  gap: 8px;
+}
+
+#cs-gate-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--color-muted, #837D7D);
+  background: #FEFAF6;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: var(--color-body, #3A3128);
+}
+
+#cs-gate-input:focus {
+  outline: none;
+  border-color: var(--color-link, #0363AD);
+}
+
+#cs-gate-form button {
+  padding: 10px 16px;
+  border: none;
+  background: var(--color-link, #0363AD);
+  color: #FEFAF6;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#cs-gate-form button:hover {
+  background: var(--color-link-hover, #1E86E1);
+}
+
+.cs-gate-error {
+  margin-top: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #C0392B;
+}
