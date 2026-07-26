@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[DRAFT] Design system exploration — crystal.chiu</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       DRAFT — three directions for adapting the uploaded
+       "Together AI" design.md onto this portfolio. Dummy content,
+       not linked from the live site. Not a final pick — see
+       draft-banner below for how to read each variant.
+       ══════════════════════════════════════════════════════════ */
+
+    .draft-banner {
+      margin-top: 63px; /* clears the fixed .nav injected by nav.js */
+      background: #231E1A;
+      color: #FEFAF6;
+      padding: 14px 24px;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .draft-banner strong { color: #FBD916; }
+
+    .demo-label {
+      padding: 32px 24px 0;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #837D7D;
+    }
+    .demo-label span {
+      display: inline-block;
+      padding-bottom: 8px;
+      border-bottom: 2px solid currentColor;
+    }
+
+    /* ─── Shared skeleton (structure only — colors set per variant) ─── */
+    .demo {
+      padding: 80px 32px;
+    }
+    .demo-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .demo-eyebrow {
+      font-family: var(--mono, 'DM Mono', monospace);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .demo-hero {
+      display: flex;
+      align-items: center;
+      gap: 4%;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius, 4px);
+      padding: 64px 48px;
+    }
+    .demo-hero-text { flex: 0 0 56%; position: relative; z-index: 1; }
+    .demo-hero h1 {
+      font-family: var(--display, 'DM Mono', monospace);
+      font-size: 48px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: inherit;
+    }
+    .demo-hero p {
+      font-family: var(--body, 'DM Sans', sans-serif);
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      max-width: 46ch;
+      color: inherit;
+    }
+    .demo-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .demo-btn {
+      font-family: var(--mono, 'DM Mono', monospace);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border-radius: var(--radius, 4px);
+      border: none;
+      cursor: default;
+      display: inline-block;
+    }
+    .demo-ribbon {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 0;
+    }
+
+    .demo-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .demo-card {
+      padding: 24px;
+      border-radius: var(--radius, 4px);
+    }
+    .demo-card-title {
+      font-family: var(--display, 'DM Mono', monospace);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: inherit;
+    }
+
+    .demo-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .demo-stat {
+      padding: 32px;
+      border-radius: var(--radius, 4px);
+    }
+    .demo-stat-value {
+      font-family: var(--display, 'DM Mono', monospace);
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .demo-stat-label {
+      font-family: var(--mono, 'DM Mono', monospace);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .demo-wordmark {
+      margin-top: 24px;
+      border-radius: var(--radius, 4px);
+      padding: 40px 32px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .demo-wordmark span {
+      font-family: var(--display, 'DM Mono', monospace);
+      font-weight: 500;
+      font-size: clamp(40px, 9vw, 96px);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 860px) {
+      .demo-hero { flex-direction: column; align-items: flex-start; }
+      .demo-hero-text { flex: none; }
+      .demo-cards, .demo-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════ VARIANT A — full system commit ══════════════════
+       Near-1:1 adaptation: near-black bands, 3-stop brand gradient,
+       Inter standing in for the proprietary display sans, uppercase
+       mono for every label. */
+    .v-a {
+      --mono: 'DM Mono', monospace;
+      --display: 'Inter', sans-serif;
+      --body: 'Inter', sans-serif;
+      --radius: 4px;
+      background: #ffffff;
+    }
+    .v-a .demo-hero {
+      background: #010120;
+      color: #ffffff;
+    }
+    .v-a .demo-eyebrow { color: #ffffff; opacity: 0.7; }
+    .v-a .demo-ribbon {
+      background: linear-gradient(135deg, #fc4c02, #ef2cc1, #bdbbff);
+      opacity: 0.55;
+    }
+    .v-a .demo-btn:first-child { background: #ffffff; color: #000; }
+    .v-a .demo-btn:last-child { background: #313641; color: #fff; }
+    .v-a .demo-cards { background: #ffffff; }
+    .v-a .demo-card {
+      background: #010120;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .v-a .demo-card .demo-eyebrow { color: #bdbbff; opacity: 1; }
+    .v-a .demo-stat {
+      background: #c8f6f9;
+      color: #000;
+    }
+    .v-a .demo-wordmark {
+      background: #ffffff;
+    }
+    .v-a .demo-wordmark span { color: #ebebeb; }
+
+    /* ══════════════════ VARIANT B — adapted, your palette + voice ══════════════════
+       Same structural moves (dark/light band contrast, mono eyebrows,
+       hairline cards, single restrained accent) rebuilt in the site's
+       existing cream/navy palette and fonts — no new fonts, no gradient. */
+    .v-b {
+      --mono: 'DM Mono', monospace;
+      --display: 'DM Mono', monospace;
+      --body: 'DM Sans', sans-serif;
+      --radius: 4px;
+      background: #FEFAF6;
+    }
+    .v-b .demo-hero {
+      background: #243B7D;
+      color: #FEFAF6;
+    }
+    .v-b .demo-eyebrow { color: #FEFAF6; opacity: 0.75; }
+    .v-b .demo-ribbon {
+      background: radial-gradient(circle, #FBD916 0%, rgba(251,217,22,0) 70%);
+      opacity: 0.8;
+    }
+    .v-b .demo-btn:first-child { background: #FBD916; color: #231E1A; }
+    .v-b .demo-btn:last-child { background: rgba(255,255,255,0.12); color: #FEFAF6; }
+    .v-b .demo-card {
+      background: #FEFAF6;
+      color: #231E1A;
+      border: 1px solid rgba(35,30,26,0.12);
+    }
+    .v-b .demo-card .demo-eyebrow { color: #243B7D; opacity: 1; }
+    .v-b .demo-stat {
+      background: #FFF3C4;
+      color: #231E1A;
+    }
+    .v-b .demo-wordmark { background: #FEFAF6; }
+    .v-b .demo-wordmark span { color: rgba(35,30,26,0.08); }
+
+    /* ══════════════════ VARIANT C — lightest touch (bones only) ══════════════════
+       Stays on the current cream surface throughout — no dark band at
+       all. Only borrows: uppercase mono eyebrows above every section,
+       hairline 4px-radius cards instead of the site's current colored
+       drop-shadow cards, and the sign-off wordmark. */
+    .v-c {
+      --mono: 'DM Mono', monospace;
+      --display: 'DM Mono', monospace;
+      --body: 'DM Sans', sans-serif;
+      --radius: 4px;
+      background: #FEFAF6;
+    }
+    .v-c .demo-hero {
+      background: #FEFAF6;
+      color: #231E1A;
+      border: 1px solid rgba(35,30,26,0.12);
+      padding: 64px 48px;
+    }
+    .v-c .demo-eyebrow { color: #837D7D; }
+    .v-c .demo-ribbon { display: none; }
+    .v-c .demo-btn:first-child { background: #231E1A; color: #FEFAF6; }
+    .v-c .demo-btn:last-child { background: #ffffff; color: #231E1A; border: 1px solid rgba(35,30,26,0.18); }
+    .v-c .demo-card {
+      background: #ffffff;
+      color: #231E1A;
+      border: 1px solid rgba(35,30,26,0.12);
+    }
+    .v-c .demo-card .demo-eyebrow { color: #837D7D; }
+    .v-c .demo-stat {
+      background: #ffffff;
+      color: #231E1A;
+      border: 1px solid rgba(35,30,26,0.12);
+    }
+    .v-c .demo-wordmark { background: #FEFAF6; border: 1px solid rgba(35,30,26,0.12); }
+    .v-c .demo-wordmark span { color: rgba(35,30,26,0.10); }
+  </style>
+</head>
+<body>
+
+  <div class="draft-banner">
+    🖼️ <strong>DRAFT</strong> — three ways of adapting the uploaded Together AI-style design.md onto this portfolio, using real project titles as placeholder content. Not linked from the live site, nothing here is final.
+  </div>
+
+  <main>
+
+    <!-- ══════════════════ VARIANT A ══════════════════ -->
+    <div class="demo-label"><span>Variant A — full system commit</span></div>
+    <section class="demo v-a">
+      <div class="demo-inner">
+        <div class="demo-hero">
+          <div class="demo-ribbon"></div>
+          <div class="demo-hero-text">
+            <span class="demo-eyebrow">Product designer — Sydney</span>
+            <h1>I design for messy problems with no clean brief.</h1>
+            <p>Crystal Chiu is a product designer who makes complicated systems make sense — currently at WiseTech Global.</p>
+            <div class="demo-ctas">
+              <span class="demo-btn">View work</span>
+              <span class="demo-btn">Get in touch</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-cards">
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2025</span>
+            <h2 class="demo-card-title">Enabling self-serve and scalable program creation.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2024</span>
+            <h2 class="demo-card-title">Replacing a legacy course builder for WiseTech's editors.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">Dedoco / 2023</span>
+            <h2 class="demo-card-title">Rethinking secure digital document signing.</h2>
+          </div>
+        </div>
+
+        <div class="demo-stats">
+          <div class="demo-stat">
+            <div class="demo-stat-value">4+</div>
+            <div class="demo-stat-label">Years in product design</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">3</div>
+            <div class="demo-stat-label">Countries worked in</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">5</div>
+            <div class="demo-stat-label">Teams shipped with</div>
+          </div>
+        </div>
+
+        <div class="demo-wordmark"><span>crystal.chiu</span></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ VARIANT B ══════════════════ -->
+    <div class="demo-label"><span>Variant B — adapted, your palette + voice</span></div>
+    <section class="demo v-b">
+      <div class="demo-inner">
+        <div class="demo-hero">
+          <div class="demo-ribbon"></div>
+          <div class="demo-hero-text">
+            <span class="demo-eyebrow">Product designer — Sydney</span>
+            <h1>I design for messy problems with no clean brief.</h1>
+            <p>Crystal Chiu is a product designer who makes complicated systems make sense — currently at WiseTech Global. Avid sandwich enjoyer.</p>
+            <div class="demo-ctas">
+              <span class="demo-btn">View work</span>
+              <span class="demo-btn">Get in touch</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-cards">
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2025</span>
+            <h2 class="demo-card-title">Enabling self-serve and scalable program creation.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2024</span>
+            <h2 class="demo-card-title">Replacing a legacy course builder for WiseTech's editors.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">Dedoco / 2023</span>
+            <h2 class="demo-card-title">Rethinking secure digital document signing.</h2>
+          </div>
+        </div>
+
+        <div class="demo-stats">
+          <div class="demo-stat">
+            <div class="demo-stat-value">4+</div>
+            <div class="demo-stat-label">Years in product design</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">3</div>
+            <div class="demo-stat-label">Countries worked in</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">5</div>
+            <div class="demo-stat-label">Teams shipped with</div>
+          </div>
+        </div>
+
+        <div class="demo-wordmark"><span>crystal.chiu</span></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════ VARIANT C ══════════════════ -->
+    <div class="demo-label"><span>Variant C — lightest touch (bones only)</span></div>
+    <section class="demo v-c">
+      <div class="demo-inner">
+        <div class="demo-hero">
+          <div class="demo-hero-text">
+            <span class="demo-eyebrow">Product designer — Sydney</span>
+            <h1>I design for messy problems with no clean brief.</h1>
+            <p>Crystal Chiu is a product designer who makes complicated systems make sense — currently at WiseTech Global. Avid sandwich enjoyer.</p>
+            <div class="demo-ctas">
+              <span class="demo-btn">View work</span>
+              <span class="demo-btn">Get in touch</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-cards">
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2025</span>
+            <h2 class="demo-card-title">Enabling self-serve and scalable program creation.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">WiseTech Global / 2024</span>
+            <h2 class="demo-card-title">Replacing a legacy course builder for WiseTech's editors.</h2>
+          </div>
+          <div class="demo-card">
+            <span class="demo-eyebrow">Dedoco / 2023</span>
+            <h2 class="demo-card-title">Rethinking secure digital document signing.</h2>
+          </div>
+        </div>
+
+        <div class="demo-stats">
+          <div class="demo-stat">
+            <div class="demo-stat-value">4+</div>
+            <div class="demo-stat-label">Years in product design</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">3</div>
+            <div class="demo-stat-label">Countries worked in</div>
+          </div>
+          <div class="demo-stat">
+            <div class="demo-stat-value">5</div>
+            <div class="demo-stat-label">Teams shipped with</div>
+          </div>
+        </div>
+
+        <div class="demo-wordmark"><span>crystal.chiu</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../nav.js"></script>
+</body>
+</html>
