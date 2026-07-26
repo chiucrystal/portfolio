@@ -3,7 +3,7 @@
 // once you've created a GA4 property at analytics.google.com. Until then
 // this file no-ops so pages load normally without sending any data.
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-T3PG717377';
 
   if (GA_ID.indexOf('XXXX') !== -1) return;
 
