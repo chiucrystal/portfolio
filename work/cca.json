@@ -97,6 +97,7 @@
       "Defined and implemented a new component library to be used in internal tools.",
       "Positive reception from 11 internal users at launch.",
       "6 new widgets have been requested and integrated since launch, suggesting creators are working within the tool rather than around it."
-    ]
+    ],
+    "note": "No quantitative metrics were tracked post-launch. In hindsight, I'd have wanted to track: time to publish or edit a course, the ratio of widget reuse to duplicate widget requests, and support ticket volume tied to the old workarounds."
   }
 }
