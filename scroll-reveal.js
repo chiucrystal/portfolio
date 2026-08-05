@@ -5,7 +5,10 @@
   // Block-level content sections on case study pages
   var containerTargets = Array.from(document.querySelectorAll('.container > *'));
 
-  var targets = sectionTargets.concat(containerTargets);
+  // Individual sections inside a sticky-TOC two-column case study layout
+  var caseSectionTargets = Array.from(document.querySelectorAll('.case-section'));
+
+  var targets = sectionTargets.concat(containerTargets, caseSectionTargets);
   if (!targets.length) return;
 
   targets.forEach(function (el) {
