@@ -27,7 +27,11 @@
 body {
     font-family: var(--font-sans);
     color: var(--color-text);
-    background: var(--color-bg);
+    background-color: var(--color-bg);
+    background-image:
+        linear-gradient(to right, rgba(36, 59, 125, 0.043) 1px, transparent 1px),
+        linear-gradient(rgba(36, 59, 125, 0.043) 1px, transparent 1px);
+    background-size: 56px 56px;
     line-height: 1.5;
 }
 
