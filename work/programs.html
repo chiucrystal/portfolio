@@ -6,8 +6,85 @@
   <title>Enabling self-serve and scalable program creation. — crystal.chiu</title>
   <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="stylesheet" href="../tokens.css?v=4">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Pixel&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@500&display=swap">
   <style>
+    /* ─── Type override (Geist / Geist Mono) ────────────────────
+       Page-scoped only — tokens.css and other case studies are
+       untouched. Sizes/weights/line-heights/letter-spacing are
+       taken verbatim from the Together AI-inspired reference doc's
+       type scale, mapped to the closest role. ──────────────────── */
+    .t-display, h1 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 70.4px;
+      letter-spacing: -1.92px;
+    }
+
+    .t-h2, h2 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 32.2px;
+      letter-spacing: -0.42px;
+    }
+
+    .t-h3, h3 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 25.3px;
+      letter-spacing: -0.22px;
+    }
+
+    .t-large {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 23.4px;
+      letter-spacing: -0.18px;
+    }
+
+    .t-default, p {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20.8px;
+      letter-spacing: -0.16px;
+    }
+
+    .caption {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19.6px;
+      letter-spacing: 0;
+    }
+
+    .t-label-sm {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 11px;
+      letter-spacing: 0.55px;
+    }
+
+    .t-label {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
+    .t-link, a {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
     /* ─── Container ──────────────────────────────────────────── */
     .container {
       max-width: 1200px;
@@ -35,8 +112,6 @@
 
     .title-block h1 {
       margin-bottom: 12px;
-      font-family: 'Geist Pixel', 'DM Mono', monospace;
-      letter-spacing: normal;
     }
 
     .meta-row {
