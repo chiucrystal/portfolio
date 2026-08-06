@@ -455,6 +455,24 @@ a {
     color: var(--color-muted);
 }
 
+.work-card-thumb--placeholder {
+    background: linear-gradient(135deg, #E9E9E9 0%, #F5F3EF 100%);
+}
+
+.playground-section {
+    margin-top: 48px;
+}
+
+.work-subsection-label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-muted);
+    margin-bottom: 24px;
+}
+
 /* ==========================================
    About Section
    ========================================== */
