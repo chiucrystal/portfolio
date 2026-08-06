@@ -156,6 +156,7 @@
       letter-spacing: 0;
       color: var(--color-muted);
       text-decoration: none;
+      text-transform: none;
       transition: color 0.25s ease;
     }
 
@@ -164,11 +165,12 @@
       position: absolute;
       left: 0;
       top: 50%;
-      width: 2px;
-      height: 0%;
-      background: var(--color-link);
-      transform: translateY(-50%);
-      transition: height 0.25s ease;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-heading);
+      transform: translateY(-50%) scale(0);
+      transition: transform 0.25s ease;
     }
 
     .case-toc-link:hover {
@@ -176,16 +178,16 @@
     }
 
     .case-toc-link:hover::before {
-      height: 60%;
+      transform: translateY(-50%) scale(0.6);
     }
 
     .case-toc-link.active {
-      color: var(--color-link);
+      color: var(--color-heading);
       font-weight: 500;
     }
 
     .case-toc-link.active::before {
-      height: 100%;
+      transform: translateY(-50%) scale(1);
     }
 
     .case-content {
@@ -205,17 +207,17 @@
       line-height: normal;
       letter-spacing: -0.02em;
       color: #959494;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     .t-big-heading {
       font-family: 'Geist', sans-serif;
       font-weight: 400;
-      font-size: 38px;
+      font-size: 42px;
       line-height: normal;
       letter-spacing: -0.02em;
       color: var(--color-heading);
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     .case-section--card {
@@ -481,10 +483,10 @@
       <div class="case-layout">
         <aside class="case-toc">
           <nav aria-label="Case study sections">
-            <a href="#challenge" class="case-toc-link">The Challenge</a>
-            <a href="#why-now" class="case-toc-link">Why Now?</a>
-            <a href="#before-after-1" class="case-toc-link">Sidebar-first Navigation</a>
-            <a href="#before-after-2" class="case-toc-link">Direct Access to Actions</a>
+            <a href="#challenge" class="case-toc-link">The challenge</a>
+            <a href="#why-now" class="case-toc-link">Why now?</a>
+            <a href="#before-after-1" class="case-toc-link">Sidebar-first navigation</a>
+            <a href="#before-after-2" class="case-toc-link">Direct access to actions</a>
             <a href="#screens" class="case-toc-link">Screens</a>
           </nav>
         </aside>
