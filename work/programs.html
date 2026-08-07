@@ -208,15 +208,17 @@
     }
 
     .persona-card {
-      border: 2px dashed #A9CDF5;
+      border: 2px dashed #CBBBF7;
       border-radius: 20px;
-      background-color: #EEF5FF;
+      background-color: #F3EFFF;
       padding: 32px;
+      --persona-accent: #A63FFF;
     }
 
-    .persona-card--purple {
-      border-color: #CBBBF7;
-      background-color: #F3EFFF;
+    .persona-card--mint {
+      border-color: #9FE8CB;
+      background-color: #EAFFF6;
+      --persona-accent: #00E6A8;
     }
 
     .persona-header {
@@ -226,13 +228,23 @@
       margin-bottom: 32px;
     }
 
-    .persona-avatar {
-      display: block;
+    .persona-avatar-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      object-fit: cover;
+      background-color: var(--persona-accent);
+      overflow: hidden;
       flex-shrink: 0;
+    }
+
+    .persona-avatar {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .persona-name {
@@ -653,7 +665,7 @@
         gap: 16px;
         margin-bottom: 24px;
       }
-      .persona-avatar {
+      .persona-avatar-wrap {
         width: 72px;
         height: 72px;
       }
@@ -767,9 +779,11 @@
           <p>Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
         </div>
         <div class="persona-cards">
-          <div class="persona-card persona-card--purple">
+          <div class="persona-card">
             <div class="persona-header">
-              <img class="persona-avatar" src="assets/programs/persona-internalauth-avatar.jpg" alt="Avatar representing the Internal Authors persona">
+              <div class="persona-avatar-wrap">
+                <img class="persona-avatar" src="assets/programs/internal%20auth.png" alt="Avatar representing the Internal Authors persona">
+              </div>
               <h3 class="persona-name">Internal Authors</h3>
             </div>
             <div class="persona-goals">
@@ -796,9 +810,11 @@
             </div>
           </div>
 
-          <div class="persona-card">
+          <div class="persona-card persona-card--mint">
             <div class="persona-header">
-              <img class="persona-avatar" src="assets/programs/persona-wtasales-avatar.jpg" alt="Avatar representing the Academy Sales Team persona">
+              <div class="persona-avatar-wrap">
+                <img class="persona-avatar" src="assets/programs/sales.png" alt="Avatar representing the Academy Sales Team persona">
+              </div>
               <h3 class="persona-name">Academy Sales Team</h3>
             </div>
             <div class="persona-goals">
