@@ -180,6 +180,132 @@
       margin-bottom: 0;
     }
 
+    /* ─── Personas ───────────────────────────────────────────── */
+    .personas {
+      display: flex;
+      gap: 4%;
+      padding-top: 160px;
+    }
+
+    .personas-left {
+      flex: 0 0 25%;
+    }
+
+    .personas-left .t-label {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .personas-left p {
+      margin-bottom: 12px;
+    }
+
+    .persona-cards {
+      flex: 0 0 71%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .persona-card {
+      border: 2px dashed #A9CDF5;
+      border-radius: 20px;
+      background-color: #EEF5FF;
+      padding: 32px;
+    }
+
+    .persona-card--purple {
+      border-color: #CBBBF7;
+      background-color: #F3EFFF;
+    }
+
+    .persona-header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .persona-avatar {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .persona-name {
+      font-family: 'Nothing You Could Do', cursive;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1;
+      color: var(--color-heading);
+    }
+
+    .persona-section-label {
+      display: block;
+      font-family: 'Nothing You Could Do', cursive;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--color-heading);
+      margin-bottom: 12px;
+    }
+
+    .persona-goals {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-bottom: 32px;
+    }
+
+    .persona-frustrations {
+      padding: 0 8px;
+    }
+
+    .persona-card ul {
+      padding-left: 20px;
+    }
+
+    .persona-card ul li {
+      margin-bottom: 10px;
+    }
+
+    .persona-card ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .persona-quote {
+      max-width: 400px;
+      margin: 0 auto 32px;
+      padding: 16px 24px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .persona-quote::after {
+      content: '';
+      position: absolute;
+      left: 32px;
+      bottom: -8px;
+      width: 16px;
+      height: 16px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 0 0 0 4px;
+      transform: rotate(45deg);
+    }
+
+    .persona-quote p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 15px;
+      line-height: 150%;
+      color: var(--color-body);
+    }
+
     /* ─── What Testing Revealed ───────────────────────────────── */
     .testing-section {
       background-color: rgba(131, 125, 125, 0.05);
@@ -490,6 +616,7 @@
       .challenge-tldr,
       .business-context,
       .discovery,
+      .personas,
       .wireframing,
       .testing,
       .solution,
@@ -503,6 +630,8 @@
       .business-context-bullets,
       .discovery-left,
       .discovery-right,
+      .personas-left,
+      .persona-cards,
       .wireframing-left,
       .wireframing-cards,
       .testing-left,
@@ -516,6 +645,26 @@
       }
       .challenge-col {
         box-shadow: 4px 4px 0 #FBD916;
+      }
+      .persona-card {
+        padding: 24px;
+      }
+      .persona-header {
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .persona-avatar {
+        width: 72px;
+        height: 72px;
+      }
+      .persona-name {
+        font-size: 32px;
+      }
+      .persona-goals {
+        padding: 20px 24px;
+      }
+      .persona-quote {
+        max-width: 100%;
       }
       .solution-card {
         box-shadow: 3px 3px 0 0 #62B61B;
@@ -531,6 +680,7 @@
     /* ─── Left column muted text ────────────────────────────── */
     .business-context-label p,
     .discovery-left p,
+    .personas-left p,
     .wireframing-left p,
     .testing-left p,
     .solution-left p,
@@ -608,6 +758,71 @@
             <li class="t-default">Every edit carried 3-week risk because no low-stakes way to make a change.</li>
             <li class="t-default">That risk made admins over-reliant on support rather than acting independently.</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="personas">
+        <div class="personas-left">
+          <span class="t-label">Meet the Personas</span>
+          <p>Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
+        </div>
+        <div class="persona-cards">
+          <div class="persona-card persona-card--purple">
+            <div class="persona-header">
+              <img class="persona-avatar" src="assets/programs/persona-internalauth-avatar.jpg" alt="Avatar representing the Internal Authors persona">
+              <h3 class="persona-name">Internal Authors</h3>
+            </div>
+            <div class="persona-goals">
+              <span class="persona-section-label">Goals</span>
+              <ul>
+                <li class="t-default">Go from discovery to a live program without weeks of dev wait</li>
+                <li class="t-default">Reuse or adapt existing content instead of duplicating work</li>
+                <li class="t-default">Tailor a program by audience (e.g. country-specific compliance)</li>
+                <li class="t-default">Edit content independently after launch</li>
+                <li class="t-default">Preview changes accurately before they go live</li>
+              </ul>
+            </div>
+            <div class="persona-quote">
+              <p>"If we had the tools to do it in the interface, it would take us 5 minutes, whereas it takes several weeks because we need developer intervention."</p>
+            </div>
+            <div class="persona-frustrations">
+              <span class="persona-section-label">Frustrations</span>
+              <ul>
+                <li class="t-default">Can't touch course templates once a program is live, even for small edits</li>
+                <li class="t-default">Brainstorming still happens on whiteboards and cards; nothing centralised</li>
+                <li class="t-default">No plan for scaling beyond existing workload</li>
+                <li class="t-default">Review process is ad hoc: a message, a task, or informal staging check</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="persona-card">
+            <div class="persona-header">
+              <img class="persona-avatar" src="assets/programs/persona-wtasales-avatar.jpg" alt="Avatar representing the Academy Sales Team persona">
+              <h3 class="persona-name">Academy Sales Team</h3>
+            </div>
+            <div class="persona-goals">
+              <span class="persona-section-label">Goals</span>
+              <ul>
+                <li class="t-default">Build programs with mass-market appeal for fast uptake</li>
+                <li class="t-default">Know the business impact of a program to prioritise what's next</li>
+                <li class="t-default">Preview and tweak a program before it goes live</li>
+                <li class="t-default">Go from client call to live program without waiting on Product</li>
+              </ul>
+            </div>
+            <div class="persona-quote">
+              <p>"By the time we got it ready, the client had pretty much lost interest."</p>
+            </div>
+            <div class="persona-frustrations">
+              <span class="persona-section-label">Frustrations</span>
+              <ul>
+                <li class="t-default">Client needs live in phone calls and one person's head, not a system</li>
+                <li class="t-default">Intake spreadsheet is dense and unclear, needs constant Product hand-holding</li>
+                <li class="t-default">No visibility once handed off; client sometimes sees it live before they do</li>
+                <li class="t-default">Builds take so long the client has lost interest by launch</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
