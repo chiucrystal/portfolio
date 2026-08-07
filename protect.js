@@ -2,6 +2,10 @@
 // Not real security (this is client-side, viewable in source); it's a
 // polite deterrent so casual visitors don't stumble into NDA'd work.
 (function () {
+  // Master switch — set to true to re-enable the gate.
+  var ENABLED = false;
+  if (!ENABLED) return;
+
   // SHA-256 of the shared password — kept hashed so the plaintext isn't
   // sitting in view-source.
   var HASH = '6a07a5c18e0f6c695c2445e84751f8ac9406da91fae839b5c3de36b9c712269e';
