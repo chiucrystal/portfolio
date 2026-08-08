@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geist+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geist+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nothing+You+Could+Do&display=swap');
 
 /* ─── Colour variables ─────────────────────────────────────── */
 
@@ -62,7 +62,7 @@ h3 {
 .t-default,
 p {
   font-family: 'Geist', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.0032em;
@@ -118,6 +118,11 @@ a:hover,
   color: var(--color-link-hover);
 }
 
+.t-handwritten {
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 400;
+}
+
 /* ─── Component tokens ─────────────────────────────────────── */
 
 .caption {
@@ -159,7 +164,7 @@ body {
     linear-gradient(rgba(36, 59, 125, 0.043) 1px, transparent 1px);
   background-size: 56px 56px;
   font-family: 'Geist', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.0032em;
