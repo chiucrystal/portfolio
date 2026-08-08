@@ -31,7 +31,7 @@ html.cs-locked {
 }
 
 .cs-gate-label {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.06em;
@@ -51,7 +51,7 @@ html.cs-locked {
   padding: 10px 12px;
   border: 1px solid var(--color-muted, #837D7D);
   background: #FEFAF6;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 16px;
   color: var(--color-body, #3A3128);
 }
@@ -66,7 +66,7 @@ html.cs-locked {
   border: none;
   background: var(--color-link, #0363AD);
   color: #FEFAF6;
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
@@ -79,7 +79,7 @@ html.cs-locked {
 
 .cs-gate-error {
   margin-top: 12px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-size: 14px;
   color: #C0392B;
 }
