@@ -27,7 +27,11 @@
 body {
     font-family: var(--font-sans);
     color: var(--color-text);
-    background: var(--color-bg);
+    background-color: var(--color-bg);
+    background-image:
+        linear-gradient(to right, rgba(36, 59, 125, 0.043) 1px, transparent 1px),
+        linear-gradient(rgba(36, 59, 125, 0.043) 1px, transparent 1px);
+    background-size: 56px 56px;
     line-height: 1.5;
 }
 
@@ -449,6 +453,24 @@ a {
     font-size: 18px;
     line-height: 1.5;
     color: var(--color-muted);
+}
+
+.work-card-thumb--placeholder {
+    background: linear-gradient(135deg, #E9E9E9 0%, #F5F3EF 100%);
+}
+
+.playground-section {
+    margin-top: 48px;
+}
+
+.work-subsection-label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--color-muted);
+    margin-bottom: 24px;
 }
 
 /* ==========================================
