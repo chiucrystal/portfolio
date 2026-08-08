@@ -202,9 +202,12 @@
 
     .persona-cards {
       flex: 0 0 71%;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    }
+
+    .persona-stack {
+      position: relative;
+      cursor: pointer;
+      padding: 8px 24px 24px 4px;
     }
 
     .persona-card {
@@ -213,12 +216,57 @@
       background-color: #F3EFFF;
       padding: 32px;
       --persona-accent: #A63FFF;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
     }
 
     .persona-card--mint {
       border-color: #9FE8CB;
       background-color: #EAFFF6;
       --persona-accent: #00E6A8;
+    }
+
+    .persona-card.is-front {
+      position: relative;
+      z-index: 2;
+      transform: rotate(0deg) translate(0, 0);
+    }
+
+    .persona-card.is-back {
+      position: absolute;
+      inset: 8px 24px 24px 4px;
+      z-index: 1;
+      transform: rotate(4deg) translate(14px, 10px);
+      box-shadow: 0 16px 28px rgba(35, 30, 26, 0.14);
+    }
+
+    .persona-stack:hover .persona-card.is-back {
+      transform: rotate(6deg) translate(20px, 16px);
+    }
+
+    .persona-stack-hint {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      transform: translate(-50%, -50%) scale(0.9);
+      background-color: var(--color-heading);
+      color: var(--color-bg);
+      font-family: 'DM Mono', monospace;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    .persona-stack-hint--visible {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
     }
 
     .persona-header {
@@ -779,7 +827,9 @@
           <p>Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
         </div>
         <div class="persona-cards">
-          <div class="persona-card">
+          <div class="persona-stack">
+            <div class="persona-stack-hint">Swipe to see next</div>
+            <div class="persona-card is-front">
             <div class="persona-header">
               <div class="persona-avatar-wrap">
                 <img class="persona-avatar" src="assets/programs/internal%20auth.png" alt="Avatar representing the Internal Authors persona">
@@ -810,7 +860,7 @@
             </div>
           </div>
 
-          <div class="persona-card persona-card--mint">
+          <div class="persona-card persona-card--mint is-back">
             <div class="persona-header">
               <div class="persona-avatar-wrap">
                 <img class="persona-avatar" src="assets/programs/sales.png" alt="Avatar representing the Academy Sales Team persona">
@@ -839,6 +889,7 @@
               </ul>
             </div>
           </div>
+        </div>
         </div>
       </div>
 
@@ -960,5 +1011,35 @@
 
   <script src="../nav.js"></script>
   <script src="../scroll-reveal.js"></script>
+  <script>
+    (function () {
+      var stack = document.querySelector('.persona-stack');
+      if (!stack) return;
+      var hint = stack.querySelector('.persona-stack-hint');
+
+      stack.addEventListener('mousemove', function (e) {
+        hint.style.left = e.clientX + 'px';
+        hint.style.top = e.clientY + 'px';
+      });
+
+      stack.addEventListener('mouseenter', function () {
+        hint.classList.add('persona-stack-hint--visible');
+      });
+
+      stack.addEventListener('mouseleave', function () {
+        hint.classList.remove('persona-stack-hint--visible');
+      });
+
+      stack.addEventListener('click', function () {
+        var front = stack.querySelector('.persona-card.is-front');
+        var back = stack.querySelector('.persona-card.is-back');
+        if (!front || !back) return;
+        front.classList.remove('is-front');
+        front.classList.add('is-back');
+        back.classList.remove('is-back');
+        back.classList.add('is-front');
+      });
+    }());
+  </script>
 </body>
 </html>
