@@ -258,16 +258,48 @@
       margin-bottom: 24px;
     }
 
-    .discovery-bullets {
-      padding-left: 20px;
+    .journey-map {
+      margin: 32px 0;
     }
 
-    .discovery-bullets li {
-      margin-bottom: 8px;
+    .journey-map-img {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(35, 30, 26, 0.12);
+      border-radius: 8px;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
     }
 
-    .discovery-bullets li:last-child {
-      margin-bottom: 0;
+    .journey-map-img:hover {
+      opacity: 0.9;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      background-color: rgba(20, 17, 14, 0.85);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      cursor: zoom-out;
     }
 
     /* ─── Personas ───────────────────────────────────────────── */
@@ -693,7 +725,6 @@
             <a href="#challenge" class="case-toc-link">The challenge</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery and research</a>
-            <a href="#personas" class="case-toc-link">Meet the personas</a>
             <a href="#wireframing" class="case-toc-link">Wireframing and concepts</a>
             <a href="#testing" class="case-toc-link">What testing revealed</a>
             <a href="#solution" class="case-toc-link">Decisions</a>
@@ -720,17 +751,13 @@
 
           <section id="discovery" class="case-section">
             <span class="t-section-heading">Discovery and Research</span>
-            <h2 class="t-big-heading">The spreadsheet for program configuration had been designed around the codebase, not around the people using it.</h2>
-            <p class="discovery-intro">We spoke to 11 users across 3 teams to understand their existing workflow. A key theme quickly emerged.</p>
-            <ul class="discovery-bullets">
-              <li class="t-default">The spreadsheet fields were named after codebase variables, not natural language.</li>
-              <li class="t-default">Every edit carried 3-week risk because no low-stakes way to make a change.</li>
-              <li class="t-default">That risk made admins over-reliant on support rather than acting independently.</li>
-            </ul>
-          </section>
+            <p class="discovery-intro">We spoke to 11 users across 2 teams to understand their existing workflow. We found that:</p>
+            <h2 class="t-big-heading">The existing process was built around the codebase, not the users' goals.</h2>
 
-          <section id="personas" class="case-section">
-            <span class="t-section-heading">Meet the Personas</span>
+            <figure class="journey-map">
+              <img class="journey-map-img" src="assets/programs/journey-map.png" alt="Simplified user journey map of the existing program creation workflow">
+            </figure>
+
             <p class="personas-intro">Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
             <div class="persona-stack">
               <div class="persona-stack-hint">Click to see next</div>
@@ -902,6 +929,10 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="journey-map-lightbox">
+    <img src="assets/programs/journey-map.png" alt="Simplified user journey map of the existing program creation workflow, enlarged">
+  </div>
+
   <script src="../nav.js"></script>
   <script src="../scroll-reveal.js"></script>
   <script src="../case-toc.js"></script>
@@ -910,6 +941,12 @@
       var stack = document.querySelector('.persona-stack');
       if (!stack) return;
       var hint = stack.querySelector('.persona-stack-hint');
+
+      // Reparent to <body>: position:fixed is relative to the nearest
+      // transformed ancestor, not the viewport, and scroll-reveal.js
+      // puts a transform on every .case-section (including this one)
+      // while it animates in.
+      document.body.appendChild(hint);
 
       stack.addEventListener('mousemove', function (e) {
         hint.style.left = e.clientX + 'px';
@@ -932,6 +969,25 @@
         front.classList.add('is-back');
         back.classList.remove('is-back');
         back.classList.add('is-front');
+      });
+    }());
+
+    (function () {
+      var trigger = document.querySelector('.journey-map-img');
+      var lightbox = document.getElementById('journey-map-lightbox');
+      if (!trigger || !lightbox) return;
+
+      function open() {
+        lightbox.classList.add('is-open');
+      }
+      function close() {
+        lightbox.classList.remove('is-open');
+      }
+
+      trigger.addEventListener('click', open);
+      lightbox.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
       });
     }());
   </script>
