@@ -8,8 +8,8 @@
     --color-highlight: #3fb1f2;
     --color-border: rgba(0, 0, 0, 0.2);
     
-    --font-mono: 'DM Mono', monospace;
-    --font-sans: 'DM Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --font-sans: 'Geist', sans-serif;
     
     --transition-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-bounce: cubic-bezier(0.68, -0.25, 0.265, 1.25);
@@ -72,7 +72,7 @@ a {
 }
 
 .nav-links h3 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 300;
     font-size: 20px;
     line-height: 150%;
@@ -197,7 +197,7 @@ a {
 
 .context-menu-item {
     padding: 12px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 16px;
     letter-spacing: -0.04em;
     color: #FFFFFF;
@@ -226,7 +226,7 @@ a {
 }
 
 .hero-description {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 300;
     font-size: 22px;
     line-height: 1.55;
@@ -418,7 +418,7 @@ a {
 }
 
 .cs-overlay-text {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Geist Mono', monospace;
     font-weight: 500;
     font-style: italic;
     font-size: 28px;
@@ -678,7 +678,7 @@ a {
 }
 
 .about-panel-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 18px;
@@ -722,7 +722,7 @@ a {
 }
 
 .xp-section-label {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 18px;
@@ -743,11 +743,11 @@ a {
 }
 
 .xp-company {
-  /* inherits h2 token: DM Sans Light 28px, --color-heading */
+  /* inherits h2 token: Geist Light 28px, --color-heading */
 }
 
 .xp-date {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 300;
   font-style: italic;
   font-size: 14px;
