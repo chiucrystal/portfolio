@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,500;1,300;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geist+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nothing+You+Could+Do&display=swap');
 
 /* ─── Colour variables ─────────────────────────────────────── */
 
@@ -22,7 +22,7 @@
 
 .t-display,
 h1 {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 300;
   font-size: 40px;
   line-height: 150%;
@@ -32,7 +32,7 @@ h1 {
 
 .t-h2,
 h2 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-size: 28px;
   line-height: 150%;
@@ -42,7 +42,7 @@ h2 {
 
 .t-h3,
 h3 {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-size: 20px;
   line-height: 150%;
@@ -51,7 +51,7 @@ h3 {
 }
 
 .t-large {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
@@ -61,8 +61,8 @@ h3 {
 
 .t-default,
 p {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.0032em;
@@ -71,7 +71,7 @@ p {
 
 .t-quote,
 blockquote {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 18px;
@@ -81,7 +81,7 @@ blockquote {
 }
 
 .t-label-sm {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
@@ -91,7 +91,7 @@ blockquote {
 }
 
 .t-label {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 400;
   font-style: italic;
   font-size: 20px;
@@ -103,7 +103,7 @@ blockquote {
 
 .t-link,
 a {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   font-weight: 500;
   font-size: 14px;
   line-height: 150%;
@@ -118,10 +118,15 @@ a:hover,
   color: var(--color-link-hover);
 }
 
+.t-handwritten {
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 400;
+}
+
 /* ─── Component tokens ─────────────────────────────────────── */
 
 .caption {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 12px;
@@ -133,7 +138,7 @@ a:hover,
 .quote-block {
   padding: 12px;
   background: rgba(171, 161, 150, 0.1);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 300;
   font-style: italic;
   font-size: 16px;
@@ -158,8 +163,8 @@ body {
     linear-gradient(to right, rgba(36, 59, 125, 0.043) 1px, transparent 1px),
     linear-gradient(rgba(36, 59, 125, 0.043) 1px, transparent 1px);
   background-size: 56px 56px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: -0.0032em;
