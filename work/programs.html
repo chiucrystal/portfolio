@@ -475,6 +475,10 @@
     }
 
     /* ─── Testing and Decisions ──────────────────────────────── */
+    .search-testing + .search-testing {
+      margin-top: 48px;
+    }
+
     .search-testing p {
       margin-bottom: 24px;
     }
@@ -909,6 +913,37 @@
                 <ul>
                   <li class="t-default">Reverted to a familiar data table pattern to temporarily resolve the search issue while working on pitching a platform-wide rehaul of the course catalogue, which would include standardising the sales team's private catalogue.</li>
                   <li class="t-default">Avoid custom componentry and use what PrimeVue has to offer due to resourcing constraints.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="search-testing">
+              <h2 class="t-big-heading">How might we keep an arbitrary constraint out of the way until necessary?</h2>
+              <p>An unknown constraint: 'Course groups' existed as a technical requirement that was difficult and costly to undo. Most users never touched this in their existing workflow as it was originally included to accommodate an edge case. Every tester expressed they found it confusing as a concept and they couldn't see a need for the feature.</p>
+
+              <div class="findings-group">
+                <span class="t-label-sm">Key findings / Internal authors</span>
+                <ul>
+                  <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
+                  <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
+                </ul>
+              </div>
+
+              <div class="findings-group">
+                <span class="t-label-sm">Key finding / Sales</span>
+                <ul>
+                  <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
+                  <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
+                </ul>
+              </div>
+
+              <div class="findings-group">
+                <span class="t-label-sm">What was decided</span>
+                <h3>Keep the structure and process simple, flexible, and out of the way until needed.</h3>
+                <ul>
+                  <li class="t-default">Pre-populated one group by default so users landed with the structure already in place, removing the need to add a group on first encounter.</li>
+                  <li class="t-default">Errors surfaced inline, attached to the relevant card, only when something was wrong.</li>
+                  <li class="t-default">Kept the structure simple, flexible, and most importantly, familiar. With product strategy shifting day by day, locking in a rigid architecture was an unnecessary risk.</li>
                 </ul>
               </div>
             </div>
