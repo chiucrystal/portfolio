@@ -101,6 +101,11 @@ blockquote {
   color: var(--color-label);
 }
 
+.t-handwritten {
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 400;
+}
+
 .t-link,
 a {
   font-family: 'Geist Mono', monospace;
@@ -116,11 +121,6 @@ a {
 a:hover,
 .t-link:hover {
   color: var(--color-link-hover);
-}
-
-.t-handwritten {
-  font-family: 'Nothing You Could Do', cursive;
-  font-weight: 400;
 }
 
 /* ─── Component tokens ─────────────────────────────────────── */
