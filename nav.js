@@ -3,8 +3,8 @@
   var base   = isWork ? '../' : '';
   var imgSrc = isWork ? 'assets/shared/nav-left.png' : 'work/assets/shared/nav-left.png';
 
-  // ── Load DM Sans if not already present ─────────────────────────
-  if (!document.querySelector('link[href*="DM+Sans"]')) {
+  // ── Load Geist if not already present ────────────────────────────
+  if (!document.querySelector('link[href*="family=Geist"]')) {
     var preconnect1 = document.createElement('link');
     preconnect1.rel = 'preconnect';
     preconnect1.href = 'https://fonts.googleapis.com';
@@ -18,7 +18,7 @@
 
     var font = document.createElement('link');
     font.rel = 'stylesheet';
-    font.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap';
+    font.href = 'https://fonts.googleapis.com/css2?family=Geist:wght@300;400&display=swap';
     document.head.appendChild(font);
   }
 
@@ -33,7 +33,7 @@
     '.nav-logo-img{height:clamp(22px,2.67vw,32px);width:auto;display:block}' +
 
     '.nav-links{display:flex;gap:32px;list-style:none;align-items:center}' +
-    '.nav-links h3{font-family:"DM Sans",sans-serif;font-size:20px;font-weight:300;' +
+    '.nav-links h3{font-family:"Geist",sans-serif;font-size:20px;font-weight:300;' +
     'line-height:1.5;letter-spacing:0;margin:0;color:#383836}' +
     '.nav-links a{font-family:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit;' +
     'color:#383836;text-decoration:none;text-transform:none;transition:color .2s ease-in-out}' +
@@ -51,7 +51,7 @@
     'display:none;flex-direction:column;justify-content:center;padding:0 24px}' +
     '.nav-overlay--open{animation:overlayIn 0.2s ease forwards}' +
     '.nav-overlay-links{display:flex;flex-direction:column;gap:4px}' +
-    '.nav-overlay-links a{font-family:"DM Sans",sans-serif;font-size:clamp(40px,11vw,64px);' +
+    '.nav-overlay-links a{font-family:"Geist",sans-serif;font-size:clamp(40px,11vw,64px);' +
     'font-weight:300;line-height:1.25;color:#383836;text-decoration:none;' +
     'opacity:0;transition:color 0.2s ease}' +
     '.nav-overlay--open .nav-overlay-links a:nth-child(1){animation:overlayLinkIn 0.25s ease 0.08s forwards}' +
