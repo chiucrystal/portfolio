@@ -260,19 +260,26 @@
 
     .journey-map {
       margin: 32px 0;
+      padding: 4px;
+      border: 2px solid rgba(35, 30, 26, 0.18);
+      border-radius: 12px;
+      transition: border-color 0.25s ease;
+    }
+
+    .journey-map:hover {
+      border-color: rgba(35, 30, 26, 0.4);
     }
 
     .journey-map-img {
       display: block;
       width: 100%;
-      border: 1px solid rgba(35, 30, 26, 0.12);
       border-radius: 8px;
       cursor: zoom-in;
-      transition: opacity 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
-    .journey-map-img:hover {
-      opacity: 0.9;
+    .journey-map:hover .journey-map-img {
+      transform: translate(4px, -4px) rotate(-1deg);
     }
 
     .lightbox {
@@ -348,7 +355,7 @@
       transform: rotate(8deg) translate(34px, 26px) scale(0.97);
     }
 
-    .persona-stack-hint {
+    .cursor-hint {
       position: fixed;
       top: 0;
       left: 0;
@@ -356,7 +363,7 @@
       transform: translate(-50%, 0) scale(0.9);
       background-color: var(--color-heading);
       color: var(--color-bg);
-      font-family: 'DM Mono', monospace;
+      font-family: 'Geist Mono', monospace;
       font-weight: 500;
       font-size: 12px;
       letter-spacing: 0.06em;
@@ -369,7 +376,7 @@
       transition: opacity 0.15s ease, transform 0.15s ease;
     }
 
-    .persona-stack-hint--visible {
+    .cursor-hint--visible {
       opacity: 1;
       transform: translate(-50%, 0) scale(1);
     }
@@ -755,12 +762,13 @@
             <h2 class="t-big-heading">The existing process was built around the codebase, not the users' goals.</h2>
 
             <figure class="journey-map">
+              <div class="cursor-hint">Click to zoom in</div>
               <img class="journey-map-img" src="assets/programs/journey-map.png" alt="Simplified user journey map of the existing program creation workflow">
             </figure>
 
             <p class="personas-intro">Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
             <div class="persona-stack">
-              <div class="persona-stack-hint">Click to see next</div>
+              <div class="cursor-hint">Click to see next</div>
               <div class="persona-card is-front">
                 <div class="persona-header">
                   <div class="persona-avatar-wrap">
@@ -937,16 +945,35 @@
   <script src="../scroll-reveal.js"></script>
   <script src="../case-toc.js"></script>
   <script>
+    // Wires a small pill that follows the cursor while hovering `target`,
+    // showing/hiding with it. Reparented to <body>: position:fixed is
+    // relative to the nearest transformed ancestor, not the viewport, and
+    // scroll-reveal.js puts a transform on every .case-section while it
+    // animates in.
+    function wireCursorHint(target, hint) {
+      document.body.appendChild(hint);
+
+      target.addEventListener('mousemove', function (e) {
+        // +8px gap below the *visible* cursor glyph, not the pointer
+        // coordinate itself — the arrow icon extends ~16px below that
+        // point, so the offset needs to clear it first.
+        hint.style.left = e.clientX + 'px';
+        hint.style.top = (e.clientY + 16 + 8) + 'px';
+      });
+
+      target.addEventListener('mouseenter', function () {
+        hint.classList.add('cursor-hint--visible');
+      });
+
+      target.addEventListener('mouseleave', function () {
+        hint.classList.remove('cursor-hint--visible');
+      });
+    }
+
     (function () {
       var stack = document.querySelector('.persona-stack');
       if (!stack) return;
-      var hint = stack.querySelector('.persona-stack-hint');
-
-      // Reparent to <body>: position:fixed is relative to the nearest
-      // transformed ancestor, not the viewport, and scroll-reveal.js
-      // puts a transform on every .case-section (including this one)
-      // while it animates in.
-      document.body.appendChild(hint);
+      var hint = stack.querySelector('.cursor-hint');
 
       function cycle() {
         var front = stack.querySelector('.persona-card.is-front');
@@ -1017,30 +1044,19 @@
         });
       } else {
         // Mouse: cursor-follow hint plus click to cycle.
-        stack.addEventListener('mousemove', function (e) {
-          // +8px gap below the *visible* cursor glyph, not the pointer
-          // coordinate itself — the arrow icon extends ~16px below that
-          // point, so the offset needs to clear it first.
-          hint.style.left = e.clientX + 'px';
-          hint.style.top = (e.clientY + 16 + 8) + 'px';
-        });
-
-        stack.addEventListener('mouseenter', function () {
-          hint.classList.add('persona-stack-hint--visible');
-        });
-
-        stack.addEventListener('mouseleave', function () {
-          hint.classList.remove('persona-stack-hint--visible');
-        });
-
+        wireCursorHint(stack, hint);
         stack.addEventListener('click', cycle);
       }
     }());
 
     (function () {
+      var frame = document.querySelector('.journey-map');
       var trigger = document.querySelector('.journey-map-img');
       var lightbox = document.getElementById('journey-map-lightbox');
-      if (!trigger || !lightbox) return;
+      var hint = frame ? frame.querySelector('.cursor-hint') : null;
+      if (!frame || !trigger || !lightbox) return;
+
+      if (hint) wireCursorHint(frame, hint);
 
       function open() {
         lightbox.classList.add('is-open');
