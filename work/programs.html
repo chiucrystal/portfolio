@@ -474,11 +474,52 @@
       color: var(--color-body);
     }
 
-    /* ─── Wireframing and Concepts ──────────────────────────── */
+    /* ─── Testing and Decisions ──────────────────────────────── */
+    .search-testing p {
+      margin-bottom: 24px;
+    }
+
+    .search-testing h3 {
+      margin-bottom: 16px;
+    }
+
+    .search-gif {
+      margin: 0 0 32px;
+    }
+
+    .search-gif img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(35, 30, 26, 0.18);
+    }
+
+    .findings-group {
+      margin-bottom: 32px;
+    }
+
+    .findings-group .t-label-sm {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .findings-group ul {
+      padding-left: 20px;
+    }
+
+    .findings-group li {
+      margin-bottom: 8px;
+    }
+
+    .findings-group li:last-child {
+      margin-bottom: 0;
+    }
+
     .wireframing-cards {
       display: flex;
       flex-direction: column;
       gap: 48px;
+      margin-top: 16px;
     }
 
     .wireframing-card {
@@ -728,7 +769,7 @@
             <a href="#challenge" class="case-toc-link">The challenge</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery and research</a>
-            <a href="#wireframing" class="case-toc-link">Wireframing and concepts</a>
+            <a href="#wireframing" class="case-toc-link">Testing and decisions</a>
             <a href="#testing" class="case-toc-link">What testing revealed</a>
             <a href="#solution" class="case-toc-link">Decisions</a>
             <a href="#results" class="case-toc-link">Results and impact</a>
@@ -829,7 +870,49 @@
           </section>
 
           <section id="wireframing" class="case-section">
-            <span class="t-section-heading">Wireframing and Concepts</span>
+            <span class="t-section-heading">Testing and Decisions</span>
+
+            <div class="search-testing">
+              <h2 class="t-big-heading">How might we support two fundamentally different search behaviours?</h2>
+              <p>Internal admins needed precision while sales needed discoverability.</p>
+
+              <figure class="search-gif">
+                <img src="assets/programs/global-search.gif" alt="Global search bar returning results across the course catalogue">
+              </figure>
+
+              <h3>What was tested</h3>
+              <p class="t-big-heading">Make searching for content easier and less dependent on knowing the catalogue structure in advance, by replacing column-based filtering with one global search bar.</p>
+
+              <p>The existing search locked users to column-based filtering, meaning users could only find something if they already knew which column to look in.</p>
+              <p>The sales team currently rely on memory and a Word doc that falls out of sync with the live catalogue. That works when everyone involved is small and senior. It doesn't scale as headcount grows or as enterprise clients begin navigating an unfamiliar catalogue.</p>
+
+              <div class="findings-group">
+                <span class="t-label-sm">Findings: Internal admins</span>
+                <ul>
+                  <li class="t-default">They responded well, mentioning that the single search interaction was familiar, comparable to tools like Google Search and Amazon.</li>
+                  <li class="t-default">They appreciated the variety of results. Filters were a last resort, only used when keyword search failed.</li>
+                  <li class="t-default">Rarely searched by text strings as their consistent naming conventions in Sharepoint made code-based search reliable.</li>
+                </ul>
+              </div>
+
+              <div class="findings-group">
+                <span class="t-label-sm">Findings: Sales</span>
+                <ul>
+                  <li class="t-default">Fuzzy matching returned unexpected results, leading users to think the system made a mistake.</li>
+                  <li class="t-default">Sales consistently took more attempts with global search than with a column search or their Word document. Team members couldn't reliably predict how a course was named unless they reached out to colleagues or product support.</li>
+                  <li class="t-default">They preferred to browse by category in their reference doc, however syncing both required the team to standardise their current catalogue. They weren't ready to commit to the initiative, and ultimately landed outside the scope of this project.</li>
+                </ul>
+              </div>
+
+              <div class="findings-group">
+                <span class="t-label-sm">Second try/what we landed on</span>
+                <ul>
+                  <li class="t-default">Reverted to a familiar data table pattern to temporarily resolve the search issue while working on pitching a platform-wide rehaul of the course catalogue, which would include standardising the sales team's private catalogue.</li>
+                  <li class="t-default">Avoid custom componentry and use what PrimeVue has to offer due to resourcing constraints.</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="wireframing-cards">
               <div class="wireframing-card">
                 <h3>Progressive disclosure keeps admins focused, not overwhelmed.</h3>
