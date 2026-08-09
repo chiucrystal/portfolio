@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Typography style guide — crystal.chiu</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geist+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+  <style>
+    /* This page is intentionally unlinked from site navigation — it's a
+       dev reference for the type system, not a page visitors should
+       land on. noindex above keeps it out of search results too. */
+
+    body {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 40px 120px;
+    }
+
+    .sg-notice {
+      padding: 16px 20px;
+      margin-bottom: 64px;
+      background: rgba(224, 62, 62, 0.06);
+      border: 1px solid rgba(224, 62, 62, 0.3);
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #A83232;
+    }
+
+    .sg-page-title {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 32px;
+      letter-spacing: -0.02em;
+      color: var(--color-heading);
+      margin-bottom: 8px;
+    }
+
+    .sg-page-subtitle {
+      font-family: 'Geist', sans-serif;
+      font-size: 15px;
+      color: var(--color-muted);
+      margin-bottom: 56px;
+    }
+
+    .sg-section {
+      margin-bottom: 72px;
+    }
+
+    .sg-section-title {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-link);
+      padding-bottom: 12px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .sg-section-note {
+      font-family: 'Geist', sans-serif;
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-top: -20px;
+      margin-bottom: 32px;
+      max-width: 640px;
+    }
+
+    .sg-row {
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .sg-row:last-child {
+      border-bottom: none;
+    }
+
+    .sg-specimen {
+      flex: 0 0 55%;
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    .sg-meta {
+      flex: 1;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--color-muted);
+    }
+
+    .sg-meta .sg-selector {
+      display: block;
+      font-weight: 500;
+      color: var(--color-link);
+      margin-bottom: 6px;
+    }
+
+    .sg-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sg-swatch {
+      width: 140px;
+    }
+
+    .sg-swatch-color {
+      width: 100%;
+      height: 64px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      margin-bottom: 8px;
+    }
+
+    .sg-swatch-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--color-body);
+    }
+
+    .sg-swatch-label .sg-hex {
+      display: block;
+      color: var(--color-muted);
+    }
+
+    /* ─── Case-study scale specimens ─────────────────────────────
+       These aren't shared classes — programs.html / content-creator.html
+       / dedoco.html each define this scale locally in a page-scoped
+       <style> block (see tokens-scale-audit notes in each file). The
+       rules below are a hand-kept copy for display purposes only. ─── */
+    .cs-display { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 64px; line-height: 70.4px; letter-spacing: -1.92px; color: var(--color-heading); }
+    .cs-h2 { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 28px; line-height: 32.2px; letter-spacing: -0.42px; color: var(--color-heading); }
+    .cs-h3 { font-family: 'Geist', sans-serif; font-weight: 500; font-size: 28px; line-height: 2.5rem; letter-spacing: -0.22px; color: var(--color-heading); }
+    .cs-large { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 18px; line-height: 23.4px; letter-spacing: -0.18px; color: var(--color-body); }
+    .cs-default { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 16px; line-height: 20.8px; letter-spacing: -0.16px; color: var(--color-body); }
+    .cs-caption { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 14px; line-height: 19.6px; letter-spacing: 0; color: var(--color-body); }
+    .cs-label-sm { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 11px; line-height: 11px; letter-spacing: 0.55px; color: var(--color-body); }
+    .cs-label { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 16px; line-height: 16px; letter-spacing: 0.08px; color: var(--color-body); }
+    .cs-link { font-family: 'Geist Mono', monospace; font-weight: 500; font-size: 16px; line-height: 16px; letter-spacing: 0.08px; color: var(--color-link); }
+    .cs-section-heading { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 20px; line-height: normal; letter-spacing: -0.02em; color: #959494; }
+    .cs-big-heading { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 42px; line-height: normal; letter-spacing: -0.02em; color: var(--color-heading); }
+    .cs-toc-link { font-family: 'Geist', sans-serif; font-weight: 400; font-size: 15px; line-height: 140%; letter-spacing: 0; color: var(--color-muted); }
+
+    .accent-handwritten { font-family: 'Nothing You Could Do', cursive; font-weight: 600; font-size: 40px; color: var(--color-heading); }
+    .accent-persona-name { font-family: 'Nothing You Could Do', cursive; font-weight: 600; font-size: 40px; line-height: 1; color: var(--color-heading); }
+    .accent-persona-label { font-family: 'Nothing You Could Do', cursive; font-weight: 600; font-size: 22px; color: var(--color-heading); }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 40px 20px 80px;
+      }
+      .sg-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .sg-specimen {
+        flex-basis: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sg-notice">
+    Internal reference — not linked from site navigation, not indexed. Documents the type system as of the Geist/Geist&nbsp;Mono migration.
+  </div>
+
+  <h1 class="sg-page-title">Typography style guide</h1>
+  <p class="sg-page-subtitle">Every text token in use across the site, with the exact font-family / weight / size / line-height / letter-spacing / color behind it.</p>
+
+  <!-- ── Fonts loaded ─────────────────────────────────────────── -->
+  <section class="sg-section">
+    <div class="sg-section-title">Fonts loaded</div>
+    <div class="sg-row">
+      <div class="sg-specimen" style="font-family: 'Geist', sans-serif; font-size: 28px;">Geist — the sans body/heading face, weights 300–500 + italics</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-specimen" style="font-family: 'Geist Mono', monospace; font-size: 28px;">Geist Mono — labels, links, eyebrows, weights 300–500 + italics</div>
+    </div>
+    <div class="sg-row">
+      <div class="sg-specimen" style="font-family: 'Nothing You Could Do', cursive; font-size: 34px;">Nothing You Could Do — handwritten accent, single weight (400), used at weight 600 for synthetic bold</div>
+    </div>
+  </section>
+
+  <!-- ── Colors ───────────────────────────────────────────────── -->
+  <section class="sg-section">
+    <div class="sg-section-title">Colors</div>
+    <div class="sg-swatches">
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #FEFAF6;"></div>
+        <div class="sg-swatch-label">--color-bg<span class="sg-hex">#FEFAF6</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #243B7D;"></div>
+        <div class="sg-swatch-label">--color-display<span class="sg-hex">#243B7D</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #231E1A;"></div>
+        <div class="sg-swatch-label">--color-heading<span class="sg-hex">#231E1A</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #3A3128;"></div>
+        <div class="sg-swatch-label">--color-body<span class="sg-hex">#3A3128</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #837D7D;"></div>
+        <div class="sg-swatch-label">--color-muted<span class="sg-hex">#837D7D</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #687076;"></div>
+        <div class="sg-swatch-label">--color-label<span class="sg-hex">#687076</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #0363AD;"></div>
+        <div class="sg-swatch-label">--color-link<span class="sg-hex">#0363AD</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #1E86E1;"></div>
+        <div class="sg-swatch-label">--color-link-hover<span class="sg-hex">#1E86E1</span></div>
+      </div>
+      <div class="sg-swatch">
+        <div class="sg-swatch-color" style="background: #959494;"></div>
+        <div class="sg-swatch-label">case-study kicker<span class="sg-hex">#959494 (hardcoded, not a var)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Base scale — tokens.css ──────────────────────────────── -->
+  <section class="sg-section">
+    <div class="sg-section-title">Base scale — tokens.css</div>
+    <p class="sg-section-note">Drives index.html and anything without a page-scoped override. Rendered here using the actual shared classes, so this section stays accurate automatically if tokens.css changes.</p>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-display">Messy problems, no clean brief</div>
+      <div class="sg-meta"><span class="sg-selector">.t-display, h1</span>Geist Mono · 300 · 40px<br>line-height 150% · letter-spacing -0.055em<br>color var(--color-display)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-h2">Section heading, weight 300</div>
+      <div class="sg-meta"><span class="sg-selector">.t-h2, h2</span>Geist · 300 · 28px<br>line-height 150% · letter-spacing 0<br>color var(--color-heading)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-h3">Subsection heading, weight 300</div>
+      <div class="sg-meta"><span class="sg-selector">.t-h3, h3</span>Geist · 300 · 20px<br>line-height 150% · letter-spacing 0<br>color var(--color-heading)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-large">Large body copy, weight 400</div>
+      <div class="sg-meta"><span class="sg-selector">.t-large</span>Geist · 400 · 18px<br>line-height 150% · letter-spacing -0.0036em<br>color var(--color-body)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-default">Default body copy and paragraphs, weight 400</div>
+      <div class="sg-meta"><span class="sg-selector">.t-default, p, body</span>Geist · 400 · 16px<br>line-height 150% · letter-spacing -0.0032em<br>color var(--color-body)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-quote">"A quoted line of text sits here."</div>
+      <div class="sg-meta"><span class="sg-selector">.t-quote, blockquote</span>Geist italic · 300 · 18px<br>line-height 150% · letter-spacing -0.0036em<br>color var(--color-body)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-label">A label, italic and uppercase</div>
+      <div class="sg-meta"><span class="sg-selector">.t-label</span>Geist Mono italic, uppercase · 400 · 20px<br>line-height 150% · letter-spacing 0.06em<br>color var(--color-label)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-label-sm">A small label, uppercase</div>
+      <div class="sg-meta"><span class="sg-selector">.t-label-sm</span>Geist Mono, uppercase · 400 · 14px<br>line-height 150% · letter-spacing 0.06em<br>color var(--color-label)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen t-link">A link, uppercase and underlined</div>
+      <div class="sg-meta"><span class="sg-selector">.t-link, a</span>Geist Mono, uppercase, underline · 500 · 14px<br>line-height 150% · letter-spacing -0.008em<br>color var(--color-link) · hover var(--color-link-hover)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen caption">A small italic caption under an image</div>
+      <div class="sg-meta"><span class="sg-selector">.caption</span>Geist italic · 300 · 12px<br>line-height 150% · letter-spacing 0<br>color var(--color-body)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen quote-block">"A pulled quote inside a tinted block."</div>
+      <div class="sg-meta"><span class="sg-selector">.quote-block</span>Geist italic · 300 · 16px<br>line-height 150% · letter-spacing -0.0032em<br>color var(--color-muted) · bg rgba(171,161,150,0.1)</div>
+    </div>
+  </section>
+
+  <!-- ── Case study scale ─────────────────────────────────────── -->
+  <section class="sg-section">
+    <div class="sg-section-title">Case study scale — programs / content-creator / dedoco</div>
+    <p class="sg-section-note">Page-scoped, hand-duplicated across the 3 finished case study pages — bigger and bolder than the base scale. Specimens below are copies of those page-local rules, kept for display only.</p>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-display">Program setup took 3 weeks</div>
+      <div class="sg-meta"><span class="sg-selector">.t-display, h1</span>Geist · 500 · 64px<br>line-height 70.4px · letter-spacing -1.92px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-h2">A heading inside a card</div>
+      <div class="sg-meta"><span class="sg-selector">.t-h2, h2</span>Geist · 500 · 28px<br>line-height 32.2px · letter-spacing -0.42px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-h3">A card or finding title</div>
+      <div class="sg-meta"><span class="sg-selector">.t-h3, h3</span>Geist · 500 · 28px<br>line-height 2.5rem · letter-spacing -0.22px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-big-heading">The big synthesis statement per section</div>
+      <div class="sg-meta"><span class="sg-selector">.t-big-heading</span>Geist · 400 · 42px (new token)<br>line-height normal · letter-spacing -0.02em</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-section-heading">Section kicker label</div>
+      <div class="sg-meta"><span class="sg-selector">.t-section-heading</span>Geist · 400 · 20px (new token)<br>line-height normal · letter-spacing -0.02em<br>color #959494 (hardcoded)</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-large">Slightly larger body copy</div>
+      <div class="sg-meta"><span class="sg-selector">.t-large</span>Geist · 400 · 18px<br>line-height 23.4px · letter-spacing -0.18px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-default">Default body copy on case study pages</div>
+      <div class="sg-meta"><span class="sg-selector">.t-default, p</span>Geist · 400 · 16px<br>line-height 20.8px · letter-spacing -0.16px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-caption">An image caption</div>
+      <div class="sg-meta"><span class="sg-selector">.caption</span>Geist · 400 · 14px<br>line-height 19.6px · letter-spacing 0</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-label">A label</div>
+      <div class="sg-meta"><span class="sg-selector">.t-label</span>Geist Mono · 500 · 16px<br>line-height 16px · letter-spacing 0.08px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-label-sm">A small label</div>
+      <div class="sg-meta"><span class="sg-selector">.t-label-sm</span>Geist Mono · 500 · 11px<br>line-height 11px · letter-spacing 0.55px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-link">A link</div>
+      <div class="sg-meta"><span class="sg-selector">.t-link, a</span>Geist Mono · 500 · 16px<br>line-height 16px · letter-spacing 0.08px</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen cs-toc-link">Sticky TOC nav link</div>
+      <div class="sg-meta"><span class="sg-selector">.case-toc-link</span>Geist · 400 · 15px (new token)<br>line-height 140% · letter-spacing 0 · sentence case<br>active/hover: color var(--color-heading) + dot indicator</div>
+    </div>
+  </section>
+
+  <!-- ── One-off accents ──────────────────────────────────────── -->
+  <section class="sg-section">
+    <div class="sg-section-title">One-off accents</div>
+    <p class="sg-section-note">Nothing You Could Do only ships one static weight (400) — anywhere below asking for 600 is the browser's synthetic bold, not a real font file.</p>
+
+    <div class="sg-row">
+      <div class="sg-specimen accent-handwritten">I design for messy problems with no clean brief.</div>
+      <div class="sg-meta"><span class="sg-selector">.about-tagline (index.html)</span>Nothing You Could Do · 600 (synthetic) · inherits 40px from .t-display</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen accent-persona-name">Internal Authors</div>
+      <div class="sg-meta"><span class="sg-selector">.persona-name (programs.html)</span>Nothing You Could Do · 600 (synthetic) · 40px<br>line-height 1</div>
+    </div>
+
+    <div class="sg-row">
+      <div class="sg-specimen accent-persona-label">Goals</div>
+      <div class="sg-meta"><span class="sg-selector">.persona-section-label (programs.html)</span>Nothing You Could Do · 600 (synthetic) · 22px</div>
+    </div>
+  </section>
+
+  <script src="nav.js"></script>
+</body>
+</html>
