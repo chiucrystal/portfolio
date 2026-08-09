@@ -1018,8 +1018,11 @@
       } else {
         // Mouse: cursor-follow hint plus click to cycle.
         stack.addEventListener('mousemove', function (e) {
+          // +8px gap below the *visible* cursor glyph, not the pointer
+          // coordinate itself — the arrow icon extends ~16px below that
+          // point, so the offset needs to clear it first.
           hint.style.left = e.clientX + 'px';
-          hint.style.top = (e.clientY + 8) + 'px';
+          hint.style.top = (e.clientY + 16 + 8) + 'px';
         });
 
         stack.addEventListener('mouseenter', function () {
