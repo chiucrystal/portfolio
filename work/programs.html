@@ -594,6 +594,80 @@
       margin-bottom: 0;
     }
 
+    .quote-reveal {
+      margin-bottom: 32px;
+    }
+
+    .quote-reveal-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .quote-reveal-photo {
+      display: block;
+      width: 220px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-reveal-scribble {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .quote-reveal-scribble--top {
+      top: -24px;
+      left: 280px;
+      width: 220px;
+    }
+
+    .quote-reveal-scribble--bottom {
+      bottom: -24px;
+      left: 340px;
+      width: 260px;
+    }
+
+    .quote-reveal-tooltip {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      background-color: #14110E;
+      border: 2px dotted #ffffff;
+      border-radius: 4px;
+      padding: 24px 32px;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .quote-reveal-visual:hover .quote-reveal-tooltip,
+    .quote-reveal-visual:focus .quote-reveal-tooltip,
+    .quote-reveal-visual:focus-within .quote-reveal-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .quote-reveal-tooltip p {
+      margin: 0;
+      font-family: 'Geist Mono', monospace;
+      font-size: 15px;
+      line-height: 150%;
+      color: #ffffff;
+    }
+
+    .quote-reveal-caption {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 14px;
+      color: var(--color-muted);
+    }
+
     .wireframing-cards {
       display: flex;
       flex-direction: column;
@@ -781,6 +855,13 @@
       }
       .findings-columns {
         flex-direction: column;
+      }
+      .quote-reveal-visual {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .quote-reveal-scribble {
+        display: none;
       }
       .persona-card {
         padding: 24px;
@@ -1025,6 +1106,18 @@
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="quote-reveal">
+                <div class="quote-reveal-visual" tabindex="0">
+                  <img class="quote-reveal-scribble quote-reveal-scribble--top" src="assets/programs/scribble-01.svg" alt="">
+                  <img class="quote-reveal-photo" src="assets/programs/quote-guy.png" alt="">
+                  <img class="quote-reveal-scribble quote-reveal-scribble--bottom" src="assets/programs/scribble-02.svg" alt="">
+                  <div class="quote-reveal-tooltip">
+                    <p>"If they have to go search for something and they don't find it and then they try one thing and they still don't find it, I think that is hard to recover from. Even if they eventually get it, they'll say, I don't want to go through that again."</p>
+                  </div>
+                </div>
+                <span class="quote-reveal-caption">Hover for a quote</span>
               </div>
 
               <div class="findings-group">
