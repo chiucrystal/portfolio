@@ -517,6 +517,78 @@
       margin-bottom: 0;
     }
 
+    .findings-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .findings-persona-label {
+      display: block;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-heading);
+      margin-bottom: 12px;
+    }
+
+    .findings-columns {
+      display: flex;
+      gap: 24px;
+    }
+
+    .findings-column {
+      flex: 1;
+      min-width: 0;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .findings-column--positive {
+      background-color: #F1FBF4;
+      border: 1px solid #BFE8CB;
+    }
+
+    .findings-column--negative {
+      background-color: #FDF2F0;
+      border: 1px solid #F3C6BE;
+    }
+
+    .findings-column-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .findings-column-icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .findings-column-title {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--color-heading);
+    }
+
+    .findings-column ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .findings-column li {
+      margin-bottom: 8px;
+    }
+
+    .findings-column li:last-child {
+      margin-bottom: 0;
+    }
+
     .wireframing-cards {
       display: flex;
       flex-direction: column;
@@ -701,6 +773,9 @@
       }
       .t-big-heading {
         font-size: 28px;
+      }
+      .findings-columns {
+        flex-direction: column;
       }
       .persona-card {
         padding: 24px;
@@ -892,22 +967,59 @@
               <p>The existing search locked users to column-based filtering, meaning users could only find something if they already knew which column to look in.</p>
               <p>The sales team currently rely on memory and a Word doc that falls out of sync with the live catalogue. That works when everyone involved is small and senior. It doesn't scale as headcount grows or as enterprise clients begin navigating an unfamiliar catalogue.</p>
 
-              <div class="findings-group">
-                <span class="t-label-sm">Findings: Internal admins</span>
-                <ul>
-                  <li class="t-default">They responded well, mentioning that the single search interaction was familiar, comparable to tools like Google Search and Amazon.</li>
-                  <li class="t-default">They appreciated the variety of results. Filters were a last resort, only used when keyword search failed.</li>
-                  <li class="t-default">Rarely searched by text strings as their consistent naming conventions in Sharepoint made code-based search reliable.</li>
-                </ul>
-              </div>
+              <div class="findings-cards">
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Internal admins</span>
+                  <div class="findings-columns">
+                    <div class="findings-column findings-column--positive">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Worked well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
+                        <li class="t-default">Result variety was well received</li>
+                        <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
+                        <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
+                      </ul>
+                    </div>
+                    <div class="findings-column findings-column--negative">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Didn't work so well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
+                        <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="findings-group">
-                <span class="t-label-sm">Findings: Sales</span>
-                <ul>
-                  <li class="t-default">Fuzzy matching returned unexpected results, leading users to think the system made a mistake.</li>
-                  <li class="t-default">Sales consistently took more attempts with global search than with a column search or their Word document. Team members couldn't reliably predict how a course was named unless they reached out to colleagues or product support.</li>
-                  <li class="t-default">They preferred to browse by category in their reference doc, however syncing both required the team to standardise their current catalogue. They weren't ready to commit to the initiative, and ultimately landed outside the scope of this project.</li>
-                </ul>
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Sales team</span>
+                  <div class="findings-columns">
+                    <div class="findings-column findings-column--positive">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Worked well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
+                      </ul>
+                    </div>
+                    <div class="findings-column findings-column--negative">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Didn't work so well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
+                        <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="findings-group">
