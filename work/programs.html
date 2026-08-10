@@ -560,13 +560,15 @@
     }
 
     .findings-column--negative {
-      background-color: #FDF2F0;
-      border: 1px solid #F3C6BE;
+      background-color: #FEF3E7;
+      border: 1px solid #F2C896;
     }
 
-    .findings-column--neutral {
-      background: rgba(131, 125, 125, 0.03);
-      border: 1px solid rgba(131, 125, 125, 0.30);
+    .findings-persona-card {
+      background-color: #ffffff;
+      border: 1px solid rgba(35, 30, 26, 0.18);
+      border-radius: 4px;
+      padding: 24px;
     }
 
     .findings-column-header {
@@ -590,16 +592,19 @@
       color: var(--color-heading);
     }
 
-    .findings-column ul {
+    .findings-column ul,
+    .findings-persona-card ul {
       padding-left: 20px;
       margin: 0;
     }
 
-    .findings-column li {
+    .findings-column li,
+    .findings-persona-card li {
       margin-bottom: 8px;
     }
 
-    .findings-column li:last-child {
+    .findings-column li:last-child,
+    .findings-persona-card li:last-child {
       margin-bottom: 0;
     }
 
@@ -773,6 +778,11 @@
       margin-bottom: 0;
     }
 
+    .results-bullets ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
     /* ─── Footer ─────────────────────────────────────────────── */
     .site-footer {
       padding: 80px 0;
@@ -943,7 +953,7 @@
             <a href="#discovery" class="case-toc-link">Discovery</a>
             <a href="#design-challenge-1" class="case-toc-link">Design challenge #1</a>
             <a href="#design-challenge-2" class="case-toc-link">Design challenge #2</a>
-            <a href="#concepts" class="case-toc-link">Concepts explored</a>
+            <!-- <a href="#concepts" class="case-toc-link">Concepts explored</a> -->
             <!-- <a href="#testing" class="case-toc-link">What testing revealed</a> -->
             <!-- <a href="#solution" class="case-toc-link">Decisions</a> -->
             <a href="#results" class="case-toc-link">Impact</a>
@@ -1064,54 +1074,58 @@
 
               <div class="findings-cards">
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Internal admins</span>
-                  <div class="findings-columns">
-                    <div class="findings-column findings-column--positive">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Worked well</span>
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Internal admins</span>
+                    <div class="findings-columns">
+                      <div class="findings-column findings-column--positive">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Worked well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
+                          <li class="t-default">Result variety was well received</li>
+                          <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
+                          <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
-                        <li class="t-default">Result variety was well received</li>
-                        <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
-                        <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
-                      </ul>
-                    </div>
-                    <div class="findings-column findings-column--negative">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Didn't work so well</span>
+                      <div class="findings-column findings-column--negative">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Didn't work so well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
+                          <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
-                        <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Sales team</span>
-                  <div class="findings-columns">
-                    <div class="findings-column findings-column--positive">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Worked well</span>
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Sales team</span>
+                    <div class="findings-columns">
+                      <div class="findings-column findings-column--positive">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Worked well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
-                      </ul>
-                    </div>
-                    <div class="findings-column findings-column--negative">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Didn't work so well</span>
+                      <div class="findings-column findings-column--negative">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Didn't work so well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
+                          <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
-                        <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -1153,8 +1167,8 @@
 
               <div class="findings-cards">
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Internal authors</span>
-                  <div class="findings-column findings-column--neutral">
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Internal authors</span>
                     <ul>
                       <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
                       <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
@@ -1163,8 +1177,8 @@
                 </div>
 
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Sales team</span>
-                  <div class="findings-column findings-column--neutral">
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Sales team</span>
                     <ul>
                       <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
                       <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
@@ -1173,7 +1187,7 @@
                 </div>
               </div>
 
-              <div class="findings-group">
+              <div class="findings-column findings-column--negative findings-decided-card">
                 <span class="t-label-sm">What was decided</span>
                 <h3>Keep the structure and process simple, flexible, and out of the way until needed.</h3>
                 <ul>
@@ -1185,6 +1199,7 @@
             </div>
           </section>
 
+          <!--
           <section id="concepts" class="case-section">
             <span class="t-section-heading">Concepts explored</span>
 
@@ -1206,6 +1221,7 @@
               </div>
             </div>
           </section>
+          -->
 
           <!--
           <section id="testing" class="case-section case-section--tinted">
@@ -1255,16 +1271,27 @@
           <section id="results" class="case-section">
             <span class="t-section-heading">Impact</span>
             <ul class="results-bullets">
-              <li class="t-default">Established a design pattern for progressive disclosure across the admin platform.</li>
-              <li class="t-default">Reframed groups and courses as a parent-child relationship, resolving a structural misrepresentation carried over from the spreadsheet.</li>
-              <li class="t-default">Introduced inline validation as a standard for high-risk actions, reducing reliance on documentation.</li>
-              <li class="t-default">Built flexibility into the program architecture so that certifications and learning streams can be introduced without a structural rebuild.</li>
+              <li class="t-default">Program setup reduced from a 3-week dev-dependent process to an instantaneous self-serve action</li>
+              <li class="t-default">Progressive disclosure and inline validation adopted across other parts of the admin platform</li>
+              <li class="t-default">Two-column layout for parent-child content relationships became a reusable pattern across the platform.</li>
             </ul>
           </section>
 
           <section id="reflection" class="case-section">
             <span class="t-section-heading">Reflection</span>
-            <!-- TODO: add reflection content -->
+            <ul class="results-bullets">
+              <li class="t-default">Modernisation isn't the same as improvement
+                <ul>
+                  <li class="t-default">The global search hypothesis assumed a more modern pattern would serve both groups better than what they had. Initial feedback was positive but the interaction broke down once users searched realistically.</li>
+                </ul>
+              </li>
+              <li class="t-default">There is an underlying platform-wide trust deficit
+                <ul>
+                  <li class="t-default">User hesitation and a distrust of defaults was a result of inconsistency in other parts of the platform. The interface only solves a small part of a bigger problem, and this project helped make the case for a strategic need to consolidate across portals.</li>
+                </ul>
+              </li>
+            </ul>
+            <p>A more detailed run-through is available on request</p>
           </section>
 
         </div>
