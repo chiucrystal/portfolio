@@ -564,9 +564,11 @@
       border: 1px solid #F3C6BE;
     }
 
-    .findings-column--neutral {
+    .findings-persona-card {
       background-color: #ffffff;
       border: 1px solid rgba(35, 30, 26, 0.18);
+      border-radius: 4px;
+      padding: 24px;
     }
 
     .findings-column-header {
@@ -590,16 +592,19 @@
       color: var(--color-heading);
     }
 
-    .findings-column ul {
+    .findings-column ul,
+    .findings-persona-card ul {
       padding-left: 20px;
       margin: 0;
     }
 
-    .findings-column li {
+    .findings-column li,
+    .findings-persona-card li {
       margin-bottom: 8px;
     }
 
-    .findings-column li:last-child {
+    .findings-column li:last-child,
+    .findings-persona-card li:last-child {
       margin-bottom: 0;
     }
 
@@ -1069,54 +1074,58 @@
 
               <div class="findings-cards">
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Internal admins</span>
-                  <div class="findings-columns">
-                    <div class="findings-column findings-column--positive">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Worked well</span>
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Internal admins</span>
+                    <div class="findings-columns">
+                      <div class="findings-column findings-column--positive">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Worked well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
+                          <li class="t-default">Result variety was well received</li>
+                          <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
+                          <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
-                        <li class="t-default">Result variety was well received</li>
-                        <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
-                        <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
-                      </ul>
-                    </div>
-                    <div class="findings-column findings-column--negative">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Didn't work so well</span>
+                      <div class="findings-column findings-column--negative">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Didn't work so well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
+                          <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
-                        <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
 
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Sales team</span>
-                  <div class="findings-columns">
-                    <div class="findings-column findings-column--positive">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Worked well</span>
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Sales team</span>
+                    <div class="findings-columns">
+                      <div class="findings-column findings-column--positive">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Worked well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
-                      </ul>
-                    </div>
-                    <div class="findings-column findings-column--negative">
-                      <div class="findings-column-header">
-                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
-                        <span class="findings-column-title">Didn't work so well</span>
+                      <div class="findings-column findings-column--negative">
+                        <div class="findings-column-header">
+                          <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                          <span class="findings-column-title">Didn't work so well</span>
+                        </div>
+                        <ul>
+                          <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
+                          <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
-                        <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -1158,8 +1167,8 @@
 
               <div class="findings-cards">
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Internal authors</span>
-                  <div class="findings-column findings-column--neutral">
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Internal authors</span>
                     <ul>
                       <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
                       <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
@@ -1168,8 +1177,8 @@
                 </div>
 
                 <div class="findings-persona">
-                  <span class="findings-persona-label">Sales team</span>
-                  <div class="findings-column findings-column--neutral">
+                  <div class="findings-persona-card">
+                    <span class="findings-persona-label">Sales team</span>
                     <ul>
                       <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
                       <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
@@ -1178,7 +1187,7 @@
                 </div>
               </div>
 
-              <div class="findings-group">
+              <div class="findings-column findings-column--negative findings-decided-card">
                 <span class="t-label-sm">What was decided</span>
                 <h3>Keep the structure and process simple, flexible, and out of the way until needed.</h3>
                 <ul>
