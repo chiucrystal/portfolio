@@ -268,7 +268,7 @@
       margin: 32px 0;
       padding: 2px;
       border: 1px solid rgba(35, 30, 26, 0.18);
-      border-radius: 10px;
+      border-radius: 4px;
       transition: border-color 0.25s ease, transform 0.3s ease;
     }
 
@@ -280,7 +280,7 @@
     .journey-map-img {
       display: block;
       width: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: zoom-in;
     }
 
@@ -307,7 +307,7 @@
       display: block;
       max-width: 100%;
       max-height: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: zoom-out;
     }
 
@@ -320,7 +320,7 @@
 
     .persona-card {
       border: 2px dashed #CBBBF7;
-      border-radius: 20px;
+      border-radius: 4px;
       background-color: #F3EFFF;
       padding: 32px;
       --persona-accent: #A63FFF;
@@ -424,7 +424,7 @@
 
     .persona-goals {
       background-color: #ffffff;
-      border-radius: 12px;
+      border-radius: 4px;
       padding: 24px 32px;
       margin-bottom: 32px;
     }
@@ -450,7 +450,7 @@
       margin: 0 auto 32px;
       padding: 16px 24px;
       background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 16px;
+      border-radius: 4px;
       text-align: center;
       position: relative;
     }
@@ -492,7 +492,7 @@
     .search-gif video {
       display: block;
       width: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       border: 1px solid rgba(35, 30, 26, 0.18);
     }
 
@@ -500,9 +500,18 @@
       margin-bottom: 32px;
     }
 
-    .findings-group .t-label-sm {
+    .findings-group .t-label-sm,
+    .findings-column .t-label-sm {
       display: block;
       margin-bottom: 12px;
+    }
+
+    .findings-decided-card {
+      margin-bottom: 32px;
+    }
+
+    .findings-decided-card .journey-map {
+      margin: 24px 0 0;
     }
 
     .findings-group ul {
@@ -541,7 +550,7 @@
     .findings-column {
       flex: 1;
       min-width: 0;
-      border-radius: 12px;
+      border-radius: 4px;
       padding: 24px;
     }
 
@@ -1120,18 +1129,18 @@
                 <span class="quote-reveal-caption">Hover for a quote</span>
               </div>
 
-              <div class="findings-group">
+              <div class="findings-column findings-column--negative findings-decided-card">
                 <span class="t-label-sm">What was decided</span>
                 <ul>
                   <li class="t-default">Reverted to a familiar data table pattern to temporarily resolve the search issue while working on pitching a platform-wide rehaul of the course catalogue, which would include standardising the sales team's private catalogue.</li>
                   <li class="t-default">Avoid custom componentry and use what PrimeVue has to offer due to resourcing constraints.</li>
                 </ul>
-              </div>
 
-              <figure class="journey-map">
-                <div class="cursor-hint">Click to zoom in</div>
-                <img class="journey-map-img" src="assets/programs/finalsolution-search.png" alt="Final global search solution">
-              </figure>
+                <figure class="journey-map">
+                  <div class="cursor-hint">Click to zoom in</div>
+                  <img class="journey-map-img" src="assets/programs/finalsolution-search.png" alt="Final global search solution">
+                </figure>
+              </div>
             </div>
           </section>
 
