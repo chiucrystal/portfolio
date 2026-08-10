@@ -555,6 +555,11 @@
       border: 1px solid #F3C6BE;
     }
 
+    .findings-column--neutral {
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
     .findings-column-header {
       display: flex;
       align-items: center;
@@ -1039,20 +1044,26 @@
               <h2 class="t-big-heading">How might we keep an arbitrary constraint out of the way until necessary?</h2>
               <p>An unknown constraint: 'Course groups' existed as a technical requirement that was difficult and costly to undo. Most users never touched this in their existing workflow as it was originally included to accommodate an edge case. Every tester expressed they found it confusing as a concept and they couldn't see a need for the feature.</p>
 
-              <div class="findings-group">
-                <span class="t-label-sm">Key findings / Internal authors</span>
-                <ul>
-                  <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
-                  <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
-                </ul>
-              </div>
+              <div class="findings-cards">
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Internal authors</span>
+                  <div class="findings-column findings-column--neutral">
+                    <ul>
+                      <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
+                      <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
+                    </ul>
+                  </div>
+                </div>
 
-              <div class="findings-group">
-                <span class="t-label-sm">Key finding / Sales</span>
-                <ul>
-                  <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
-                  <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
-                </ul>
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Sales team</span>
+                  <div class="findings-column findings-column--neutral">
+                    <ul>
+                      <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
+                      <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               <div class="findings-group">
