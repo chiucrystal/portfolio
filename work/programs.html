@@ -1127,6 +1127,11 @@
                   <li class="t-default">Avoid custom componentry and use what PrimeVue has to offer due to resourcing constraints.</li>
                 </ul>
               </div>
+
+              <figure class="journey-map">
+                <div class="cursor-hint">Click to zoom in</div>
+                <img class="journey-map-img" src="assets/programs/finalsolution-search.png" alt="Final global search solution">
+              </figure>
             </div>
           </section>
 
@@ -1397,22 +1402,32 @@
     }());
 
     (function () {
-      var frame = document.querySelector('.journey-map');
-      var trigger = document.querySelector('.journey-map-img');
+      var frames = document.querySelectorAll('.journey-map');
       var lightbox = document.getElementById('journey-map-lightbox');
-      var hint = frame ? frame.querySelector('.cursor-hint') : null;
-      if (!frame || !trigger || !lightbox) return;
+      var lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+      if (!frames.length || !lightbox || !lightboxImg) return;
 
-      if (hint) wireCursorHint(frame, hint);
-
-      function open() {
+      function open(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
         lightbox.classList.add('is-open');
       }
       function close() {
         lightbox.classList.remove('is-open');
       }
 
-      trigger.addEventListener('click', open);
+      frames.forEach(function (frame) {
+        var trigger = frame.querySelector('.journey-map-img');
+        var hint = frame.querySelector('.cursor-hint');
+        if (!trigger) return;
+
+        if (hint) wireCursorHint(frame, hint);
+
+        trigger.addEventListener('click', function () {
+          open(trigger.src, trigger.alt + ', enlarged');
+        });
+      });
+
       lightbox.addEventListener('click', close);
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
