@@ -90,7 +90,7 @@
 
     /* ─── Container ──────────────────────────────────────────── */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
     }
@@ -197,6 +197,12 @@
       min-width: 0;
     }
 
+    .case-content p,
+    .case-content ul,
+    .case-content ol {
+      max-width: 800px;
+    }
+
     .case-section + .case-section {
       margin-top: 160px;
     }
@@ -262,7 +268,7 @@
       margin: 32px 0;
       padding: 2px;
       border: 1px solid rgba(35, 30, 26, 0.18);
-      border-radius: 10px;
+      border-radius: 4px;
       transition: border-color 0.25s ease, transform 0.3s ease;
     }
 
@@ -274,7 +280,7 @@
     .journey-map-img {
       display: block;
       width: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: zoom-in;
     }
 
@@ -301,15 +307,11 @@
       display: block;
       max-width: 100%;
       max-height: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       cursor: zoom-out;
     }
 
     /* ─── Personas ───────────────────────────────────────────── */
-    .personas-intro {
-      margin-bottom: 24px;
-    }
-
     .persona-stack {
       position: relative;
       cursor: pointer;
@@ -318,7 +320,7 @@
 
     .persona-card {
       border: 2px dashed #CBBBF7;
-      border-radius: 20px;
+      border-radius: 4px;
       background-color: #F3EFFF;
       padding: 32px;
       --persona-accent: #A63FFF;
@@ -422,7 +424,7 @@
 
     .persona-goals {
       background-color: #ffffff;
-      border-radius: 12px;
+      border-radius: 4px;
       padding: 24px 32px;
       margin-bottom: 32px;
     }
@@ -448,7 +450,7 @@
       margin: 0 auto 32px;
       padding: 16px 24px;
       background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 16px;
+      border-radius: 4px;
       text-align: center;
       position: relative;
     }
@@ -474,11 +476,212 @@
       color: var(--color-body);
     }
 
-    /* ─── Wireframing and Concepts ──────────────────────────── */
+    /* ─── Design challenges and concepts ─────────────────────── */
+    .search-testing p {
+      margin-bottom: 24px;
+    }
+
+    .search-testing h3 {
+      margin-bottom: 16px;
+    }
+
+    .search-gif {
+      margin: 0 0 32px;
+    }
+
+    .search-gif video {
+      display: block;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid rgba(35, 30, 26, 0.18);
+    }
+
+    .findings-group {
+      margin-bottom: 32px;
+    }
+
+    .findings-group .t-label-sm,
+    .findings-column .t-label-sm {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .findings-decided-card {
+      margin-bottom: 32px;
+    }
+
+    .findings-decided-card .journey-map {
+      margin: 24px 0 0;
+    }
+
+    .findings-group ul {
+      padding-left: 20px;
+    }
+
+    .findings-group li {
+      margin-bottom: 8px;
+    }
+
+    .findings-group li:last-child {
+      margin-bottom: 0;
+    }
+
+    .findings-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .findings-persona-label {
+      display: block;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-heading);
+      margin-bottom: 12px;
+    }
+
+    .findings-columns {
+      display: flex;
+      gap: 24px;
+    }
+
+    .findings-column {
+      flex: 1;
+      min-width: 0;
+      border-radius: 4px;
+      padding: 24px;
+    }
+
+    .findings-column--positive {
+      background-color: #F1FBF4;
+      border: 1px solid #BFE8CB;
+    }
+
+    .findings-column--negative {
+      background-color: #FDF2F0;
+      border: 1px solid #F3C6BE;
+    }
+
+    .findings-column--neutral {
+      background: rgba(131, 125, 125, 0.03);
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
+    .findings-column-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .findings-column-icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .findings-column-title {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--color-heading);
+    }
+
+    .findings-column ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .findings-column li {
+      margin-bottom: 8px;
+    }
+
+    .findings-column li:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-reveal {
+      margin-bottom: 32px;
+    }
+
+    .quote-reveal-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 0;
+    }
+
+    .quote-reveal-photo {
+      display: block;
+      width: 220px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-reveal-scribble {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .quote-reveal-scribble--top {
+      top: -24px;
+      left: 280px;
+      width: 220px;
+    }
+
+    .quote-reveal-scribble--bottom {
+      bottom: -24px;
+      left: 340px;
+      width: 260px;
+    }
+
+    .quote-reveal-tooltip {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      background-color: #14110E;
+      border: 2px dotted #ffffff;
+      border-radius: 4px;
+      padding: 24px 32px;
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .quote-reveal-visual:hover .quote-reveal-tooltip,
+    .quote-reveal-visual:focus .quote-reveal-tooltip,
+    .quote-reveal-visual:focus-within .quote-reveal-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .quote-reveal-tooltip p {
+      margin: 0;
+      font-family: 'Geist Mono', monospace;
+      font-size: 15px;
+      line-height: 150%;
+      color: #ffffff;
+    }
+
+    .quote-reveal-caption {
+      display: block;
+      margin-top: 12px;
+      font-family: 'Geist Mono', monospace;
+      font-size: 14px;
+      color: var(--color-muted);
+    }
+
     .wireframing-cards {
       display: flex;
       flex-direction: column;
       gap: 48px;
+      margin-top: 16px;
     }
 
     .wireframing-card {
@@ -659,6 +862,16 @@
       .t-big-heading {
         font-size: 28px;
       }
+      .findings-columns {
+        flex-direction: column;
+      }
+      .quote-reveal-visual {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .quote-reveal-scribble {
+        display: none;
+      }
       .persona-card {
         padding: 24px;
       }
@@ -725,44 +938,46 @@
       <div class="case-layout">
         <aside class="case-toc">
           <nav aria-label="Case study sections">
-            <a href="#challenge" class="case-toc-link">The challenge</a>
+            <a href="#challenge" class="case-toc-link">My role</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
-            <a href="#discovery" class="case-toc-link">Discovery and research</a>
-            <a href="#wireframing" class="case-toc-link">Wireframing and concepts</a>
-            <a href="#testing" class="case-toc-link">What testing revealed</a>
-            <a href="#solution" class="case-toc-link">Decisions</a>
-            <a href="#results" class="case-toc-link">Results and impact</a>
+            <a href="#discovery" class="case-toc-link">Discovery</a>
+            <a href="#design-challenge-1" class="case-toc-link">Design challenge #1</a>
+            <a href="#design-challenge-2" class="case-toc-link">Design challenge #2</a>
+            <a href="#concepts" class="case-toc-link">Concepts explored</a>
+            <!-- <a href="#testing" class="case-toc-link">What testing revealed</a> -->
+            <!-- <a href="#solution" class="case-toc-link">Decisions</a> -->
+            <a href="#results" class="case-toc-link">Impact</a>
+            <a href="#reflection" class="case-toc-link">Reflection</a>
           </nav>
         </aside>
 
         <div class="case-content">
 
           <section id="challenge" class="case-section case-section--card">
-            <span class="t-section-heading">The design challenge</span>
-            <h2 class="t-big-heading">Program setup took up to 3 weeks and required a developer to hard-code every configuration and change.</h2>
+            <span class="t-section-heading">My role</span>
             <p>I led design end-to-end as the sole designer, from research through handoff. The result was a self-serve creation interface that removed the developer dependency entirely and informed interaction patterns for long, complex forms across WiseTech Academy.</p>
           </section>
 
           <section id="why-now" class="case-section">
             <span class="t-section-heading">Why now?</span>
-            <ul class="business-context-bullets">
-              <li class="t-default">The process of creating a program took around 3 weeks:<ul><li class="t-default">Filling in a 3-tab spreadsheet → prioritisation by the product team → hardcoding by developers → SME review → then finally publishing.</li></ul></li>
-              <li class="t-default">Product support and development team absorbing the overhead throughout the process.</li>
-              <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
-            </ul>
-          </section>
 
-          <section id="discovery" class="case-section">
-            <span class="t-section-heading">Discovery and Research</span>
-            <p class="discovery-intro">We spoke to 11 users across 2 teams to understand their existing workflow. We found that:</p>
-            <h2 class="t-big-heading">The existing process was built around the codebase, not the users' goals.</h2>
+            <h2 class="t-big-heading">The existing process required extensive manual review and was built around the codebase rather than user goals, taking up to 3 weeks.</h2>
 
             <figure class="journey-map">
               <div class="cursor-hint">Click to zoom in</div>
               <img class="journey-map-img" src="assets/programs/journey-map.png" alt="Simplified user journey map of the existing program creation workflow">
             </figure>
 
-            <p class="personas-intro">Two personas accounted for the majority of admin activity: internal authors maintaining program content, and the Academy Sales team building client-specific programs.</p>
+            <ul class="business-context-bullets">
+              <li class="t-default">Product support and development team absorbing the overhead throughout the process, taking up to 3 weeks to launch a program, resulting in missed opportunities to capture student attention.</li>
+              <li class="t-default">Expected enterprise client growth made the current process unscalable.</li>
+            </ul>
+          </section>
+
+          <section id="discovery" class="case-section">
+            <span class="t-section-heading">Discovery</span>
+            <p class="discovery-intro">We spoke to 11 users across 2 teams to understand their existing workflow.</p>
+
             <div class="persona-stack">
               <div class="cursor-hint">Click to see next</div>
               <div class="persona-card is-front">
@@ -828,8 +1043,151 @@
             </div>
           </section>
 
-          <section id="wireframing" class="case-section">
-            <span class="t-section-heading">Wireframing and Concepts</span>
+          <section id="design-challenge-1" class="case-section">
+            <span class="t-section-heading">Design challenge #1</span>
+
+            <div class="search-testing">
+              <h2 class="t-big-heading">How might we support two fundamentally different search behaviours?</h2>
+
+              <p>Internal admins needed precision while sales needed discoverability.</p>
+
+              <h3 class="t-large">What was tested</h3>
+
+              <figure class="search-gif">
+                <video src="assets/programs/global-search.mp4" autoplay loop muted playsinline aria-label="Global search bar returning results across the course catalogue"></video>
+              </figure>
+
+              <p class="t-large">Make searching for content easier and less dependent on knowing the catalogue structure in advance, by replacing column-based filtering with one global search bar.</p>
+
+              <p>The existing search locked users to column-based filtering, meaning users could only find something if they already knew which column to look in.</p>
+              <p>The sales team currently rely on memory and a Word doc that falls out of sync with the live catalogue. That works when everyone involved is small and senior. It doesn't scale as headcount grows or as enterprise clients begin navigating an unfamiliar catalogue.</p>
+
+              <div class="findings-cards">
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Internal admins</span>
+                  <div class="findings-columns">
+                    <div class="findings-column findings-column--positive">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Worked well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Single global search felt intuitive, on par with Google or Amazon</li>
+                        <li class="t-default">Result variety was well received</li>
+                        <li class="t-default">Filters worked as an effective last-resort fallback, only used when keyword search failed</li>
+                        <li class="t-default">Consistent SharePoint naming meant text search was rarely even needed</li>
+                      </ul>
+                    </div>
+                    <div class="findings-column findings-column--negative">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Didn't work so well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">No way to preview course content before selecting it, forcing a guess</li>
+                        <li class="t-default">This group prioritises speed and expects to already know what belongs in a program, so any friction here is costly, a preview needs to stay lightweight rather than add a step</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Sales team</span>
+                  <div class="findings-columns">
+                    <div class="findings-column findings-column--positive">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-worked-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Worked well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Fuzzy matching is a validated need, since sales has no standardised naming and today's process is exact-match only</li>
+                      </ul>
+                    </div>
+                    <div class="findings-column findings-column--negative">
+                      <div class="findings-column-header">
+                        <img src="assets/programs/icon-not-well.svg" alt="" class="findings-column-icon">
+                        <span class="findings-column-title">Didn't work so well</span>
+                      </div>
+                      <ul>
+                        <li class="t-default">Fuzzy matching returned unexpected results, read as a system error.</li>
+                        <li class="t-default">Global search took more attempts than their existing manual workarounds (Word doc, column search).</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quote-reveal">
+                <div class="quote-reveal-visual" tabindex="0">
+                  <img class="quote-reveal-scribble quote-reveal-scribble--top" src="assets/programs/scribble-01.svg" alt="">
+                  <img class="quote-reveal-photo" src="assets/programs/quote-guy.png" alt="">
+                  <img class="quote-reveal-scribble quote-reveal-scribble--bottom" src="assets/programs/scribble-02.svg" alt="">
+                  <div class="quote-reveal-tooltip">
+                    <p>"If they have to go search for something and they don't find it and then they try one thing and they still don't find it, I think that is hard to recover from. Even if they eventually get it, they'll say, I don't want to go through that again."</p>
+                  </div>
+                </div>
+                <span class="quote-reveal-caption">Hover for a quote</span>
+              </div>
+
+              <div class="findings-column findings-column--negative findings-decided-card">
+                <span class="t-label-sm">What was decided</span>
+                <ul>
+                  <li class="t-default">Reverted to a familiar data table pattern to temporarily resolve the search issue while working on pitching a platform-wide rehaul of the course catalogue, which would include standardising the sales team's private catalogue.</li>
+                  <li class="t-default">Avoid custom componentry and use what PrimeVue has to offer due to resourcing constraints.</li>
+                </ul>
+
+                <figure class="journey-map">
+                  <div class="cursor-hint">Click to zoom in</div>
+                  <img class="journey-map-img" src="assets/programs/finalsolution-search.png" alt="Final global search solution">
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <section id="design-challenge-2" class="case-section">
+            <span class="t-section-heading">Design challenge #2</span>
+
+            <div class="search-testing">
+              <h2 class="t-big-heading">How might we keep an arbitrary constraint out of the way until necessary?</h2>
+              <p>An unknown constraint: 'Course groups' existed as a technical requirement that was difficult and costly to undo. Most users never touched this in their existing workflow as it was originally included to accommodate an edge case. Every tester expressed they found it confusing as a concept and they couldn't see a need for the feature.</p>
+
+              <div class="findings-cards">
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Internal authors</span>
+                  <div class="findings-column findings-column--neutral">
+                    <ul>
+                      <li class="t-default">Had not encountered 'groups' before as product managers would fill in the fields for them. Multiple testers asked why groups were needed at all, and if they could be removed for simplicity.</li>
+                      <li class="t-default">The interface felt too busy, and the mandatory 'group' was missed in testing. This resulted in difficulty assessing whether a course was appropriate or spot errors.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="findings-persona">
+                  <span class="findings-persona-label">Sales team</span>
+                  <div class="findings-column findings-column--neutral">
+                    <ul>
+                      <li class="t-default">Recognised the concept but struggled with the interaction and page layout. They responded better once the layout matched familiar patterns from other parts of the platform.</li>
+                      <li class="t-default">Appreciated the data density once they were oriented as it suited how they worked.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="findings-group">
+                <span class="t-label-sm">What was decided</span>
+                <h3>Keep the structure and process simple, flexible, and out of the way until needed.</h3>
+                <ul>
+                  <li class="t-default">Pre-populated one group by default so users landed with the structure already in place, removing the need to add a group on first encounter.</li>
+                  <li class="t-default">Errors surfaced inline, attached to the relevant card, only when something was wrong.</li>
+                  <li class="t-default">Kept the structure simple, flexible, and most importantly, familiar. With product strategy shifting day by day, locking in a rigid architecture was an unnecessary risk.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="concepts" class="case-section">
+            <span class="t-section-heading">Concepts explored</span>
+
             <div class="wireframing-cards">
               <div class="wireframing-card">
                 <h3>Progressive disclosure keeps admins focused, not overwhelmed.</h3>
@@ -849,8 +1207,9 @@
             </div>
           </section>
 
+          <!--
           <section id="testing" class="case-section case-section--tinted">
-            <span class="t-section-heading">What Testing Revealed</span>
+            <span class="t-section-heading">What testing revealed</span>
             <div class="testing-intro">
               <p>I planned and conducted 2 rounds of usability testing via prototypes of our initial concept with 8 stakeholders, spanning across Product, e-Learning, and Certifications teams.</p>
               <p>The 3 core flows tested were:</p>
@@ -891,15 +1250,21 @@
               </div>
             </div>
           </section>
+          -->
 
           <section id="results" class="case-section">
-            <span class="t-section-heading">Results and Impact</span>
+            <span class="t-section-heading">Impact</span>
             <ul class="results-bullets">
               <li class="t-default">Established a design pattern for progressive disclosure across the admin platform.</li>
               <li class="t-default">Reframed groups and courses as a parent-child relationship, resolving a structural misrepresentation carried over from the spreadsheet.</li>
               <li class="t-default">Introduced inline validation as a standard for high-risk actions, reducing reliance on documentation.</li>
               <li class="t-default">Built flexibility into the program architecture so that certifications and learning streams can be introduced without a structural rebuild.</li>
             </ul>
+          </section>
+
+          <section id="reflection" class="case-section">
+            <span class="t-section-heading">Reflection</span>
+            <!-- TODO: add reflection content -->
           </section>
 
         </div>
@@ -1046,22 +1411,32 @@
     }());
 
     (function () {
-      var frame = document.querySelector('.journey-map');
-      var trigger = document.querySelector('.journey-map-img');
+      var frames = document.querySelectorAll('.journey-map');
       var lightbox = document.getElementById('journey-map-lightbox');
-      var hint = frame ? frame.querySelector('.cursor-hint') : null;
-      if (!frame || !trigger || !lightbox) return;
+      var lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+      if (!frames.length || !lightbox || !lightboxImg) return;
 
-      if (hint) wireCursorHint(frame, hint);
-
-      function open() {
+      function open(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
         lightbox.classList.add('is-open');
       }
       function close() {
         lightbox.classList.remove('is-open');
       }
 
-      trigger.addEventListener('click', open);
+      frames.forEach(function (frame) {
+        var trigger = frame.querySelector('.journey-map-img');
+        var hint = frame.querySelector('.cursor-hint');
+        if (!trigger) return;
+
+        if (hint) wireCursorHint(frame, hint);
+
+        trigger.addEventListener('click', function () {
+          open(trigger.src, trigger.alt + ', enlarged');
+        });
+      });
+
       lightbox.addEventListener('click', close);
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') close();
