@@ -9,6 +9,7 @@
   <script src="../protect.js"></script>
   <script src="../analytics.js"></script>
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../loader.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Geist+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
@@ -86,6 +87,12 @@
 </head>
 <body>
 
+  <div id="page-loader" aria-hidden="true">
+    <div class="page-loader-mark">
+      <span class="page-loader-label">crystal.chiu</span>
+      <span class="page-loader-bar"></span>
+    </div>
+  </div>
 
   <!-- ── OVERLAY MENU ───────────────────────────────────────────── -->
   <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
@@ -218,5 +225,6 @@
 
   <script src="../nav.js"></script>
   <script src="../scroll-reveal.js"></script>
+  <script src="../loader.js"></script>
 </body>
 </html>
