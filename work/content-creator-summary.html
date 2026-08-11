@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modernising WTA's content authoring experience. — crystal.chiu</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../protect.css">
+  <script src="../protect.js"></script>
+  <script src="../analytics.js"></script>
+  <link rel="stylesheet" href="../tokens.css?v=4">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap">
+  <style>
+    /* ─── Type override (Geist / Geist Mono) ────────────────────
+       Page-scoped only — tokens.css and other case studies are
+       untouched. Sizes/weights/line-heights/letter-spacing are
+       taken verbatim from the Together AI-inspired reference doc's
+       type scale, mapped to the closest role. ──────────────────── */
+    .t-display, h1 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 70.4px;
+      letter-spacing: -1.92px;
+    }
+
+    .t-h2, h2 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 32.2px;
+      letter-spacing: -0.42px;
+    }
+
+    .t-h3, h3 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 2.5rem;
+      letter-spacing: -0.22px;
+    }
+
+    .t-large {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 23.4px;
+      letter-spacing: -0.18px;
+    }
+
+    .t-default, p {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24.8px;
+      letter-spacing: -0.16px;
+    }
+
+    .caption {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19.6px;
+      letter-spacing: 0;
+    }
+
+    .t-label-sm {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 11px;
+      letter-spacing: 0.55px;
+    }
+
+    .t-label {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
+    .t-link, a {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
+    /* ─── Container ──────────────────────────────────────────── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      margin-top: 57px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ─── Title block ─────────────────────────────────────────── */
+    .title-block {
+      padding-top: 160px;
+    }
+
+    .title-block h1 {
+      margin-bottom: 16px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    /* ─── Private summary (replaces the sticky-TOC case study body) ─
+       Centred single card in the accent colour, standing in for the
+       full case study while it's private. ───────────────────────── */
+    .private-summary {
+      max-width: 800px;
+      margin: 160px auto 0;
+      padding-bottom: 200px;
+      text-align: center;
+    }
+
+    .summary-card {
+      border: 2px solid var(--color-heading);
+      padding: 32px;
+      background-color: var(--color-accent, #0e89cf);
+      box-shadow: 8px 8px 0 var(--color-heading);
+      text-align: left;
+    }
+
+    .summary-card p {
+      color: #FFFEFB;
+    }
+
+    .private-note {
+      margin-top: 24px;
+      color: var(--color-muted);
+    }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      padding: 80px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: var(--color-heading);
+    }
+
+    .footer-nav a:hover {
+      color: var(--color-muted);
+    }
+
+    .footer-avatar {
+      display: block;
+      max-width: 80px;
+    }
+
+    .footer-quote {
+      color: var(--color-muted);
+      max-width: 600px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-body);
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.45;
+    }
+
+    .footer-socials img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .private-summary {
+        margin-top: 80px;
+      }
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <section class="hero">
+      <img src="assets/cca/hero.png" alt="Content Creator interface showing the editing canvas">
+    </section>
+
+    <div class="container">
+
+      <div class="title-block">
+        <h1 class="t-display">Modernising WTA's content authoring experience.</h1>
+        <div class="meta-row">
+          <span class="t-label-sm">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
+        </div>
+      </div>
+
+      <div class="private-summary">
+        <div class="summary-card">
+          <p>The Content Creator App project originated as a technical migration, and I worked to establish design involvement early in the process. I led the approach to define the experience, running user research sessions throughout. I conducted competitor analysis and contextual interviews with power users, and validated early concepts across multiple rounds of usability testing. The new app shipped, the legacy editor was retired, and users responded warmly to the quality-of-life improvements that were included.</p>
+        </div>
+        <p class="t-default private-note">The details of this project are currently private. A more detailed walkthrough is available on request!</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
+        </nav>
+        <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
+        <p class="t-default footer-quote">
+          "This is for everyone going through tough times, been there done that, but everyday above ground is a great day remember that."
+        </p>
+        <div class="footer-socials">
+          <a href="mailto:crystalchiu09@gmail.com" aria-label="Email">
+            <img src="assets/shared/icon-mail.svg" alt="Email" width="24" height="24">
+          </a>
+          <a href="https://www.linkedin.com/in/crystalchiu01/" target="_blank" aria-label="LinkedIn">
+            <img src="assets/shared/icon-linkedin.svg" alt="LinkedIn" width="24" height="24">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script src="../scroll-reveal.js"></script>
+</body>
+</html>
