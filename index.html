@@ -179,6 +179,7 @@
             <source srcset="assets/experience-1.webp" type="image/webp">
             <img class="xp-illo" src="assets/experience-1.png" alt="">
         </picture>
+        <div class="xp-illo-hint">brb cooking</div>
             <p class="xp-section-label">Experience</p>
 
             <div class="xp-entry">
@@ -282,6 +283,24 @@
         crystalWrap.classList.remove('is-leaving');
       }, { once: true });
     });
+
+    const xpIllo = document.querySelector('.xp-illo');
+    const xpIlloHint = document.querySelector('.xp-illo-hint');
+
+    if (xpIllo && xpIlloHint) {
+      xpIllo.addEventListener('mousemove', (e) => {
+        xpIlloHint.style.left = e.clientX + 'px';
+        xpIlloHint.style.top = (e.clientY + 16 + 8) + 'px';
+      });
+
+      xpIllo.addEventListener('mouseenter', () => {
+        xpIlloHint.classList.add('xp-illo-hint--visible');
+      });
+
+      xpIllo.addEventListener('mouseleave', () => {
+        xpIlloHint.classList.remove('xp-illo-hint--visible');
+      });
+    }
   </script>
   <script src="loader.js"></script>
 </body>
