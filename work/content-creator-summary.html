@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modernising WTA's content authoring experience. — crystal.chiu</title>
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="../protect.css">
+  <script src="../protect.js"></script>
+  <script src="../analytics.js"></script>
+  <link rel="stylesheet" href="../tokens.css?v=4">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap">
+  <style>
+    /* ─── Type override (Geist / Geist Mono) ────────────────────
+       Page-scoped only — tokens.css and other case studies are
+       untouched. Mirrors content-creator.html's type scale. ────── */
+    .t-display, h1 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 70.4px;
+      letter-spacing: -1.92px;
+    }
+
+    .t-default, p {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20.8px;
+      letter-spacing: -0.16px;
+    }
+
+    .t-label-sm {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 11px;
+      line-height: 11px;
+      letter-spacing: 0.55px;
+    }
+
+    /* ─── Container ──────────────────────────────────────────── */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ─── Title block ─────────────────────────────────────────── */
+    .title-block {
+      padding-top: 160px;
+    }
+
+    .title-block h1 {
+      margin-bottom: 16px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    /* ─── Private summary ────────────────────────────────────── */
+    .private-summary {
+      max-width: 800px;
+      margin-top: 64px;
+      padding-bottom: 200px;
+    }
+
+    .summary-card {
+      border: 2px solid var(--color-heading);
+      padding: 32px;
+      background-color: var(--color-accent, #0e89cf);
+      box-shadow: 8px 8px 0 var(--color-heading);
+    }
+
+    .summary-card p {
+      color: #FFFEFB;
+    }
+
+    .private-note {
+      margin-top: 24px;
+      color: var(--color-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <div class="container">
+
+      <div class="title-block">
+        <h1 class="t-display">Modernising WTA's content authoring experience.</h1>
+        <div class="meta-row">
+          <span class="t-label-sm">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
+        </div>
+      </div>
+
+      <div class="private-summary">
+        <div class="summary-card">
+          <p>The Content Creator App project originated as a technical migration, and I worked to establish design involvement early in the process. I led the approach to define the experience, running user research sessions throughout. I conducted competitor analysis and contextual interviews with power users, and validated early concepts across multiple rounds of usability testing. The new app shipped, the legacy editor was retired, and users responded warmly to the quality-of-life improvements that were included.</p>
+        </div>
+        <p class="t-default private-note">The details of this project are currently private. A more detailed walkthrough is available on request!</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="../index.html#home" class="t-link">Home</a>
+          <a href="../index.html#work" class="t-link">Work</a>
+          <a href="../index.html#about" class="t-link">About</a>
+        </nav>
+        <img src="assets/shared/footer-icon.png" alt="" class="footer-avatar">
+        <p class="t-default footer-quote">
+          "This is for everyone going through tough times, been there done that, but everyday above ground is a great day remember that."
+        </p>
+        <div class="footer-socials">
+          <a href="mailto:crystalchiu09@gmail.com" aria-label="Email">
+            <img src="assets/shared/icon-mail.svg" alt="Email" width="24" height="24">
+          </a>
+          <a href="https://www.linkedin.com/in/crystalchiu01/" target="_blank" aria-label="LinkedIn">
+            <img src="assets/shared/icon-linkedin.svg" alt="LinkedIn" width="24" height="24">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../nav.js"></script>
+  <script src="../scroll-reveal.js"></script>
+</body>
+</html>
