@@ -13,13 +13,39 @@
   <style>
     /* ─── Type override (Geist / Geist Mono) ────────────────────
        Page-scoped only — tokens.css and other case studies are
-       untouched. Mirrors content-creator.html's type scale. ────── */
+       untouched. Sizes/weights/line-heights/letter-spacing are
+       taken verbatim from the Together AI-inspired reference doc's
+       type scale, mapped to the closest role. ──────────────────── */
     .t-display, h1 {
       font-family: 'Geist', sans-serif;
       font-weight: 500;
       font-size: 64px;
       line-height: 70.4px;
       letter-spacing: -1.92px;
+    }
+
+    .t-h2, h2 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 32.2px;
+      letter-spacing: -0.42px;
+    }
+
+    .t-h3, h3 {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 2.5rem;
+      letter-spacing: -0.22px;
+    }
+
+    .t-large {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 23.4px;
+      letter-spacing: -0.18px;
     }
 
     .t-default, p {
@@ -30,6 +56,14 @@
       letter-spacing: -0.16px;
     }
 
+    .caption {
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19.6px;
+      letter-spacing: 0;
+    }
+
     .t-label-sm {
       font-family: 'Geist Mono', monospace;
       font-weight: 500;
@@ -38,11 +72,40 @@
       letter-spacing: 0.55px;
     }
 
+    .t-label {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
+    .t-link, a {
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.08px;
+    }
+
     /* ─── Container ──────────────────────────────────────────── */
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────── */
+    .hero {
+      margin-top: 57px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: top;
     }
 
     /* ─── Title block ─────────────────────────────────────────── */
@@ -60,11 +123,14 @@
       justify-content: space-between;
     }
 
-    /* ─── Private summary ────────────────────────────────────── */
+    /* ─── Private summary (replaces the sticky-TOC case study body) ─
+       Centred single card in the accent colour, standing in for the
+       full case study while it's private. ───────────────────────── */
     .private-summary {
       max-width: 800px;
-      margin-top: 64px;
+      margin: 160px auto 0;
       padding-bottom: 200px;
+      text-align: center;
     }
 
     .summary-card {
@@ -72,6 +138,7 @@
       padding: 32px;
       background-color: var(--color-accent, #0e89cf);
       box-shadow: 8px 8px 0 var(--color-heading);
+      text-align: left;
     }
 
     .summary-card p {
@@ -82,11 +149,108 @@
       margin-top: 24px;
       color: var(--color-muted);
     }
+
+    /* ─── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      padding: 80px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .footer-nav a {
+      color: var(--color-heading);
+    }
+
+    .footer-nav a:hover {
+      color: var(--color-muted);
+    }
+
+    .footer-avatar {
+      display: block;
+      max-width: 80px;
+    }
+
+    .footer-quote {
+      color: var(--color-muted);
+      max-width: 600px;
+    }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--color-body);
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-socials a:hover {
+      opacity: 0.45;
+    }
+
+    .footer-socials img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero img {
+        max-height: 300px;
+      }
+      .title-block {
+        padding-top: 32px;
+      }
+      .meta-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .private-summary {
+        margin-top: 80px;
+      }
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.6s, transform 0.55s ease 0.6s;
+    }
+
+    .reveal--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
   <main>
+
+    <section class="hero">
+      <img src="assets/cca/hero.png" alt="Content Creator interface showing the editing canvas">
+    </section>
 
     <div class="container">
 
