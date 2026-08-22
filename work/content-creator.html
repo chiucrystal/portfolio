@@ -582,6 +582,33 @@
       margin-top: 8px;
     }
 
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing-bullets {
+      padding-left: 20px;
+    }
+
+    .testing-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .testing-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── What was shipped ──────────────────────────────────── */
+    .solution-bullets {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    .solution-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .solution-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
     /* ─── Results ────────────────────────────────────────────── */
     .results-bullets {
       padding-left: 20px;
@@ -731,8 +758,8 @@
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery</a>
             <a href="#wireframing" class="case-toc-link">What we tested</a>
-            <a href="#testing" class="case-toc-link">What testing revealed</a>
-            <a href="#solution" class="case-toc-link">Decisions</a>
+            <a href="#testing" class="case-toc-link">What we found</a>
+            <a href="#solution" class="case-toc-link">What was shipped</a>
             <a href="#results" class="case-toc-link">Results and impact</a>
           </nav>
         </aside>
@@ -841,60 +868,40 @@
 
           <section id="wireframing" class="case-section">
             <span class="t-section-heading">What We Tested</span>
+            <p class="t-default">Two concepts were brought into testing:</p>
             <div class="wireframing-cards">
               <div class="wireframing-card">
-                <h3>Split panel layout for clearer hierarchy and editing priority</h3>
-                <p>The existing interface buried the editing toolbar below page-level settings, treating the canvas as secondary to configuration.</p>
-                <img src="assets/cca/testing-01.png" alt="Split panel layout for clearer hierarchy and editing priority">
+                <h3>Manage content where it's created to reduce process fragmentation</h3>
+                <div class="diagram-placeholder">Diagram/asset placeholder</div>
               </div>
               <div class="wireframing-card">
-                <h3>Global widget search to reduce workarounds and duplicate content</h3>
-                <p>Widget names were set by internal teams rather than how creators searched for them, leading to creators building workarounds for widgets that already existed.</p>
-                <img src="assets/cca/testing-02.png" alt="Global widget search to reduce workarounds and duplicate content">
-              </div>
-              <div class="wireframing-card">
-                <h3>WYSIWYG editing to lower the risk of previewing content</h3>
-                <p>Previewing a course required making it live first, which was high risk and high effort.</p>
-                <img src="assets/cca/testing-03.png" alt="WYSIWYG editing to lower the risk of previewing content">
+                <h3>Live preview of content before publishing to reduce the risk of the editing process and encourage trial and error</h3>
+                <div class="diagram-placeholder">Diagram/asset placeholder</div>
               </div>
             </div>
           </section>
 
           <section id="testing" class="case-section case-section--tinted">
-            <span class="t-section-heading">What Testing Revealed</span>
-            <div class="testing-findings">
-              <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
-              <div class="quote-block">&quot;I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.&quot;</div>
-              <h3>Users avoided terminology and iconography that felt foreign.</h3>
-              <div class="quote-block">&quot;I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.&quot;</div>
-              <h3>Publish and visibility were two different concepts handled in the same place.</h3>
-              <div class="quote-block">&quot;I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.&quot;</div>
-            </div>
+            <span class="t-section-heading">What we found</span>
+            <ul class="testing-bullets">
+              <li class="t-default">The core direction was validated during testing. Creators adapted quickly and responded positively to the presented concepts.</li>
+            </ul>
           </section>
 
           <section id="solution" class="case-section">
-            <span class="t-section-heading">Decisions</span>
-            <div class="solution-cards">
-              <div class="solution-card">
-                <h3>Focus is given to the task at hand.</h3>
-                <p>The right panel was dynamic, surfacing the relevant options for whatever was selected.</p>
-                <img src="assets/cca/solution-01.gif" alt="Focus is given to the task at hand.">
-              </div>
-              <div class="solution-card">
-                <h3>Descriptions and common search terms were added to the widget menu.</h3>
-                <p>Global widget search required reindexing the database, which wasn't feasible.</p>
-                <img src="assets/cca/solution-02.png" alt="Descriptions and common search terms were added to the widget menu." style="max-height: 600px; object-fit: contain;">
-              </div>
-              <div class="solution-card">
-                <h3>Display settings were simplified.</h3>
-                <p>Multiple levels of visibility were reduced to one, with hide and show kept at the page level and everything related to going live moved to the course level.</p>
-                <img src="assets/cca/solution-03.png" alt="Display settings were simplified." style="max-height: 250px; object-fit: contain;">
-              </div>
-            </div>
+            <span class="t-section-heading">What was shipped</span>
+            <p class="t-default discovery-paragraph">The three concepts combined to bring the entire iterative creation process into one tool. Creators no longer needed multiple tools to draft, edit, and preview.</p>
+            <p class="t-default discovery-paragraph">Some key features included:</p>
+            <ul class="solution-bullets">
+              <li class="t-default">Configuration moved to a panel next to the canvas</li>
+              <li class="t-default">Display settings simplified to one level</li>
+              <li class="t-default">Draft and preview state added for most interactive widgets</li>
+            </ul>
+            <div class="diagram-placeholder">Animation placeholder</div>
           </section>
 
           <section id="results" class="case-section">
-            <span class="t-section-heading">Results and Impact</span>
+            <span class="t-section-heading">Results and impact</span>
             <ul class="results-bullets">
               <li class="t-default">Defined and implemented a new component library to be used in internal tools.</li>
               <li class="t-default">Positive reception from 11 internal users at launch.</li>
