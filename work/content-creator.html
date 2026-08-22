@@ -284,6 +284,25 @@
       margin-bottom: 24px;
     }
 
+    .discovery-paragraph {
+      margin-bottom: 24px;
+    }
+
+    .diagram-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+      margin-bottom: 24px;
+      border: 1px dashed rgba(131, 125, 125, 0.40);
+      background: rgba(131, 125, 125, 0.05);
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.08px;
+      color: var(--color-muted);
+    }
+
     .discovery-bullets {
       padding-left: 20px;
     }
@@ -515,7 +534,7 @@
       <div class="case-layout">
         <aside class="case-toc">
           <nav aria-label="Case study sections">
-            <a href="#challenge" class="case-toc-link">The challenge</a>
+            <a href="#challenge" class="case-toc-link">My role</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery</a>
             <a href="#wireframing" class="case-toc-link">What we tested</a>
@@ -534,30 +553,17 @@
 
           <section id="why-now" class="case-section">
             <span class="t-section-heading">Why now?</span>
-            <h2 class="t-big-heading">How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
-            <ul class="business-context-bullets">
-              <li class="t-default">The initial brief was to uplift the UX of the existing content creation platform.</li>
-              <li class="t-default">The tool had been worked around so extensively that the workarounds had become the workflow.</li>
-              <li class="t-default">The platform had become a hindrance for editors.</li>
-            </ul>
+            <p class="t-default">The project started as a technical migration. Design was brought in early to modernise the UI and make small usability improvements.</p>
           </section>
 
           <section id="discovery" class="case-section">
             <span class="t-section-heading">Discovery</span>
-            <div class="discovery-intro">
-              <p>To understand the current workflow better, we conducted the following activities:</p>
-              <ul>
-                <li class="t-default">Platform audit of the existing tool</li>
-                <li class="t-default">Context setting interviews with 3 editors</li>
-              </ul>
-            </div>
-            <div class="quote-block discovery-quote">&quot;Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained.&quot;</div>
-            <img class="discovery-img" src="assets/cca/discovery-canvas.png" alt="">
-            <img class="discovery-img" src="assets/cca/discovery-widget.png" alt="">
-            <h2 class="t-big-heading">The interface treats the main editing canvas as a secondary priority.</h2>
+            <p class="t-default discovery-paragraph">We conducted contextual interviews with power users to better understand the existing workflow. The conversations revealed a process that spanned multiple platforms and was much bigger than just an UI problem.</p>
+            <div class="diagram-placeholder">Diagram placeholder</div>
+            <p class="t-default discovery-paragraph">It was clear that the process was made up of workarounds as <strong>the platform no longer supported how authors drafted and edited</strong>.</p>
             <ul class="discovery-bullets">
-              <li class="t-default">The canvas doesn't support editing widgets.</li>
-              <li class="t-default">As a result, workarounds were built (like going into the source code) to make simple changes.</li>
+              <li class="t-default">The interface didn't support basic editing tasks directly. Adding, reordering, or configuring content required navigating outside normal interaction patterns or into source code.</li>
+              <li class="t-default">Previewing content required making the page live or editing via HTML and CSS, making the process high risk and technically demanding.</li>
             </ul>
           </section>
 
