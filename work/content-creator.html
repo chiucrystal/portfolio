@@ -537,6 +537,82 @@
       width: 100%;
     }
 
+    /* ─── Hotspot (pulsing marker + cursor-following tooltip) ───
+       Static screenshot annotation: a single pulsing dot placed by
+       inline top/left %, tooltip position is set via JS to trail
+       the pointer while hovering/focusing the dot. ──────────────── */
+    .hotspot-image {
+      position: relative;
+      line-height: 0;
+    }
+
+    .hotspot-image img {
+      display: block;
+      width: 100%;
+    }
+
+    .hotspot-dot {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      margin: -20px 0 0 -20px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hotspot-dot-mark {
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #FFFEFB;
+      background: #FF6CD3;
+      animation: hotspot-pulse 2.2s ease-out infinite;
+    }
+
+    @keyframes hotspot-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(255, 108, 211, 0.55); }
+      70%  { box-shadow: 0 0 0 16px rgba(255, 108, 211, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 108, 211, 0); }
+    }
+
+    .hotspot-tooltip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      max-width: 240px;
+      padding: 10px 12px;
+      background: #FFFEFB;
+      border: 1.75px solid var(--color-heading);
+      box-shadow: 4px 4px 0 rgba(35, 30, 26, 0.85);
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.16px;
+      color: var(--color-body);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-9999px, -9999px);
+      transition: opacity 0.15s ease;
+    }
+
+    .hotspot-tooltip--visible {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hotspot-dot-mark {
+        animation: none;
+      }
+    }
+
     /* ─── Testing ────────────────────────────────────────────── */
     .testing-findings {
       display: flex;
@@ -872,7 +948,13 @@
             <div class="wireframing-cards">
               <div class="wireframing-card">
                 <h3>Manage content where it's created to reduce process fragmentation</h3>
-                <div class="diagram-placeholder">Diagram/asset placeholder</div>
+                <div class="hotspot-image">
+                  <img src="assets/cca/testing-01.png" alt="Page settings panel in the WTA editor">
+                  <button type="button" class="hotspot-dot" style="top: 9%; left: 80%;" aria-label="Widget and page properties can be edited contextually within the tool.">
+                    <span class="hotspot-dot-mark"></span>
+                  </button>
+                  <div class="hotspot-tooltip" role="tooltip">Widget and page properties can be edited contextually within the tool.</div>
+                </div>
               </div>
               <div class="wireframing-card">
                 <h3>Live preview of content before publishing to reduce the risk of the editing process and encourage trial and error</h3>
@@ -1098,6 +1180,68 @@
           setActive(null);
           hideTooltip();
         }
+      });
+    })();
+  </script>
+
+  <script>
+    // Hotspot marker: cursor-following tooltip, click/tap toggles for touch.
+    (function () {
+      document.querySelectorAll('.hotspot-image').forEach(function (container) {
+        var dot = container.querySelector('.hotspot-dot');
+        var tooltip = container.querySelector('.hotspot-tooltip');
+        if (!dot || !tooltip) return;
+
+        function positionAt(x, y) {
+          var rect = container.getBoundingClientRect();
+          var offset = 18;
+          var left = x + offset;
+          var top = y + offset;
+          if (left + tooltip.offsetWidth > rect.width) left = x - tooltip.offsetWidth - offset;
+          if (top + tooltip.offsetHeight > rect.height) top = y - tooltip.offsetHeight - offset;
+          left = Math.max(0, left);
+          top = Math.max(0, top);
+          tooltip.style.transform = 'translate(' + left + 'px, ' + top + 'px)';
+        }
+
+        function positionAtDot() {
+          var dotRect = dot.getBoundingClientRect();
+          var rect = container.getBoundingClientRect();
+          positionAt(dotRect.left - rect.left + dotRect.width / 2, dotRect.top - rect.top + dotRect.height / 2);
+        }
+
+        function show() {
+          tooltip.classList.add('hotspot-tooltip--visible');
+        }
+
+        function hide() {
+          tooltip.classList.remove('hotspot-tooltip--visible');
+        }
+
+        dot.addEventListener('mouseenter', function (e) {
+          var rect = container.getBoundingClientRect();
+          positionAt(e.clientX - rect.left, e.clientY - rect.top);
+          show();
+        });
+        dot.addEventListener('mousemove', function (e) {
+          var rect = container.getBoundingClientRect();
+          positionAt(e.clientX - rect.left, e.clientY - rect.top);
+        });
+        dot.addEventListener('mouseleave', hide);
+        dot.addEventListener('focus', function () {
+          positionAtDot();
+          show();
+        });
+        dot.addEventListener('blur', hide);
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (tooltip.classList.contains('hotspot-tooltip--visible')) {
+            hide();
+          } else {
+            positionAtDot();
+            show();
+          }
+        });
       });
     })();
   </script>
