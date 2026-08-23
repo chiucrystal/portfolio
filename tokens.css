@@ -116,6 +116,12 @@ a {
   text-transform: uppercase;
   text-decoration: underline;
   color: var(--color-link);
+  cursor: url('assets/cursor-hover.png') 8 1, pointer;
+}
+
+button,
+[role="button"] {
+  cursor: url('assets/cursor-hover.png') 8 1, pointer;
 }
 
 a:hover,
@@ -158,6 +164,7 @@ a:hover,
 }
 
 body {
+  cursor: url('assets/cursor-scribble.png') 0 0, auto;
   background-color: var(--color-bg);
   background-image:
     linear-gradient(to right, rgba(36, 59, 125, 0.043) 1px, transparent 1px),

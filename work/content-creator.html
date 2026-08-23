@@ -134,6 +134,7 @@
       align-items: flex-start;
       gap: 64px;
       padding-top: 160px;
+      padding-bottom: 45vh;
     }
 
     .case-toc {
@@ -241,6 +242,11 @@
       text-decoration: underline;
     }
 
+    .case-section--card .caption {
+      display: block;
+      margin-top: 16px;
+    }
+
     .case-section--tinted {
       padding: 32px;
       background: rgba(131, 125, 125, 0.05);
@@ -284,6 +290,25 @@
       margin-bottom: 24px;
     }
 
+    .discovery-paragraph {
+      margin-bottom: 24px;
+    }
+
+    .diagram-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+      margin-bottom: 24px;
+      border: 1px dashed rgba(131, 125, 125, 0.40);
+      background: rgba(131, 125, 125, 0.05);
+      font-family: 'Geist Mono', monospace;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.08px;
+      color: var(--color-muted);
+    }
+
     .discovery-bullets {
       padding-left: 20px;
     }
@@ -294,6 +319,236 @@
 
     .discovery-bullets li:last-child {
       margin-bottom: 0;
+    }
+
+    .discovery-reframe-label {
+      display: block;
+      margin-top: 48px;
+    }
+
+    /* ─── Constraints (sketchy red callout box) ─────────────────── */
+    .constraints-box {
+      position: relative;
+      margin-top: 48px;
+      padding: 32px;
+      background: #FFFEFB;
+      border: 2px solid #E4572E;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      box-shadow: 5px 5px 0 0 #E4572E;
+      transform: rotate(-0.4deg);
+    }
+
+    .constraints-box .t-section-heading {
+      margin-bottom: 16px;
+    }
+
+    .constraints-list {
+      padding-left: 20px;
+    }
+
+    .constraints-list li {
+      margin-bottom: 8px;
+    }
+
+    .constraints-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .constraints-sad-man {
+      position: absolute;
+      right: -10px;
+      bottom: -88px;
+      width: 150px;
+      transform: rotate(4deg);
+      pointer-events: none;
+    }
+
+    /* ─── Workflow diagram (old CCA workflow, sketch bubbles) ──
+       Hand-drawn bubble map: five platforms an editor had to pass
+       through before content reached CCA. Blob/rect paths are
+       pre-generated wobbly Catmull-Rom curves (drawn twice, slightly
+       offset, for a rough-sketch double-line look). Tooltip follows
+       the pointer on hover-capable devices; taps toggle it near the
+       node on touch. ─────────────────────────────────────────── */
+    .workflow-diagram-block {
+      margin-bottom: 40px;
+    }
+
+    .workflow-diagram-heading {
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--color-heading);
+      margin-bottom: 8px;
+      max-width: 640px;
+    }
+
+    .workflow-diagram-caption {
+      margin-bottom: 8px;
+    }
+
+    .workflow-diagram {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      touch-action: pan-y;
+    }
+
+    .workflow-diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .wd-line {
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-dasharray: 1 7;
+      opacity: 0.55;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .wd-line--active {
+      opacity: 1;
+      stroke-width: 2.25;
+    }
+
+    .wd-node {
+      cursor: pointer;
+      outline: none;
+    }
+
+    .wd-node-inner {
+      transform-box: fill-box;
+      transform-origin: center;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: wd-drift 7s ease-in-out infinite;
+    }
+
+    .wd-node--ib .wd-node-inner         { animation-delay: -0.6s; animation-duration: 8s; }
+    .wd-node--word .wd-node-inner       { animation-delay: -2.4s; animation-duration: 6.5s; }
+    .wd-node--sharepoint .wd-node-inner { animation-delay: -4.1s; animation-duration: 7.5s; }
+    .wd-node--html .wd-node-inner       { animation-delay: -1.3s; animation-duration: 6.8s; }
+    .wd-node--cca .wd-node-inner        { animation: none; }
+
+    @keyframes wd-drift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(0, -3px) rotate(0.6deg); }
+    }
+
+    .wd-node:hover .wd-node-inner,
+    .wd-node--active .wd-node-inner,
+    .wd-node:focus-visible .wd-node-inner {
+      transform: scale(1.08);
+    }
+
+    .wd-blob-base,
+    .wd-rect-base {
+      fill: var(--color-bg);
+      stroke: none;
+    }
+
+    .wd-blob-outer,
+    .wd-blob-inner,
+    .wd-rect-outer,
+    .wd-rect-inner {
+      transition: fill-opacity 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .wd-blob-outer,
+    .wd-rect-outer {
+      stroke-width: 2.5;
+      fill-opacity: 0.12;
+    }
+
+    .wd-blob-inner,
+    .wd-rect-inner {
+      stroke-width: 1.5;
+      fill: none;
+      opacity: 0.8;
+    }
+
+    .wd-node--active .wd-blob-outer,
+    .wd-node--active .wd-rect-outer,
+    .wd-node:hover .wd-blob-outer,
+    .wd-node:hover .wd-rect-outer {
+      fill-opacity: 0.22;
+      stroke-width: 3;
+    }
+
+    .wd-label {
+      font-family: 'Nothing You Could Do', cursive;
+      font-weight: 700;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+      font-size: 27px;
+      paint-order: stroke fill;
+      stroke-width: 0.6px;
+      stroke-linejoin: round;
+    }
+
+    .wd-label--cca {
+      font-size: 32px;
+    }
+
+    .wd-tooltip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      max-width: 240px;
+      padding: 12px 14px;
+      background: #FFFEFB;
+      border: 1.75px solid var(--color-heading);
+      box-shadow: 4px 4px 0 rgba(35, 30, 26, 0.85);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-9999px, -9999px) rotate(-1.2deg);
+      transition: opacity 0.15s ease;
+    }
+
+    .wd-tooltip--visible {
+      opacity: 1;
+    }
+
+    .wd-tooltip-title {
+      display: block;
+      font-family: 'Nothing You Could Do', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .wd-tooltip-desc {
+      display: block;
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.16px;
+      color: var(--color-body);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wd-node-inner {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .workflow-diagram-heading {
+        font-size: 20px;
+      }
+      .wd-tooltip {
+        max-width: 200px;
+      }
     }
 
     /* ─── Wireframing and Concepts ──────────────────────────── */
@@ -323,6 +578,94 @@
     .wireframing-card img {
       display: block;
       width: 100%;
+    }
+
+    .wireframing-bullets {
+      padding-left: 20px;
+    }
+
+    .wireframing-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── Hotspot (pulsing marker + cursor-following tooltip) ───
+       Static screenshot annotation: a single pulsing dot placed by
+       inline top/left %, tooltip position is set via JS to trail
+       the pointer while hovering/focusing the dot. ──────────────── */
+    .hotspot-image {
+      position: relative;
+      line-height: 0;
+    }
+
+    .hotspot-image img {
+      display: block;
+      width: 100%;
+    }
+
+    .hotspot-dot {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      margin: -20px 0 0 -20px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hotspot-dot-mark {
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #FFFEFB;
+      background: var(--color-link);
+      animation: hotspot-pulse 2.2s ease-out infinite;
+    }
+
+    @keyframes hotspot-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(3, 99, 173, 0.55); }
+      70%  { box-shadow: 0 0 0 16px rgba(3, 99, 173, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(3, 99, 173, 0); }
+    }
+
+    .hotspot-tooltip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      max-width: 240px;
+      padding: 10px 12px;
+      background: #FFFEFB;
+      border: 1.75px solid var(--color-heading);
+      box-shadow: 4px 4px 0 rgba(35, 30, 26, 0.85);
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.4;
+      letter-spacing: -0.16px;
+      color: var(--color-body);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-9999px, -9999px);
+      transition: opacity 0.15s ease;
+    }
+
+    .hotspot-tooltip--visible {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hotspot-dot-mark {
+        animation: none;
+      }
     }
 
     /* ─── Testing ────────────────────────────────────────────── */
@@ -368,6 +711,39 @@
     .solution-card .caption {
       display: block;
       margin-top: 8px;
+    }
+
+    /* ─── Testing ────────────────────────────────────────────── */
+    .testing-bullets {
+      padding-left: 20px;
+    }
+
+    .testing-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .testing-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ─── What was shipped ──────────────────────────────────── */
+    .solution-bullets {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    .solution-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .solution-bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    .shipped-video {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(131, 125, 125, 0.30);
     }
 
     /* ─── Results ────────────────────────────────────────────── */
@@ -506,21 +882,17 @@
 
       <div class="title-block">
         <h1 class="t-display">Modernising WTA's content authoring experience.</h1>
-        <div class="meta-row">
-          <span class="t-label-sm">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</span>
-          <a href="#solution" class="t-link">Jump to solution</a>
-        </div>
       </div>
 
       <div class="case-layout">
         <aside class="case-toc">
           <nav aria-label="Case study sections">
-            <a href="#challenge" class="case-toc-link">The challenge</a>
+            <a href="#challenge" class="case-toc-link">My role</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery</a>
-            <a href="#wireframing" class="case-toc-link">What we tested</a>
-            <a href="#testing" class="case-toc-link">What testing revealed</a>
-            <a href="#solution" class="case-toc-link">Decisions</a>
+            <a href="#wireframing" class="case-toc-link">What was tested</a>
+            <a href="#testing" class="case-toc-link">What was found</a>
+            <a href="#solution" class="case-toc-link">What was shipped</a>
             <a href="#results" class="case-toc-link">Results and impact</a>
           </nav>
         </aside>
@@ -530,93 +902,147 @@
           <section id="challenge" class="case-section case-section--card">
             <span class="t-section-heading">My role</span>
             <p>I conducted research and designed the new tool end-to-end alongside another designer, from research through handoff. We delivered a single tool that meets basic authoring expectations, and a PrimeVue component library that was introduced across the broader admin platform.</p>
+            <p class="caption">WiseTech Global (2025) · Team: 2 UX designers, 1 developer</p>
           </section>
 
           <section id="why-now" class="case-section">
             <span class="t-section-heading">Why now?</span>
-            <h2 class="t-big-heading">How might we redesign the <em>course authoring experience</em> so creators can build and edit content quickly without needing technical knowledge?</h2>
-            <ul class="business-context-bullets">
-              <li class="t-default">The initial brief was to uplift the UX of the existing content creation platform.</li>
-              <li class="t-default">The tool had been worked around so extensively that the workarounds had become the workflow.</li>
-              <li class="t-default">The platform had become a hindrance for editors.</li>
-            </ul>
+            <p class="t-default">The project started as a technical migration. Design was brought in early to modernise the UI and make small usability improvements.</p>
           </section>
 
           <section id="discovery" class="case-section">
             <span class="t-section-heading">Discovery</span>
-            <div class="discovery-intro">
-              <p>To understand the current workflow better, we conducted the following activities:</p>
-              <ul>
-                <li class="t-default">Platform audit of the existing tool</li>
-                <li class="t-default">Context setting interviews with 3 editors</li>
-              </ul>
+            <p class="t-default discovery-paragraph">We conducted contextual interviews with power users to better understand the existing workflow. The conversations revealed that users had built workarounds in other tools because the current tool lacked the capabilities to support their workflow.</p>
+
+            <div class="workflow-diagram-block">
+              <h2 class="workflow-diagram-heading">Before content reached CCA, editors had already touched four other tools.</h2>
+              <p class="caption workflow-diagram-caption">Hover (or tap) a bubble to see what was happening there.</p>
+              <div class="workflow-diagram" id="workflow-diagram">
+                <svg viewBox="0 0 900 640" role="img" aria-label="Diagram of the old content workflow: PDF, Intelligence Bank, MS Word, Sharepoint and Custom HTML all fed into CCA.">
+                  <g class="wd-lines">
+                    <path class="wd-line" data-node="pdf" stroke="#E4572E" d="M 450 320 Q 472.0 205.0 450 90" />
+                    <path class="wd-line" data-node="ib" stroke="#6C63FF" d="M 450 320 Q 552.6 263.6 668.7 249" />
+                    <path class="wd-line" data-node="word" stroke="#C9A227" d="M 450 320 Q 499.7 425.9 585 506" />
+                    <path class="wd-line" data-node="sharepoint" stroke="#4C9A1A" d="M 450 320 Q 400.3 425.9 315 506" />
+                    <path class="wd-line" data-node="html" stroke="#D6379C" d="M 450 320 Q 347.4 263.6 231.3 249" />
+                  </g>
+
+                  <g class="wd-node wd-node--pdf" data-node="pdf" tabindex="0" role="button" aria-label="PDF" transform="translate(450,90)">
+                    <g class="wd-node-inner">
+                      <path class="wd-blob-base" d="M 97.68 0.00 C 97.52 13.68 89.50 29.71 76.29 40.80 C 63.07 51.89 39.29 64.36 18.41 66.56 C -2.46 68.77 -30.44 61.56 -48.96 54.05 C -67.48 46.54 -85.20 34.15 -92.71 21.51 C -100.23 8.86 -101.75 -9.68 -94.04 -21.82 C -86.33 -33.95 -65.00 -44.60 -46.47 -51.30 C -27.94 -57.99 -3.47 -63.64 17.15 -61.98 C 37.76 -60.31 63.82 -51.64 77.24 -41.31 C 90.66 -30.98 97.84 -13.68 97.68 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-outer" fill="#E4572E" stroke="#E4572E" d="M 97.68 0.00 C 97.52 13.68 89.50 29.71 76.29 40.80 C 63.07 51.89 39.29 64.36 18.41 66.56 C -2.46 68.77 -30.44 61.56 -48.96 54.05 C -67.48 46.54 -85.20 34.15 -92.71 21.51 C -100.23 8.86 -101.75 -9.68 -94.04 -21.82 C -86.33 -33.95 -65.00 -44.60 -46.47 -51.30 C -27.94 -57.99 -3.47 -63.64 17.15 -61.98 C 37.76 -60.31 63.82 -51.64 77.24 -41.31 C 90.66 -30.98 97.84 -13.68 97.68 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-inner" stroke="#E4572E" d="M 102.86 9.91 C 99.32 22.43 76.84 33.80 60.13 43.46 C 43.42 53.12 22.71 67.05 2.61 67.86 C -17.49 68.66 -44.52 57.60 -60.46 48.28 C -76.39 38.96 -88.49 25.06 -92.99 11.96 C -97.48 -1.15 -97.43 -19.47 -87.41 -30.37 C -77.38 -41.26 -52.22 -49.35 -32.84 -53.40 C -13.47 -57.45 9.82 -58.30 28.86 -54.67 C 47.90 -51.05 69.07 -42.44 81.40 -31.68 C 93.73 -20.91 106.41 -2.61 102.86 9.91 Z" transform="scale(0.62)" />
+                      <text class="wd-label" fill="#E4572E" stroke="#E4572E" x="0" y="-1" transform="rotate(-2)">PDF</text>
+                    </g>
+                  </g>
+
+                  <g class="wd-node wd-node--ib" data-node="ib" tabindex="0" role="button" aria-label="Intelligence Bank" transform="translate(668.7,249)">
+                    <g class="wd-node-inner">
+                      <path class="wd-blob-base" d="M 112.13 0.00 C 110.34 14.27 90.16 29.95 74.21 39.92 C 58.27 49.88 38.22 55.99 16.44 59.78 C -5.33 63.57 -38.40 69.06 -56.44 62.66 C -74.48 56.27 -86.10 35.39 -91.80 21.42 C -97.51 7.45 -97.12 -7.74 -90.69 -21.16 C -84.25 -34.57 -71.23 -52.00 -53.20 -59.07 C -35.17 -66.14 -5.53 -65.81 17.49 -63.57 C 40.51 -61.34 69.14 -56.27 84.91 -45.67 C 100.69 -35.08 113.91 -14.27 112.13 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-outer" fill="#6C63FF" stroke="#6C63FF" d="M 112.13 0.00 C 110.34 14.27 90.16 29.95 74.21 39.92 C 58.27 49.88 38.22 55.99 16.44 59.78 C -5.33 63.57 -38.40 69.06 -56.44 62.66 C -74.48 56.27 -86.10 35.39 -91.80 21.42 C -97.51 7.45 -97.12 -7.74 -90.69 -21.16 C -84.25 -34.57 -71.23 -52.00 -53.20 -59.07 C -35.17 -66.14 -5.53 -65.81 17.49 -63.57 C 40.51 -61.34 69.14 -56.27 84.91 -45.67 C 100.69 -35.08 113.91 -14.27 112.13 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-inner" stroke="#6C63FF" d="M 101.11 9.80 C 97.33 24.12 85.37 41.31 68.92 50.10 C 52.47 58.89 25.49 61.56 2.39 62.54 C -20.70 63.51 -51.76 64.11 -69.67 55.95 C -87.58 47.80 -100.89 28.43 -105.07 13.59 C -109.25 -1.25 -106.09 -20.78 -94.73 -33.10 C -83.37 -45.42 -58.50 -54.75 -36.89 -60.33 C -15.28 -65.91 13.53 -70.65 34.94 -66.56 C 56.34 -62.48 80.53 -48.56 91.56 -35.83 C 102.59 -23.11 104.88 -4.53 101.11 9.80 Z" transform="scale(0.62)" />
+                      <text class="wd-label" fill="#6C63FF" stroke="#6C63FF" x="0" y="-11" transform="rotate(2)" style="font-size:21px;">
+                        <tspan x="0" dy="0">Intelligence</tspan>
+                        <tspan x="0" dy="24">Bank</tspan>
+                      </text>
+                    </g>
+                  </g>
+
+                  <g class="wd-node wd-node--word" data-node="word" tabindex="0" role="button" aria-label="MS Word" transform="translate(585,506)">
+                    <g class="wd-node-inner">
+                      <path class="wd-blob-base" d="M 100.97 0.00 C 100.92 13.89 91.97 30.64 78.20 41.61 C 64.42 52.58 39.31 64.00 18.30 65.82 C -2.71 67.65 -28.76 59.83 -47.85 52.56 C -66.95 45.30 -87.51 34.84 -96.25 22.22 C -104.99 9.60 -107.40 -9.65 -100.28 -23.15 C -93.16 -36.65 -72.96 -52.85 -53.52 -58.79 C -34.08 -64.72 -5.66 -61.60 16.34 -58.76 C 38.33 -55.92 64.36 -51.55 78.46 -41.75 C 92.57 -31.96 101.01 -13.89 100.97 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-outer" fill="#C9A227" stroke="#C9A227" d="M 100.97 0.00 C 100.92 13.89 91.97 30.64 78.20 41.61 C 64.42 52.58 39.31 64.00 18.30 65.82 C -2.71 67.65 -28.76 59.83 -47.85 52.56 C -66.95 45.30 -87.51 34.84 -96.25 22.22 C -104.99 9.60 -107.40 -9.65 -100.28 -23.15 C -93.16 -36.65 -72.96 -52.85 -53.52 -58.79 C -34.08 -64.72 -5.66 -61.60 16.34 -58.76 C 38.33 -55.92 64.36 -51.55 78.46 -41.75 C 92.57 -31.96 101.01 -13.89 100.97 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-inner" stroke="#C9A227" d="M 96.97 9.29 C 92.40 23.00 80.44 37.09 64.70 46.53 C 48.96 55.98 24.24 65.04 2.55 65.95 C -19.13 66.86 -49.52 60.99 -65.42 51.98 C -81.32 42.97 -89.24 25.56 -92.85 11.88 C -96.46 -1.80 -96.43 -18.20 -87.08 -30.10 C -77.74 -42.01 -56.77 -54.25 -36.80 -59.53 C -16.82 -64.80 11.27 -65.73 32.76 -61.75 C 54.24 -57.77 81.42 -47.51 92.12 -35.67 C 102.82 -23.83 101.54 -4.41 96.97 9.29 Z" transform="scale(0.62)" />
+                      <text class="wd-label" fill="#C9A227" stroke="#C9A227" x="0" y="-1" transform="rotate(-1.5)">Word</text>
+                    </g>
+                  </g>
+
+                  <g class="wd-node wd-node--sharepoint" data-node="sharepoint" tabindex="0" role="button" aria-label="Sharepoint" transform="translate(315,506)">
+                    <g class="wd-node-inner">
+                      <path class="wd-blob-base" d="M 96.47 0.00 C 97.34 12.75 88.76 28.92 75.71 39.62 C 62.65 50.31 38.46 62.46 18.14 64.17 C -2.17 65.88 -28.56 57.28 -46.19 49.90 C -63.81 42.52 -81.25 31.40 -87.61 19.89 C -93.97 8.38 -91.35 -7.61 -84.36 -19.15 C -77.37 -30.68 -62.31 -43.36 -45.66 -49.32 C -29.01 -55.28 -3.83 -56.99 15.53 -54.92 C 34.89 -52.85 57.00 -46.05 70.49 -36.89 C 83.99 -27.74 95.60 -12.75 96.47 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-outer" fill="#4C9A1A" stroke="#4C9A1A" d="M 96.47 0.00 C 97.34 12.75 88.76 28.92 75.71 39.62 C 62.65 50.31 38.46 62.46 18.14 64.17 C -2.17 65.88 -28.56 57.28 -46.19 49.90 C -63.81 42.52 -81.25 31.40 -87.61 19.89 C -93.97 8.38 -91.35 -7.61 -84.36 -19.15 C -77.37 -30.68 -62.31 -43.36 -45.66 -49.32 C -29.01 -55.28 -3.83 -56.99 15.53 -54.92 C 34.89 -52.85 57.00 -46.05 70.49 -36.89 C 83.99 -27.74 95.60 -12.75 96.47 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-inner" stroke="#4C9A1A" d="M 94.44 8.90 C 91.35 21.55 78.56 35.20 63.26 44.74 C 47.95 54.28 23.68 65.36 2.60 66.13 C -18.48 66.91 -45.92 58.30 -63.21 49.40 C -80.51 40.49 -98.84 25.33 -101.16 12.73 C -103.49 0.12 -88.26 -14.94 -77.16 -26.23 C -66.06 -37.52 -52.65 -49.65 -34.56 -54.99 C -16.47 -60.32 12.00 -62.18 31.40 -58.21 C 50.80 -54.24 71.33 -42.35 81.84 -31.16 C 92.34 -19.98 97.54 -3.75 94.44 8.90 Z" transform="scale(0.62)" />
+                      <text class="wd-label" fill="#4C9A1A" stroke="#4C9A1A" x="0" y="-1" transform="rotate(1.5)" style="font-size:22px;">Sharepoint</text>
+                    </g>
+                  </g>
+
+                  <g class="wd-node wd-node--html" data-node="html" tabindex="0" role="button" aria-label="Custom HTML" transform="translate(231.3,249)">
+                    <g class="wd-node-inner">
+                      <path class="wd-blob-base" d="M 87.91 0.00 C 88.40 15.16 90.67 36.11 78.60 46.37 C 66.52 56.63 36.79 59.26 15.44 61.57 C -5.91 63.89 -31.15 66.50 -49.50 60.28 C -67.85 54.05 -87.38 38.24 -94.66 24.22 C -101.93 10.20 -101.30 -10.51 -93.15 -23.84 C -85.00 -37.16 -63.96 -49.04 -45.76 -55.73 C -27.56 -62.41 -4.19 -65.81 16.04 -63.96 C 36.27 -62.10 63.63 -55.26 75.60 -44.60 C 87.58 -33.94 87.41 -15.16 87.91 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-outer" fill="#D6379C" stroke="#D6379C" d="M 87.91 0.00 C 88.40 15.16 90.67 36.11 78.60 46.37 C 66.52 56.63 36.79 59.26 15.44 61.57 C -5.91 63.89 -31.15 66.50 -49.50 60.28 C -67.85 54.05 -87.38 38.24 -94.66 24.22 C -101.93 10.20 -101.30 -10.51 -93.15 -23.84 C -85.00 -37.16 -63.96 -49.04 -45.76 -55.73 C -27.56 -62.41 -4.19 -65.81 16.04 -63.96 C 36.27 -62.10 63.63 -55.26 75.60 -44.60 C 87.58 -33.94 87.41 -15.16 87.91 0.00 Z" transform="scale(0.62)" />
+                      <path class="wd-blob-inner" stroke="#D6379C" d="M 94.07 10.00 C 90.94 24.09 77.63 39.49 62.36 49.73 C 47.10 59.96 23.64 70.21 2.49 71.40 C -18.65 72.58 -47.90 66.43 -64.51 56.83 C -81.12 47.23 -94.51 28.40 -97.18 13.78 C -99.86 -0.83 -91.04 -18.30 -80.57 -30.88 C -70.10 -43.45 -53.12 -55.72 -34.38 -61.67 C -15.65 -67.61 12.58 -71.02 31.84 -66.55 C 51.10 -62.08 70.80 -47.60 81.18 -34.85 C 91.55 -22.09 97.21 -4.10 94.07 10.00 Z" transform="scale(0.62)" />
+                      <text class="wd-label" fill="#D6379C" stroke="#D6379C" x="0" y="-1" transform="rotate(-2.5)" style="font-size:21px;">HTML</text>
+                    </g>
+                  </g>
+
+                  <g class="wd-node wd-node--cca" data-node="cca" tabindex="0" role="button" aria-label="CCA" transform="translate(450,320)">
+                    <g class="wd-node-inner">
+                      <path class="wd-rect-base" d="M -132.11 -78.19 C -121.26 -84.96 -85.28 -79.56 -63.19 -79.13 C -41.10 -78.70 -20.05 -76.48 0.43 -75.61 C 20.91 -74.74 39.03 -74.05 59.70 -73.91 C 80.37 -73.77 113.59 -80.13 124.45 -74.80 C 135.31 -69.46 124.06 -55.03 124.84 -41.91 C 125.61 -28.79 128.99 -8.68 129.09 3.92 C 129.20 16.52 125.08 21.10 125.49 33.68 C 125.89 46.25 141.46 72.86 131.53 79.37 C 121.60 85.89 86.89 74.56 65.93 72.76 C 44.96 70.96 26.82 68.77 5.72 68.56 C -15.39 68.34 -37.37 71.33 -60.70 71.48 C -84.03 71.62 -122.34 74.53 -134.27 69.41 C -146.20 64.30 -132.37 52.20 -132.30 40.79 C -132.23 29.39 -134.49 14.20 -133.83 0.98 C -133.17 -12.24 -128.62 -25.34 -128.33 -38.53 C -128.05 -51.73 -142.97 -71.42 -132.11 -78.19 Z" transform="scale(0.72)" />
+                      <path class="wd-rect-outer" fill="#243B7D" stroke="#243B7D" d="M -132.11 -78.19 C -121.26 -84.96 -85.28 -79.56 -63.19 -79.13 C -41.10 -78.70 -20.05 -76.48 0.43 -75.61 C 20.91 -74.74 39.03 -74.05 59.70 -73.91 C 80.37 -73.77 113.59 -80.13 124.45 -74.80 C 135.31 -69.46 124.06 -55.03 124.84 -41.91 C 125.61 -28.79 128.99 -8.68 129.09 3.92 C 129.20 16.52 125.08 21.10 125.49 33.68 C 125.89 46.25 141.46 72.86 131.53 79.37 C 121.60 85.89 86.89 74.56 65.93 72.76 C 44.96 70.96 26.82 68.77 5.72 68.56 C -15.39 68.34 -37.37 71.33 -60.70 71.48 C -84.03 71.62 -122.34 74.53 -134.27 69.41 C -146.20 64.30 -132.37 52.20 -132.30 40.79 C -132.23 29.39 -134.49 14.20 -133.83 0.98 C -133.17 -12.24 -128.62 -25.34 -128.33 -38.53 C -128.05 -51.73 -142.97 -71.42 -132.11 -78.19 Z" transform="scale(0.72)" />
+                      <path class="wd-rect-inner" stroke="#243B7D" d="M -126.02 -67.19 C -114.59 -73.94 -78.31 -73.47 -58.10 -73.45 C -37.89 -73.44 -24.59 -68.23 -4.76 -67.13 C 15.07 -66.02 38.28 -65.40 60.90 -66.83 C 83.53 -68.27 120.43 -80.33 130.98 -75.73 C 141.54 -71.13 125.46 -52.87 124.24 -39.25 C 123.02 -25.62 124.03 -6.05 123.64 6.04 C 123.26 18.13 122.24 23.53 121.93 33.30 C 121.62 43.07 132.51 59.68 121.77 64.66 C 111.04 69.63 77.15 61.90 57.52 63.16 C 37.90 64.42 24.51 70.54 4.04 72.21 C -16.42 73.88 -44.55 74.20 -65.25 73.19 C -85.95 72.18 -110.38 73.40 -120.17 66.13 C -129.95 58.86 -122.46 40.90 -123.94 29.56 C -125.41 18.22 -128.56 8.53 -129.01 -1.90 C -129.47 -12.32 -127.16 -22.08 -126.66 -32.97 C -126.16 -43.85 -137.44 -60.45 -126.02 -67.19 Z" transform="scale(0.72)" />
+                      <text class="wd-label wd-label--cca" fill="#243B7D" stroke="#243B7D" x="0" y="1" transform="rotate(-1)">CCA</text>
+                    </g>
+                  </g>
+                </svg>
+                <div class="wd-tooltip" id="wd-tooltip" role="tooltip">
+                  <span class="wd-tooltip-title"></span>
+                  <span class="wd-tooltip-desc"></span>
+                </div>
+              </div>
             </div>
-            <div class="quote-block discovery-quote">&quot;Building the content needs to be absolutely front and centre... I don't need to see those things all the time when you're working on stuff. That's probably one of the biggest things I don't like about the current DIY; the real estate you're working on to create is small and constrained.&quot;</div>
-            <img class="discovery-img" src="assets/cca/discovery-canvas.png" alt="">
-            <img class="discovery-img" src="assets/cca/discovery-widget.png" alt="">
-            <h2 class="t-big-heading">The interface treats the main editing canvas as a secondary priority.</h2>
+
+            <p class="t-default discovery-paragraph">It was clear that the process was made up of workarounds as <strong>the platform no longer supported how authors drafted and edited</strong>.</p>
             <ul class="discovery-bullets">
-              <li class="t-default">The canvas doesn't support editing widgets.</li>
-              <li class="t-default">As a result, workarounds were built (like going into the source code) to make simple changes.</li>
+              <li class="t-default">The interface didn't support basic editing tasks directly. Adding, reordering, or configuring content required navigating outside normal interaction patterns or into source code.</li>
+              <li class="t-default">Previewing content required making the page live or editing via HTML and CSS, making the process high risk and technically demanding.</li>
             </ul>
+
+            <div class="constraints-box">
+              <span class="t-section-heading">Constraints</span>
+              <ul class="constraints-list">
+                <li class="t-default">The brief started out as a technical refactor. As a result there were limited dev resources allocated to work on the complex codebase instead of the front-end and user experience.</li>
+                <li class="t-default">A strict deadline meant we couldn't deliver everything in one go and required prioritisation of core experience first.</li>
+              </ul>
+              <img class="constraints-sad-man" src="assets/cca/sad-man.png" alt="">
+            </div>
+
+            <span class="t-section-heading discovery-reframe-label">The problem reframed:</span>
+            <h2 class="t-big-heading">How might we redesign the <em>course authoring experience</em> so authors can build and edit content quickly, without needing technical knowledge?</h2>
           </section>
 
           <section id="wireframing" class="case-section">
-            <span class="t-section-heading">What We Tested</span>
-            <div class="wireframing-cards">
-              <div class="wireframing-card">
-                <h3>Split panel layout for clearer hierarchy and editing priority</h3>
-                <p>The existing interface buried the editing toolbar below page-level settings, treating the canvas as secondary to configuration.</p>
-                <img src="assets/cca/testing-01.png" alt="Split panel layout for clearer hierarchy and editing priority">
-              </div>
-              <div class="wireframing-card">
-                <h3>Global widget search to reduce workarounds and duplicate content</h3>
-                <p>Widget names were set by internal teams rather than how creators searched for them, leading to creators building workarounds for widgets that already existed.</p>
-                <img src="assets/cca/testing-02.png" alt="Global widget search to reduce workarounds and duplicate content">
-              </div>
-              <div class="wireframing-card">
-                <h3>WYSIWYG editing to lower the risk of previewing content</h3>
-                <p>Previewing a course required making it live first, which was high risk and high effort.</p>
-                <img src="assets/cca/testing-03.png" alt="WYSIWYG editing to lower the risk of previewing content">
-              </div>
-            </div>
+            <span class="t-section-heading">What was tested</span>
+            <p class="t-default discovery-paragraph">Our concepts followed a guiding principle:</p>
+            <h2 class="t-big-heading">Meet creators where they are at the moment they need it.</h2>
+            <ul class="wireframing-bullets">
+              <li class="t-default">Configuration options surfaced based on what was selected.</li>
+              <li class="t-default">A guided onboarding was available to ease the transition.</li>
+              <li class="t-default">Accessibility issues were flagged inline, helping bring awareness to a baseline level of compliance.</li>
+              <li class="t-default">Content could be previewed before publishing so that iteration was risk-free.</li>
+            </ul>
           </section>
 
           <section id="testing" class="case-section case-section--tinted">
-            <span class="t-section-heading">What Testing Revealed</span>
-            <div class="testing-findings">
-              <h3>Users are willing to adapt their workflow, but muscle memory occasionally gets in the way.</h3>
-              <div class="quote-block">&quot;I've used Moodle, I've used Canvas... coming to WiseTech and using your element is just been another system to learn. It works differently, but I was able to work it out. Now that I understand it, I'm able to get through it.&quot;</div>
-              <h3>Users avoided terminology and iconography that felt foreign.</h3>
-              <div class="quote-block">&quot;I tend to follow our process when filling it out because the other fields I don't know what they are... I don't want to put the wrong thing in there. So I just leave them.&quot;</div>
-              <h3>Publish and visibility were two different concepts handled in the same place.</h3>
-              <div class="quote-block">&quot;I prefer wording where it's like a hidden page... instead of published page -- whatever wording that is, you can see the page.&quot;</div>
-            </div>
+            <span class="t-section-heading">What was found</span>
+            <ul class="testing-bullets">
+              <li class="t-default">The core direction was validated during testing. Creators adapted quickly and responded positively to the presented concepts.</li>
+            </ul>
           </section>
 
           <section id="solution" class="case-section">
-            <span class="t-section-heading">Decisions</span>
-            <div class="solution-cards">
-              <div class="solution-card">
-                <h3>Focus is given to the task at hand.</h3>
-                <p>The right panel was dynamic, surfacing the relevant options for whatever was selected.</p>
-                <img src="assets/cca/solution-01.gif" alt="Focus is given to the task at hand.">
-              </div>
-              <div class="solution-card">
-                <h3>Descriptions and common search terms were added to the widget menu.</h3>
-                <p>Global widget search required reindexing the database, which wasn't feasible.</p>
-                <img src="assets/cca/solution-02.png" alt="Descriptions and common search terms were added to the widget menu." style="max-height: 600px; object-fit: contain;">
-              </div>
-              <div class="solution-card">
-                <h3>Display settings were simplified.</h3>
-                <p>Multiple levels of visibility were reduced to one, with hide and show kept at the page level and everything related to going live moved to the course level.</p>
-                <img src="assets/cca/solution-03.png" alt="Display settings were simplified." style="max-height: 250px; object-fit: contain;">
-              </div>
-            </div>
+            <span class="t-section-heading">What was shipped</span>
+            <p class="t-default discovery-paragraph">The three concepts combined to bring the entire iterative creation process into one tool. Creators no longer needed multiple tools to draft, edit, and preview.</p>
+            <p class="t-default discovery-paragraph">Some key features included:</p>
+            <ul class="solution-bullets">
+              <li class="t-default">Configuration moved to a panel next to the canvas</li>
+              <li class="t-default">Display settings simplified to one level</li>
+              <li class="t-default">Draft and preview state added for most interactive widgets</li>
+            </ul>
+            <video class="shipped-video" src="assets/cca/shipped-animation.mp4" autoplay loop muted playsinline></video>
           </section>
 
           <section id="results" class="case-section">
-            <span class="t-section-heading">Results and Impact</span>
+            <span class="t-section-heading">Results and impact</span>
             <ul class="results-bullets">
               <li class="t-default">Defined and implemented a new component library to be used in internal tools.</li>
               <li class="t-default">Positive reception from 11 internal users at launch.</li>
@@ -659,5 +1085,224 @@
   <script src="../scroll-reveal.js"></script>
   <script src="../case-toc.js"></script>
   <script src="../loader.js"></script>
+  <script>
+    // ─── Workflow diagram interactivity ────────────────────────
+    // Tooltip follows the pointer on hover-capable devices; on touch,
+    // a tap toggles it pinned near the tapped bubble instead.
+    (function () {
+      var wrap = document.getElementById('workflow-diagram');
+      if (!wrap) return;
+
+      var tooltip = document.getElementById('wd-tooltip');
+      var titleEl = tooltip.querySelector('.wd-tooltip-title');
+      var descEl = tooltip.querySelector('.wd-tooltip-desc');
+      var nodes = wrap.querySelectorAll('.wd-node');
+      var lines = wrap.querySelectorAll('.wd-line');
+      var hoverCapable = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+      var data = {
+        pdf: {
+          title: 'PDF',
+          desc: "Getting feedback from stakeholders, and a final preview before anything went live."
+        },
+        ib: {
+          title: 'Intelligence Bank',
+          desc: 'Media asset management — sourcing and storing images, video and other assets.'
+        },
+        word: {
+          title: 'MS Word',
+          desc: 'Drafting text, formatting, and a lot of trial and error before it was ready to move on.'
+        },
+        sharepoint: {
+          title: 'Sharepoint',
+          desc: 'Version control and asset management while edits were still in progress.'
+        },
+        html: {
+          title: 'Custom HTML',
+          desc: 'Hand-coding interactive widgets, often pulled in from third-party sources.'
+        },
+        cca: {
+          title: 'CCA',
+          desc: "Where it all had to land — getting content “publish-ready”."
+        }
+      };
+
+      var activeNode = null;
+
+      function setActive(node) {
+        if (activeNode === node) return;
+        if (activeNode) activeNode.classList.remove('wd-node--active');
+        activeNode = node;
+        if (activeNode) activeNode.classList.add('wd-node--active');
+
+        lines.forEach(function (line) {
+          line.classList.toggle('wd-line--active', !!node && line.getAttribute('data-node') === node.getAttribute('data-node'));
+        });
+      }
+
+      function showTooltip(key) {
+        var entry = data[key];
+        if (!entry) return;
+        titleEl.textContent = entry.title;
+        descEl.textContent = entry.desc;
+        tooltip.classList.add('wd-tooltip--visible');
+      }
+
+      function hideTooltip() {
+        tooltip.classList.remove('wd-tooltip--visible');
+      }
+
+      function positionTooltipAt(clientX, clientY) {
+        var wrapRect = wrap.getBoundingClientRect();
+        var tipRect = tooltip.getBoundingClientRect();
+        var x = clientX - wrapRect.left + 18;
+        var y = clientY - wrapRect.top + 18;
+
+        if (x + tipRect.width > wrapRect.width) {
+          x = clientX - wrapRect.left - tipRect.width - 18;
+        }
+        if (y + tipRect.height > wrapRect.height) {
+          y = clientY - wrapRect.top - tipRect.height - 18;
+        }
+        x = Math.max(0, x);
+        y = Math.max(0, y);
+
+        tooltip.style.transform = 'translate(' + x + 'px, ' + y + 'px) rotate(-1.2deg)';
+      }
+
+      function positionTooltipNearNode(node) {
+        var wrapRect = wrap.getBoundingClientRect();
+        var nodeRect = node.getBoundingClientRect();
+        var tipRect = tooltip.getBoundingClientRect();
+        var margin = 8;
+
+        var nodeCenterX = nodeRect.left + nodeRect.width / 2 - wrapRect.left;
+        var nodeCenterY = nodeRect.top + nodeRect.height / 2 - wrapRect.top;
+
+        var x = nodeCenterX - tipRect.width / 2;
+        x = Math.max(margin, Math.min(x, wrapRect.width - tipRect.width - margin));
+
+        var y;
+        if (nodeCenterY < wrapRect.height / 2) {
+          y = nodeRect.bottom - wrapRect.top + 14;
+        } else {
+          y = nodeRect.top - wrapRect.top - tipRect.height - 14;
+        }
+        y = Math.max(margin, Math.min(y, wrapRect.height - tipRect.height - margin));
+
+        tooltip.style.transform = 'translate(' + x + 'px, ' + y + 'px) rotate(-1.2deg)';
+      }
+
+      nodes.forEach(function (node) {
+        var key = node.getAttribute('data-node');
+
+        if (hoverCapable) {
+          node.addEventListener('pointerenter', function (e) {
+            setActive(node);
+            showTooltip(key);
+            positionTooltipAt(e.clientX, e.clientY);
+          });
+          node.addEventListener('pointermove', function (e) {
+            positionTooltipAt(e.clientX, e.clientY);
+          });
+          node.addEventListener('pointerleave', function () {
+            setActive(null);
+            hideTooltip();
+          });
+        } else {
+          node.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var isOpen = node.classList.contains('wd-node--active');
+            setActive(null);
+            hideTooltip();
+            if (!isOpen) {
+              setActive(node);
+              showTooltip(key);
+              positionTooltipNearNode(node);
+            }
+          });
+        }
+
+        node.addEventListener('focus', function () {
+          setActive(node);
+          showTooltip(key);
+          positionTooltipNearNode(node);
+        });
+        node.addEventListener('blur', function () {
+          setActive(null);
+          hideTooltip();
+        });
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!hoverCapable && !wrap.contains(e.target)) {
+          setActive(null);
+          hideTooltip();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    // Hotspot marker: cursor-following tooltip, click/tap toggles for touch.
+    (function () {
+      document.querySelectorAll('.hotspot-image').forEach(function (container) {
+        var dot = container.querySelector('.hotspot-dot');
+        var tooltip = container.querySelector('.hotspot-tooltip');
+        if (!dot || !tooltip) return;
+
+        function positionAt(x, y) {
+          var rect = container.getBoundingClientRect();
+          var offset = 18;
+          var left = x + offset;
+          var top = y + offset;
+          if (left + tooltip.offsetWidth > rect.width) left = x - tooltip.offsetWidth - offset;
+          if (top + tooltip.offsetHeight > rect.height) top = y - tooltip.offsetHeight - offset;
+          left = Math.max(0, left);
+          top = Math.max(0, top);
+          tooltip.style.transform = 'translate(' + left + 'px, ' + top + 'px)';
+        }
+
+        function positionAtDot() {
+          var dotRect = dot.getBoundingClientRect();
+          var rect = container.getBoundingClientRect();
+          positionAt(dotRect.left - rect.left + dotRect.width / 2, dotRect.top - rect.top + dotRect.height / 2);
+        }
+
+        function show() {
+          tooltip.classList.add('hotspot-tooltip--visible');
+        }
+
+        function hide() {
+          tooltip.classList.remove('hotspot-tooltip--visible');
+        }
+
+        dot.addEventListener('mouseenter', function (e) {
+          var rect = container.getBoundingClientRect();
+          positionAt(e.clientX - rect.left, e.clientY - rect.top);
+          show();
+        });
+        dot.addEventListener('mousemove', function (e) {
+          var rect = container.getBoundingClientRect();
+          positionAt(e.clientX - rect.left, e.clientY - rect.top);
+        });
+        dot.addEventListener('mouseleave', hide);
+        dot.addEventListener('focus', function () {
+          positionAtDot();
+          show();
+        });
+        dot.addEventListener('blur', hide);
+        dot.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (tooltip.classList.contains('hotspot-tooltip--visible')) {
+            hide();
+          } else {
+            positionAtDot();
+            show();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
