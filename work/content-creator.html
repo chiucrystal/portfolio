@@ -321,6 +321,43 @@
       margin-top: 48px;
     }
 
+    /* ─── Constraints (sketchy red callout box) ─────────────────── */
+    .constraints-box {
+      position: relative;
+      margin-top: 48px;
+      padding: 32px;
+      background: #FFFEFB;
+      border: 2px solid #E4572E;
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      box-shadow: 5px 5px 0 0 #E4572E;
+      transform: rotate(-0.4deg);
+    }
+
+    .constraints-box .t-section-heading {
+      margin-bottom: 16px;
+    }
+
+    .constraints-list {
+      padding-left: 20px;
+    }
+
+    .constraints-list li {
+      margin-bottom: 8px;
+    }
+
+    .constraints-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .constraints-sad-man {
+      position: absolute;
+      right: -10px;
+      bottom: -18px;
+      width: 84px;
+      transform: rotate(4deg);
+      pointer-events: none;
+    }
+
     /* ─── Workflow diagram (old CCA workflow, sketch bubbles) ──
        Hand-drawn bubble map: five platforms an editor had to pass
        through before content reached CCA. Blob/rect paths are
@@ -686,6 +723,12 @@
       margin-bottom: 0;
     }
 
+    .shipped-video {
+      display: block;
+      width: 100%;
+      border: 1px solid rgba(131, 125, 125, 0.30);
+    }
+
     /* ─── Results ────────────────────────────────────────────── */
     .results-bullets {
       padding-left: 20px;
@@ -939,6 +982,16 @@
               <li class="t-default">The interface didn't support basic editing tasks directly. Adding, reordering, or configuring content required navigating outside normal interaction patterns or into source code.</li>
               <li class="t-default">Previewing content required making the page live or editing via HTML and CSS, making the process high risk and technically demanding.</li>
             </ul>
+
+            <div class="constraints-box">
+              <span class="t-section-heading">Constraints</span>
+              <ul class="constraints-list">
+                <li class="t-default">The brief started out as a technical refactor. As a result there were limited dev resources allocated to work on the complex codebase instead of the front-end and user experience.</li>
+                <li class="t-default">A strict deadline meant we couldn't deliver everything in one go and required prioritisation of core experience first.</li>
+              </ul>
+              <img class="constraints-sad-man" src="assets/cca/sad-man.png" alt="">
+            </div>
+
             <span class="t-section-heading discovery-reframe-label">The problem reframed:</span>
             <h2 class="t-big-heading">How might we redesign the <em>course authoring experience</em> so authors can build and edit content quickly, without needing technical knowledge?</h2>
           </section>
@@ -980,7 +1033,7 @@
               <li class="t-default">Display settings simplified to one level</li>
               <li class="t-default">Draft and preview state added for most interactive widgets</li>
             </ul>
-            <div class="diagram-placeholder">Animation placeholder</div>
+            <video class="shipped-video" src="assets/cca/shipped-animation.mp4" autoplay loop muted playsinline></video>
           </section>
 
           <section id="results" class="case-section">
