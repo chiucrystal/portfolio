@@ -352,8 +352,8 @@
     .constraints-sad-man {
       position: absolute;
       right: -10px;
-      bottom: -18px;
-      width: 84px;
+      bottom: -88px;
+      width: 150px;
       transform: rotate(4deg);
       pointer-events: none;
     }
@@ -573,6 +573,18 @@
     .wireframing-card img {
       display: block;
       width: 100%;
+    }
+
+    .wireframing-bullets {
+      padding-left: 20px;
+    }
+
+    .wireframing-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .wireframing-bullets li:last-child {
+      margin-bottom: 0;
     }
 
     /* ─── Hotspot (pulsing marker + cursor-following tooltip) ───
@@ -877,7 +889,7 @@
             <a href="#challenge" class="case-toc-link">My role</a>
             <a href="#why-now" class="case-toc-link">Why now?</a>
             <a href="#discovery" class="case-toc-link">Discovery</a>
-            <a href="#wireframing" class="case-toc-link">What we tested</a>
+            <a href="#wireframing" class="case-toc-link">What was tested</a>
             <a href="#testing" class="case-toc-link">What we found</a>
             <a href="#solution" class="case-toc-link">What was shipped</a>
             <a href="#results" class="case-toc-link">Results and impact</a>
@@ -997,24 +1009,15 @@
           </section>
 
           <section id="wireframing" class="case-section">
-            <span class="t-section-heading">What we tested</span>
-            <p class="t-default">Two concepts were brought into testing:</p>
-            <div class="wireframing-cards">
-              <div class="wireframing-card">
-                <h3>Manage content where it's created to reduce process fragmentation</h3>
-                <div class="hotspot-image">
-                  <img src="assets/cca/testing-01.png" alt="Widget design panel in the WTA editor showing layout, padding, and style controls">
-                  <button type="button" class="hotspot-dot" style="top: 48%; left: 87%;" aria-label="Widget and page properties can be edited contextually within the tool.">
-                    <span class="hotspot-dot-mark"></span>
-                  </button>
-                  <div class="hotspot-tooltip" role="tooltip">Widget and page properties can be edited contextually within the tool.</div>
-                </div>
-              </div>
-              <div class="wireframing-card">
-                <h3>Live preview of content before publishing to reduce the risk of the editing process and encourage trial and error</h3>
-                <div class="diagram-placeholder">Diagram/asset placeholder</div>
-              </div>
-            </div>
+            <span class="t-section-heading">What was tested</span>
+            <p class="t-default discovery-paragraph">Our concepts followed a guiding principle:</p>
+            <h2 class="t-big-heading">Meet creators where they are at the moment they need it.</h2>
+            <ul class="wireframing-bullets">
+              <li class="t-default">Configuration options surfaced based on what was selected.</li>
+              <li class="t-default">A guided onboarding was available to ease the transition.</li>
+              <li class="t-default">Accessibility issues were flagged inline, helping bring awareness to a baseline level of compliance.</li>
+              <li class="t-default">Content could be previewed before publishing so that iteration was risk-free.</li>
+            </ul>
           </section>
 
           <section id="testing" class="case-section case-section--tinted">
