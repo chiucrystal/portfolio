@@ -116,12 +116,12 @@ a {
   text-transform: uppercase;
   text-decoration: underline;
   color: var(--color-link);
-  cursor: pointer;
+  cursor: url('assets/cursor-hover.png') 8 1, pointer;
 }
 
 button,
 [role="button"] {
-  cursor: pointer;
+  cursor: url('assets/cursor-hover.png') 8 1, pointer;
 }
 
 a:hover,
